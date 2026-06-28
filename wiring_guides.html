@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Add your own device &#8212; Book Of The Neurokraken</title>
+    <title>Wiring guides &#8212; Book Of The Neurokraken</title>
   
   
   
@@ -422,11 +422,11 @@ const load = async () => {
 
 window.addEventListener("load", load);
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'arduino_custom';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'wiring_guides';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Integrating Outside Devices" href="outside_devices.html" />
-    <link rel="prev" title="Wiring guides" href="wiring_guides.html" />
+    <link rel="next" title="Add your own device" href="arduino_custom.html" />
+    <link rel="prev" title="Configurators.devices Reference" href="device_library.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -568,8 +568,8 @@ window.addEventListener("load", load);
 <li class="toctree-l1"><a class="reference internal" href="microphones.html">Microphones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modalities.html">Sensors and Stimuli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="device_library.html">Configurators.devices Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wiring_guides.html">Wiring guides</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Add your own device</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wiring guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arduino_custom.html">Add your own device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outside_devices.html">Integrating Outside Devices</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware</span></p>
@@ -649,7 +649,7 @@ window.addEventListener("load", load);
       
       
       
-      <li><a href="_sources/arduino_custom.md" target="_blank"
+      <li><a href="_sources/wiring_guides.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -733,7 +733,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Add your own device</h1>
+    <h1>Wiring guides</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -743,13 +743,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensors-controls-and-processes">Sensors, Controls and Processes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-h">Config.h</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-extra-microcontroller">Adding an extra microcontroller</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example">Code Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring">Wiring</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v-power">12V Power</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led">LED</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#photoresistor">Photoresistor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beam-break-photo-interrupter">Beam break/photo interrupter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potentiometer">Potentiometer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valve">Valve</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-valve-driver-board">4 Channel Valve Driver Board</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-valve-circuit">Manual Valve Circuit</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotary-encoder">Rotary Encoder</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-up-rotary-encoder">Pull-up Rotary Encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-rotary-encoder">Direct Rotary Encoder</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#servo">Servo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-passive-buzzer">Tone Passive Buzzer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitive-touch-sensor">Capacitive Touch Sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-clock">Pulse clock</a></li>
 </ul>
             </nav>
         </div>
@@ -761,229 +773,339 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="add-your-own-device">
-<h1>Add your own device<a class="headerlink" href="#add-your-own-device" title="Link to this heading">#</a></h1>
-<p>This is a guide to add custom arduino code to Neurokraken. This covers electronics and libraries that have not yet been considered in the existing device libary.</p>
-<p>To add a piece of arduino code as a device that neurokraken can read as a sensor or control, the code needs to be wrapped in a simple simple Arduino class that inherits from a Control, Sensor, or Process base class depending on its utility.</p>
-<p>Neurokraken’s arduino codebase provides useable functions like <code class="docutils literal notranslate"><span class="pre">int8ToBytes(i)</span></code>, <code class="docutils literal notranslate"><span class="pre">int16Tobytes(i)</span></code>, and <code class="docutils literal notranslate"><span class="pre">longToBytes(i)</span></code> that allow sending values to neurokraken as a read_in sensor with int8, int16 and long meaning a maximum value of 255, 65,535 or 4,294,967,295 respectively.</p>
-<p>Correspondingly <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">boolFromByte()</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">intFromByte()</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">int16FromBytes()</span></code> can allow reading different precision control values from the python side to act upon.</p>
-<section id="sensors-controls-and-processes">
-<h2>Sensors, Controls and Processes<a class="headerlink" href="#sensors-controls-and-processes" title="Link to this heading">#</a></h2>
-<p>This subchapter will be available soon</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="wiring-guides">
+<span id="id1"></span><h1>Wiring guides<a class="headerlink" href="#wiring-guides" title="Link to this heading">#</a></h1>
+<p>The following diagrams show the wiring for common components in neuroscience experiment setups. As we are using common arduino parts and circuits, you can generally find the wiring for new components beyond what we have listed by web image searching for <code class="docutils literal notranslate"><span class="pre">arduino</span> <span class="pre">circuit</span> <span class="pre">&lt;device_name&gt;</span></code>.</p>
+<section id="v-power">
+<h2>12V Power<a class="headerlink" href="#v-power" title="Link to this heading">#</a></h2>
+<p>Many devices (valves, servos) will require more Volts and/or Amps than the teensy’s 3.3V logic provides to operate. For this you can simply buy a “12V power supply” from common stores like amazon and cut through its output cable. Inside the outer cable you will find 2 wires, red (12V+) and black (GND) that you can directly use in your circuit as the required power source and its respective ground (connect to your circuit with “screw terminals” or solder).</p>
 </section>
-<section id="config-h">
-<h2>Config.h<a class="headerlink" href="#config-h" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">config2teensy.py</span></code> automatically generates a file Config.h matching the python side device dictionary. This file enables the arduino side to know which devices to run on which pins.
-As it is automatically generated one generally does not have to interact with it. As it can however help illuminate how neurokraken works, this subchapter will walk through its content.</p>
-<p>A minimal Config.h is structured like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Sensors.h&quot;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">config</span><span class="p">{</span>
-<span class="w">  </span><span class="n">StartStop</span><span class="o">*</span><span class="w"> </span><span class="n">startStop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StartStop</span><span class="p">();</span>
-<span class="w">  </span><span class="n">MillisReader</span><span class="o">*</span><span class="w"> </span><span class="n">msRead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MillisReader</span><span class="p">();</span>
-
-<span class="w">  </span><span class="n">Control</span><span class="o">*</span><span class="w"> </span><span class="n">controls</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">startStop</span><span class="p">};</span>
-
-<span class="w">  </span><span class="n">Sensor</span><span class="o">*</span><span class="w"> </span><span class="n">sensors</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">msRead</span><span class="p">};</span>
-
-<span class="w">  </span><span class="n">Process</span><span class="o">*</span><span class="w"> </span><span class="n">processes</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The instructions for manually filling out Config.h (as config2teensy would automatically do) are as follows:</p>
-<p>add your controlled classes to this array. Your class should:</p>
-<ul class="simple">
-<li><p>subclass Control, so that it can access the received bytes as a entry of its data property, i.e. class MyValve : public Control{}</p></li>
-<li><p>contain a void act(){} function that utilizes its updated data to run your written arduino code</p></li>
-<li><p>if you are using more than 1 byte of information, overwrite the classe’s default numCtrlBytes, i.e. by running numCtrlBytes = 2 in its constructor;</p></li>
-<li><p>This array should follow the same order you chose in your python side <a class="reference external" href="http://config.py">config.py</a>’s serial_out. i.e. startStop, valve0, valve1, rotary encoder control</p></li>
-</ul>
-<p>add your data reading classes to this array. Your class should:</p>
-<ul class="simple">
-<li><p>subclass Sensor, so that it can provide send its read data, i.e. class MyAnalogSensor : public Sensor{}</p></li>
-<li><p>contain a void read(){} function that fills up its sensBytes[] with your readings - you can use functions like longToBytes(value) or int8ToByte(value) to do this</p></li>
-<li><p>if you are reading more than 1 byte of information, overwrite the classe’s default numSensBytes, i.e. by running numBytes = 2 in its constructor;</p></li>
-<li><p>This array should follow the same order you choose in your python side <a class="reference external" href="http://config.py">config.py</a>’s serial_in. i.e. milliseconds, microseconds, rotary encoder, pulseclock</p></li>
-</ul>
-<p>add your classes that have to run a function at high frequency to this array. Your class should:</p>
-<ul class="simple">
-<li><p>subclass Process, so that the arduino void loop() can identify and run them i.e. class MyPulseSignalGenerator : public Process{}</p></li>
-<li><p>contain a void step(){} that contains the code you want to run</p></li>
-<li><p>The .act(){} or .read(){} of controls and sensors is only executed following communication while a Process’s .task() enables running code at much higher frequency.</p></li>
-</ul>
-<p>sensor -&gt; read()
-control -&gt; act()
-process -&gt; step()</p>
-<p>A task’s filled in Config.h can then look like this.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;TimedOn.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;RotEnc.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PulseClock.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Sensors.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ServoMotor.h&quot;</span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">config</span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// controls</span>
-<span class="w">  </span><span class="n">StartStop</span><span class="o">*</span><span class="w"> </span><span class="n">startStop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StartStop</span><span class="p">();</span>
-<span class="w">  </span><span class="n">DirectOn</span><span class="o">*</span><span class="w"> </span><span class="n">valve0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DirectOn</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
-<span class="w">  </span><span class="n">DirectOn</span><span class="o">*</span><span class="w"> </span><span class="n">valve1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DirectOn</span><span class="p">(</span><span class="mi">41</span><span class="p">);</span>
-<span class="w">  </span><span class="n">ServoMotor</span><span class="o">*</span><span class="w"> </span><span class="n">servo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServoMotor</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Control</span><span class="o">*</span><span class="w"> </span><span class="n">controls</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">startStop</span><span class="p">,</span><span class="w"> </span><span class="n">valve0</span><span class="p">,</span><span class="w"> </span><span class="n">valve1</span><span class="p">,</span><span class="w"> </span><span class="n">rotEnc</span><span class="p">,</span><span class="w"> </span><span class="n">pulseClock</span><span class="p">,</span><span class="w"> </span><span class="n">step</span><span class="p">};</span>
-
-<span class="w">  </span><span class="c1">// Sensors</span>
-<span class="w">  </span><span class="n">MillisReader</span><span class="o">*</span><span class="w"> </span><span class="n">msRead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MillisReader</span><span class="p">();</span>
-<span class="w">  </span><span class="n">RotEnc</span><span class="o">*</span><span class="w"> </span><span class="n">rotEnc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RotEnc</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span>
-<span class="w">  </span><span class="n">PulseClock</span><span class="o">*</span><span class="w"> </span><span class="n">clock_100ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PulseClock</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w">    </span><span class="mi">100</span><span class="p">);</span>
-<span class="w">  </span><span class="n">PulseClock</span><span class="o">*</span><span class="w"> </span><span class="n">clock_1s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PulseClock</span><span class="p">(</span><span class="w">   </span><span class="mi">2</span><span class="p">,</span><span class="w">   </span><span class="mi">1000</span><span class="p">);</span>
-<span class="w">  </span><span class="n">PulseClock</span><span class="o">*</span><span class="w"> </span><span class="n">clock_10s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PulseClock</span><span class="p">(</span><span class="w">  </span><span class="mi">3</span><span class="p">,</span><span class="w">  </span><span class="mi">10000</span><span class="p">);</span>
-<span class="w">  </span><span class="n">PulseClock</span><span class="o">*</span><span class="w"> </span><span class="n">clock_5min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PulseClock</span><span class="p">(</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">300000</span><span class="p">);</span>
-<span class="w">  </span><span class="n">AnalogSensor</span><span class="o">*</span><span class="w"> </span><span class="n">lightSens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnalogSensor</span><span class="p">(</span><span class="mi">39</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Sensor</span><span class="o">*</span><span class="w"> </span><span class="n">sensors</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">msRead</span><span class="p">,</span><span class="w"> </span><span class="n">clock_100ms</span><span class="p">,</span><span class="w"> </span><span class="n">clock_1s</span><span class="p">,</span><span class="w"> </span><span class="n">clock_10s</span><span class="p">,</span><span class="w"> </span><span class="n">clock_5min</span><span class="p">,</span><span class="w"> </span><span class="n">rotEnc</span><span class="p">,</span><span class="w"> </span><span class="n">lightSens</span><span class="p">,</span><span class="w"> </span><span class="n">pulseClock</span><span class="p">};</span>
-
-<span class="w">  </span><span class="c1">// These classes also have a process .step() functionality</span>
-<span class="w">  </span><span class="n">Process</span><span class="o">*</span><span class="w"> </span><span class="n">processes</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">clock_100ms</span><span class="p">,</span><span class="w"> </span><span class="n">clock_1s</span><span class="p">,</span><span class="w"> </span><span class="n">clock_10s</span><span class="p">,</span><span class="w"> </span><span class="n">clock_5min</span><span class="p">,</span><span class="w"> </span><span class="n">pulseClock</span><span class="p">,</span><span class="w"> </span><span class="n">step</span><span class="p">};</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-<section id="adding-an-extra-microcontroller">
-<span id="extra-arduino"></span><h2>Adding an extra microcontroller<a class="headerlink" href="#adding-an-extra-microcontroller" title="Link to this heading">#</a></h2>
-<p>A neurokraken device can also be another microcontroller, a 2nd teensy, an arduino, or ESP32. while one generally can liberally add new sensors and controlled devices to the main teensy, there are situations where adding another microcontroller as a middleman to further devices can be useful.</p>
-<p>First, while the growing range of arduino-compatible components and libraries opens powerful new possibilities for neurokraken, not all devices or libraries are designed for the millisecond precision sampling that neurokraken targets. Rare cases might hold up the microcontroller preventing other connected devices from running with their millisecond or sub-millisecond duties as sensors and/or processes respectively. If you connect them to an extra intermediary arduino or teensy, your main teensy can still rush through its duties while also utilizing the troublesome device to its full capabilities.</p>
-<p>Devices currently included in <code class="docutils literal notranslate"><span class="pre">configurators.devices</span></code> guarantee high precision even when we use 30 of them together in our tests, however when your task requires adding a new arduino module/library as a device, and millisecond precision is important for your experiment, it can be useful to run a quick performance test to verify that your teensy remains fast or whether you should add an extra microcontroller. To performance test, you can run the task with the Neurokraken object argument <code class="docutils literal notranslate"><span class="pre">log_performance=True</span></code>. After the task you can run <code class="docutils literal notranslate"><span class="pre">toolkit/performance_test/performance_test.py</span></code> and provide it with the created log folder - if the “sensor sampling” graph shows you a flat 1 millisecond difference between datapoints you are good.</p>
-<p>Second, an arduino library may utilize custom features of the arduino architecture and a teensy-compatible alternative is not easily found. Third you may yourself want to write arduino-side device code that requires delays or large compute.</p>
-<section id="code-example">
-<h3>Code Example<a class="headerlink" href="#code-example" title="Link to this heading">#</a></h3>
-<p>In this example we are connecting another microcontroller that collects 2 numbers (they could be created by sensor readings and/or a library) and through a wire connections provides the current readings to to the main teensy upon request. On the main teensy side the approach is the same as adding any other Sensor/Control/Process, only that we use the arduino Wire library within the respective read() or act() function to update values shared with the extra microcontroller. Here we create the device as a sensor and provide the average to our task.</p>
-<p>We first upload the standalone code of the extra microcontroller.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// extra teensy/arduino code</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
-
-<span class="c1">// Being specific with the datatype allows Wire to correctly reinterpret the </span>
-<span class="c1">// received number. int8_t for -127 to 127 and uint8_t for 0 to 255</span>
-<span class="kt">int8_t</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="kt">int8_t</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mh">0x08</span><span class="p">);</span><span class="w">             </span><span class="c1">// Join the I2C bus as with address 0x08</span>
-<span class="w">  </span><span class="n">Wire</span><span class="p">.</span><span class="n">onRequest</span><span class="p">(</span><span class="n">requestEvent</span><span class="p">);</span><span class="w"> </span><span class="c1">// Run this function when the teensy calls</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// constantly update the data points</span>
-<span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">-127</span><span class="p">,</span><span class="mi">128</span><span class="p">);</span>
-<span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">-127</span><span class="p">,</span><span class="mi">128</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">requestEvent</span><span class="p">(){</span>
-<span class="w">  </span><span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The following device file is to be added to neurokraken’s teensy folder - we are treating the connected extra microcontroller as a sensor.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ExtraArduino.h</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Extra</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Sensor</span><span class="p">{</span>
-<span class="w">  </span><span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pin</span><span class="p">;</span>
-
-<span class="w">    </span><span class="n">Extra</span><span class="p">(){</span>
-<span class="w">      </span><span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">read</span><span class="p">(){</span>
-<span class="w">      </span><span class="n">Wire</span><span class="p">.</span><span class="n">requestFrom</span><span class="p">(</span><span class="mh">0x08</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// request 2 bytes from the arduino at this address</span>
-<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">Wire</span><span class="p">.</span><span class="n">available</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">){</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w">  </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-<span class="w">        </span><span class="n">valueToBytes</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">         </span><span class="c1">// provide the value to the python side</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-<p>On the python side, we add a serial_in entry with the name chosen for our arduino class (Extra) and parameters for our sensor value range.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">serial_in</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">&#39;extra&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;byte_length&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;logging&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;arduino_class&#39;</span><span class="p">:</span> <span class="s1">&#39;Extra&#39;</span><span class="p">}</span>
-<span class="p">}</span>
-<span class="c1"># Our task code may later access this sensor with get.read_in(&#39;extra&#39;)</span>
-</pre></div>
-</div>
-<p>Lastly we can run <code class="docutils literal notranslate"><span class="pre">config2teensy.py</span></code> to update the code within the teensy folder, upload it and start our task. The 2ndary microcontroller here acts as any other sensor, and if it can provide you with 1000 different values per second you will see this data density reflected in your log.</p>
-</section>
-<section id="wiring">
-<h3>Wiring<a class="headerlink" href="#wiring" title="Link to this heading">#</a></h3>
-<p>Microcontrollers have 2 competing standards with one set running at 3.3V like the teensy and the the other set including many arduino models running at 5V.
-The two wiring diagrams show the connection with another 3.3V device and a 5V device.</p>
+<section id="led">
+<h2>LED<a class="headerlink" href="#led" title="Link to this heading">#</a></h2>
 <pre  class="mermaid">
-        flowchart TB;
-subgraph main teensy4.1
+        flowchart LR;
+subgraph teensy4.1
+outputPin[&quot;output pin&quot;]
 GND
-SDA_teensy[&quot;SDA(18)&quot;]
-SCL_teensy[&quot;SCL(19)&quot;]
 end
 
-subgraph extra teensy4.1
-GND_extra[&quot;GND&quot;]
-SDA_extra[&quot;SDA(18)&quot;]
-SCL_extra[&quot;SCL(19)&quot;]
+subgraph LED
+LED+
+LED-
 end
 
-GND --- GND_extra
-SDA_teensy --- SDA_extra
-SCL_teensy --- SCL_extra
-    </pre><p>To interact with a 5V microcontroller like the arduino nano we can decide the Voltage to be used for I2C communication by connecting the teensy’s 3.3V to our I2C data and clock pins through 4.7kOhm pullup resistors.</p>
+outputPin --220Ohm--&gt; LED+
+LED- --&gt; GND
+    </pre></section>
+<section id="photoresistor">
+<h2>Photoresistor<a class="headerlink" href="#photoresistor" title="Link to this heading">#</a></h2>
+<p>For the analog pin use one of the beige Axx pins shown in the teensy 4.1 pinout at <a class="reference external" href="https://www.pjrc.com/store/teensy41.html">https://www.pjrc.com/store/teensy41.html</a></p>
 <pre  class="mermaid">
         flowchart TB;
 subgraph teensy4.1
-3.3V
+analogPin[&quot;analog pin&quot;]
+v3_3[&quot;3.3V&quot;]
 GND
-SDA_teensy[&quot;SDA(18)&quot;]
-SCL_teensy[&quot;SCL(19)&quot;]
 end
 
-subgraph Arduino Nano
-GND_arduino[&quot;GND&quot;]
-SDA_nano[&quot;SDA(A4)&quot;]
-SCL_nano[&quot;SCL(A5)&quot;]
+subgraph Photoresistor
+photoresistor+
+photoresistor-
 end
 
-GND --- GND_arduino
-
-3.3V --4.7kOhm--&gt; SDA_teensy
-3.3V --4.7kOhm--&gt; SCL_teensy
-SDA_teensy --- SDA_nano
-SCL_teensy --- SCL_nano
-    </pre><p>In the examples above both microcontrollers are powered by USB. If we want to reduce cables and be more effective we can also power the extra microcontroller from the teensy’s 3.3V or 5V pins depending on the Voltage used by the targeted device.</p>
-<p><u>Use either a USB connection for the extra microcontroller or the 5V/3V from the main teensy - don’t have both approaches connected at the same time.</u></p>
+v3_3 --&gt; photoresistor+
+photoresistor- --10kOhm--&gt; GND
+photoresistor- --&gt; analogPin
+    </pre></section>
+<section id="beam-break-photo-interrupter">
+<h2>Beam break/photo interrupter<a class="headerlink" href="#beam-break-photo-interrupter" title="Link to this heading">#</a></h2>
+<p>You can find beam breaks or photo interrupter components that combine an LED and a photoresistor in one device</p>
 <pre  class="mermaid">
         flowchart TB;
 subgraph teensy4.1
+analogPin[&quot;analog pin&quot;]
+v3_3[&quot;3.3V&quot;]
+GND
+end
+
+subgraph LED
+LED+
+LED-
+end
+
+v3_3 --220Ohm--&gt; LED+
+LED- --&gt; GND
+
+subgraph Photoresistor
+photoresistor+
+photoresistor-
+end
+
+v3_3 --&gt; photoresistor+
+photoresistor- --10kOhm--&gt; GND
+photoresistor- --&gt; analogPin
+    </pre></section>
+<section id="potentiometer">
+<h2>Potentiometer<a class="headerlink" href="#potentiometer" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart TB;
+subgraph teensy4.1
+analogPin[&quot;analog pin&quot;]
+v3_3[&quot;3.3V&quot;]
+GND
+end
+
+subgraph Potentiometer
+signal[&quot;signal (center)&quot;]
+end1[&quot;end 1&quot;]
+end2[&quot;end 2&quot;]
+end
+
+v3_3 --&gt; end1
+end2 --&gt; GND
+signal --&gt; analogPin
+    </pre></section>
+<section id="valve">
+<h2>Valve<a class="headerlink" href="#valve" title="Link to this heading">#</a></h2>
+<p>A Valve will require a control pin and an additional power supply, i.e. 12V. The easiest approach is to buy a 4 channel valve driver board that can directly be connected to your output pin, the power V+ and GND, and the valve+/- itself. The shown board can be found on sites like amazon. Notably, to ensure proper operation with a 3.3V device like the Teensy, you have to desolder/solder over the small LED as shown in the image.</p>
+<section id="channel-valve-driver-board">
+<h3>4 Channel Valve Driver Board<a class="headerlink" href="#channel-valve-driver-board" title="Link to this heading">#</a></h3>
+<p>This board has 4 lanes A, B, C, D where the signal at A drives the opposite valve A. You can go beyond this circuit to connect 4 output pins with 4 lanes to 4 valves.</p>
+<pre  class="mermaid">
+        flowchart TB;
+subgraph teensy4.1
+output[&quot;output pin&quot;]
+v3_3[&quot;3.3V&quot;]
+GND
+end
+
+subgraph power supply 12V
+power_12V+
+power_Gnd[&quot;GND&quot;]
+end
+
+subgraph Valve
+valve+[&quot;Valve +&quot;]
+valve-[&quot;Valve -&quot;]
+end
+
+subgraph valve driver board
+
+subgraph power
+board_12v[&quot;12V+&quot;]
+boardpow_GND[&quot;GND&quot;]
+end
+
+subgraph lane A
+subgraph Signal[&quot;Signal Side&quot;]
+board_a_signal[&quot;Signal +&quot;]
+board_a_gnd[&quot;Signal GND&quot;]
+end
+subgraph Valve_side[&quot;Valve Side&quot;]
+board_a_valve+[&quot;Valve +&quot;]
+board_a_valve-[&quot;Valve -&quot;]
+end
+end
+
+end
+
+power_12V+ --&gt; board_12v
+boardpow_GND --&gt; power_Gnd
+
+output --&gt; board_a_signal
+board_a_gnd --&gt; GND
+board_a_valve+ --&gt; valve+
+valve- --&gt; board_a_valve-
+    </pre></section>
+<section id="manual-valve-circuit">
+<h3>Manual Valve Circuit<a class="headerlink" href="#manual-valve-circuit" title="Link to this heading">#</a></h3>
+<p>The following circuit manually builds a lane of the valve driver board above allowing you to drive a single valve with common electronics parts.</p>
+<pre  class="mermaid">
+        flowchart TB;
+subgraph teensy4.1
+outputPin[&quot;output pin&quot;]
+GND
+end
+
+subgraph IRLZ44
+IRLZ44Left
+IRLZ44Center
+IRLZ44Right 
+end
+outputPin --1kOhm--&gt; IRLZ44Left
+Valve- --&gt; IRLZ44Center
+IRLZ44Right --&gt; 12VGND 
+IRLZ44Center -.- IRLZ44Right
+
+subgraph Valve
+12V+ --- Capacitor
+Capacitor --- 12VGND[&quot;12V GND&quot;]
+12V+ --&gt; Valve+
+Valve+ --&gt; Valve-
+Valve- --&gt; Diode[&quot;Diode\n(1n4007)&quot;]
+Diode --&gt; Valve+
+end
+12VGND --- GND
+    </pre><p>The capacitor stores charge to support the high current draw required when the valve is activated.</p>
+<p>When the valve solenoid gets powered this will induce movement of its piston. Conversely, when the piston springs back upon loss of power this induces a voltage. The diode will feed back this voltage to prevent it from ending up in the microcontroller.</p>
+</section>
+</section>
+<section id="rotary-encoder">
+<h2>Rotary Encoder<a class="headerlink" href="#rotary-encoder" title="Link to this heading">#</a></h2>
+<p>There are 2 common types of rotary encoder - both will have 4 wires for black GND, red 3.3V, and 2 signals A and B (i.e. in green and white): The more common pull-up Rotary encoder, and a more uncommon typically expensive direct rotary encoder.</p>
+<section id="pull-up-rotary-encoder">
+<h3>Pull-up Rotary Encoder<a class="headerlink" href="#pull-up-rotary-encoder" title="Link to this heading">#</a></h3>
+<p>The most common rotary encoders often don’t provide voltage on their signal pins, but depending on their state short the respective signal pins to GND or not and can wired like this.</p>
+<pre  class="mermaid">
+        flowchart TB;
+subgraph teensy4.1
+GND
 3.3V
+inputPinA[&quot;pin A&quot;]
+inputPinB[&quot;pin B&quot;]
+end
+
+subgraph Rotary Encoder
+encV[&quot;V+&quot;]
+encGND[&quot;GND&quot;]
+encA[&quot;A&quot;]
+encB[&quot;B&quot;]
+end
+
+3.3V --&gt; encV
+encGND --&gt; GND
+3.3V --4.7kOhm--&gt; inputPinA
+inputPinA --&gt; encA
+3.3V --4.7kOhm--&gt; inputPinB
+inputPinB --&gt; encB
+    </pre><p>These signals can be read by connecting them to Teensy input pins with pull-up resistors to 3.3V. If the encoder shorts the signal to GND, the pin reads LOW; otherwise, the 3.3V will make its way to the teensy pin, which will be pulled-up to HIGH (3.3V).</p>
+</section>
+<section id="direct-rotary-encoder">
+<h3>Direct Rotary Encoder<a class="headerlink" href="#direct-rotary-encoder" title="Link to this heading">#</a></h3>
+<p>This type of encoder is generally more expensive, sold by specialized electronics stores, maybe more compact and can have additional optional wires.</p>
+<p>This is the circuit for a 5V rotary encoder whose signal pins switch between 5V and 0V during rotation. If your rotary encoder functions at 3.3V you can use 3.3V and leave out the voltage divider resistors.</p>
+<pre  class="mermaid">
+        flowchart TB;
+subgraph teensy4.1
 5V
 GND
-SDA_teensy[&quot;SDA(18)&quot;]
-SCL_teensy[&quot;SCL(19)&quot;]
+3.3V
+inputPinA[&quot;pin A&quot;]
+inputPinB[&quot;pin B&quot;]
 end
 
-subgraph Arduino Nano
-GND_arduino[&quot;GND&quot;]
-Vin
-SDA_nano[&quot;SDA(A4)&quot;]
-SCL_nano[&quot;SCL(A5)&quot;]
+subgraph Rotary Encoder
+enc5V[&quot;5V&quot;]
+encGND[&quot;GND&quot;]
+encA[&quot;A&quot;]
+encB[&quot;B&quot;]
 end
 
-GND --- GND_arduino
-5V -- ! only if no USB is powering or connected to the arduino already ! --&gt; Vin
-
-3.3V --4.7kOhm--&gt; SDA_teensy
-3.3V --4.7kOhm--&gt; SCL_teensy
-SDA_teensy --- SDA_nano
-SCL_teensy --- SCL_nano
-    </pre></section>
+A(( ))
+B(( ))
+5V --&gt; enc5V
+encGND --&gt; GND
+encA -- 10kOhm --&gt; A
+encB -- 10kOhm --&gt; B
+A -- 20kOhm --&gt; GND
+B -- 20kOhm --&gt; GND
+A --&gt; inputPinA
+B --&gt; inputPinB
+    </pre><p>The manual should indicate which wires correspond to V+, GND, A, and B. As the teensy should only receive 3.3V not the 5V the rotary encoder delivers, we use 2 stages of resistors to lower the A and B voltage from 5V to 3.3V and then 0V/GND. We can then connect the 3.3V stages to our reading pins. (Voltage Dividier)</p>
 </section>
+</section>
+<section id="servo">
+<h2>Servo<a class="headerlink" href="#servo" title="Link to this heading">#</a></h2>
+<p>For the servo signal wire, use a pin designated for PWM on the Teensy pinout in <a class="reference external" href="https://www.pjrc.com/store/teensy41.html">https://www.pjrc.com/store/teensy41.html</a></p>
+<pre  class="mermaid">
+        flowchart TB;
+subgraph teensy4.1
+outputPin[&quot;PWM output pin&quot;]
+GND
+end
+
+subgraph power supply 12V
+power_12V+
+power_Gnd[&quot;GND&quot;]
+end
+
+Capacitor
+Diode[&quot;1N4007 diode&quot;]
+
+subgraph Servo_Motor
+servo_power[&quot;Power +&quot;]
+servo_signal[&quot;Signal&quot;]
+servo_gnd[&quot;Ground&quot;]
+end
+
+power_12V+ --- Capacitor
+Capacitor --- power_Gnd
+
+power_12V+ --&gt; servo_power
+servo_power --&gt; Diode
+Diode --- power_Gnd
+
+outputPin --&gt; servo_signal
+servo_gnd --&gt; power_Gnd
+servo_gnd --&gt; GND
+    </pre></section>
+<section id="tone-passive-buzzer">
+<h2>Tone Passive Buzzer<a class="headerlink" href="#tone-passive-buzzer" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart LR;
+subgraph teensy4.1
+outputPin[&quot;output pin&quot;]
+GND
+end
+
+subgraph Buzzer
+Buzzer+
+Buzzer-
+end
+
+outputPin --&gt; Buzzer+
+Buzzer- --&gt; GND
+    </pre></section>
+<section id="capacitive-touch-sensor">
+<h2>Capacitive Touch Sensor<a class="headerlink" href="#capacitive-touch-sensor" title="Link to this heading">#</a></h2>
+<p>This circuit uses a capacitive touch sensor module available on common stores like amazon.</p>
+<pre  class="mermaid">
+        flowchart TB;
+subgraph teensy4.1
+sensorPin[&quot;sensor pin&quot;]
+v3_3[&quot;3.3V&quot;]
+GND
+end
+
+subgraph Capacitive Touch sensor
+module_VCC[&quot;VCC&quot;]
+module_GND[&quot;GND&quot;]
+module_SIG[&quot;SIG&quot;]
+end
+
+v3_3 --&gt; module_VCC
+module_GND --&gt; GND
+module_SIG --&gt; sensorPin
+    </pre></section>
+<section id="pulse-clock">
+<h2>Pulse clock<a class="headerlink" href="#pulse-clock" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart TB;
+subgraph experiment_teensy[&quot;Experiment Teensy&quot;]
+clock_pin[&quot;clock pin&quot;]
+GND
+USB
+end
+
+subgraph external_device[&quot;External Device&quot;]
+external_input[&quot;input pin&quot;]
+external_GND[&quot;GND&quot;]
+end
+
+clock_pin -- 10kOhm --&gt; external_input
+GND --- external_GND
+PC --- USB
+    </pre></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1017,20 +1139,20 @@ SCL_teensy --- SCL_nano
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="wiring_guides.html"
+       href="device_library.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Wiring guides</p>
+        <p class="prev-next-title">Configurators.devices Reference</p>
       </div>
     </a>
     <a class="right-next"
-       href="outside_devices.html"
+       href="arduino_custom.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Integrating Outside Devices</p>
+        <p class="prev-next-title">Add your own device</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1050,13 +1172,25 @@ SCL_teensy --- SCL_nano
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensors-controls-and-processes">Sensors, Controls and Processes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-h">Config.h</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-extra-microcontroller">Adding an extra microcontroller</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-example">Code Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring">Wiring</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v-power">12V Power</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led">LED</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#photoresistor">Photoresistor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beam-break-photo-interrupter">Beam break/photo interrupter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potentiometer">Potentiometer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valve">Valve</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-valve-driver-board">4 Channel Valve Driver Board</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-valve-circuit">Manual Valve Circuit</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotary-encoder">Rotary Encoder</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-up-rotary-encoder">Pull-up Rotary Encoder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-rotary-encoder">Direct Rotary Encoder</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#servo">Servo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-passive-buzzer">Tone Passive Buzzer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitive-touch-sensor">Capacitive Touch Sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-clock">Pulse clock</a></li>
 </ul>
   </nav></div>
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -184,11 +184,13 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples / Guides</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Task Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples_ui.html">UI Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runner_mode.html">Runner Mode Examples</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Function Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -196,23 +198,15 @@
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration - The Neurokraken Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states.html">States - Structuring task steps</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Devices Reference</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino, ...</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cameras.html">Cameras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="microphones.html">Microphones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device_library.html">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modalities.html">Sensors and Stimuli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device_library.html">Configurators.devices Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wiring_guides.html">Wiring guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arduino_custom.html">Add your own device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outside_devices.html">Integrating Outside Devices</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="runner_mode.html">Runner Mode</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware</span></p>
 <ul class="nav bd-sidenav">
@@ -220,6 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 
@@ -264,7 +259,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/PasseckerLab/Neurokraken" target="_blank"
+<a href="https://github.com/Neurokraken/Neurokraken" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -380,7 +375,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contents </h2>
+                <h2> On this page </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -388,27 +383,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-start">Where to start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-kraken">About the Kraken</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neurokraken-overview">Neurokraken Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controls"><span class="xref myst">Controls</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration"><span class="xref std std-doc">configuration</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#states"><span class="xref std std-doc">states</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#device-library"><span class="xref myst">device_library</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cameras"><span class="xref std std-doc">cameras</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microphones"><span class="xref myst">microphones</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes"><span class="xref myst">modes</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples"><span class="xref myst">examples</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-patterns"><span class="xref myst">common_patterns</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-ml-cv"><span class="xref myst">AI/ML/CV</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uis"><span class="xref myst">UIs</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools"><span class="xref myst">tools</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runner-mode"><span class="xref myst">runner mode</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outside-devices"><span class="xref myst">outside devices</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><span class="xref myst">installation</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-your-setup"><span class="xref myst">building_your_setup</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-custom"><span class="xref myst">arduino_custom</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faq"><span class="xref myst">FAQ</span></a></li>
-</ul>
-</li>
 </ul>
             </nav>
         </div>
@@ -456,216 +430,12 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference internal" href="quickstart.html"><span class="doc std std-doc">Quickstart</span></a> for a quick start with a minimal example</p></li>
 <li><p><a class="reference internal" href="examples.html"><span class="doc std std-doc">Examples</span></a> for examples ranging from minimal to 3D environments, live-tracking and artificial agent subjects</p></li>
-<li><p><a class="reference internal" href="#overview"><span class="std std-ref">Overview</span></a> below on this page covers a comprehensive list of neuroraken features to explore</p></li>
 </ul>
 </section>
 <section id="about-the-kraken">
 <h2>About the Kraken<a class="headerlink" href="#about-the-kraken" title="Link to this heading">#</a></h2>
 <p>Neurokraken is free open-source software developed at the <a class="reference external" href="https://lab.jpassecker.com/">Passeckerlab</a> by Alexander Wallerus. Please feel to use it in your research, get in touch, and contribute to the project by joining discussions on github.</p>
-<hr class="docutils" />
 </section>
-<section id="neurokraken-overview">
-<span id="overview"></span><h2>Neurokraken Overview<a class="headerlink" href="#neurokraken-overview" title="Link to this heading">#</a></h2>
-<p>Neuroscience experiments require a wide range capabilities. After all, we want to replicate specific experiences from the breadth of our lives and of our capabilities to investigate how the brain’s processes these situations.</p>
-<p>As a result Neurokraken contains a wide range of abilities listed below, beyond what is needed by any individual experiment - however all you need to get started is a minimal State with a loop_main() as shown in our <a class="reference internal" href="quickstart.html"><span class="doc std std-doc">quickstart</span></a> and <a class="reference internal" href="examples.html"><span class="doc std std-doc">examples</span></a></p>
-<p>The following overview summarizes neurokraken capabilities that may become useful to your task while reserving the details for the respective documentation pages.</p>
-<p>Your experiment may not need a microphone or benefit from from a multi-state sequence organization. Start simple, and when a given additional component becomes relevant, i.e. adding a display to show your subject custom visuals, explore the corresponding documentation and examples.</p>
-<p>If you encounter any questions, please feel free to join our github discussions. Neurokraken is developed to be an easy and helpful toolkit and community for neuroscience research.</p>
-<nav class="contents local" id="contents">
-<ul class="simple">
-<li><p><a class="reference internal" href="#controls" id="id1"><a class="reference internal" href="controls.html"><span class="doc std std-doc">Controls</span></a></a></p></li>
-<li><p><a class="reference internal" href="#configuration" id="id2"><a class="reference internal" href="configuration.html"><span class="doc">Configuration - The Neurokraken Object</span></a></a></p></li>
-<li><p><a class="reference internal" href="#states" id="id3"><a class="reference internal" href="states.html"><span class="doc">States - Structuring task steps</span></a></a></p></li>
-<li><p><a class="reference internal" href="#device-library" id="id4"><a class="reference internal" href="device_library.html"><span class="doc std std-doc">device_library</span></a></a></p></li>
-<li><p><a class="reference internal" href="#cameras" id="id5"><a class="reference internal" href="cameras.html"><span class="doc">Cameras</span></a></a></p></li>
-<li><p><a class="reference internal" href="#microphones" id="id6"><a class="reference internal" href="microphones.html"><span class="doc std std-doc">microphones</span></a></a></p></li>
-<li><p><a class="reference internal" href="#modes" id="id7"><a class="reference internal" href="modes.html"><span class="doc std std-doc">modes</span></a></a></p></li>
-<li><p><a class="reference internal" href="#examples" id="id8"><a class="reference internal" href="examples.html"><span class="doc std std-doc">examples</span></a></a></p></li>
-<li><p><a class="reference internal" href="#common-patterns" id="id9"><a class="reference internal" href="patterns.html"><span class="doc std std-doc">common_patterns</span></a></a></p></li>
-<li><p><a class="reference internal" href="#ai-ml-cv" id="id10"><a class="reference internal" href="ai_ml_cv.html"><span class="doc std std-doc">AI/ML/CV</span></a></a></p></li>
-<li><p><a class="reference internal" href="#uis" id="id11"><a class="reference internal" href="examples_ui.html"><span class="std std-doc">UIs</span></a></a></p></li>
-<li><p><a class="reference internal" href="#tools" id="id12"><a class="reference internal" href="tools.html"><span class="doc std std-doc">tools</span></a></a></p></li>
-<li><p><a class="reference internal" href="#runner-mode" id="id13"><a class="reference internal" href="runner_mode.html"><span class="doc std std-doc">runner mode</span></a></a></p></li>
-<li><p><a class="reference internal" href="#outside-devices" id="id14"><a class="reference internal" href="outside_devices.html"><span class="doc std std-doc">outside devices</span></a></a></p></li>
-<li><p><a class="reference internal" href="#installation" id="id15"><a class="reference internal" href="installation.html"><span class="doc std std-doc">installation</span></a></a></p></li>
-<li><p><a class="reference internal" href="#building-your-setup" id="id16"><a class="reference internal" href="building_your_setup.html"><span class="doc std std-doc">building_your_setup</span></a></a></p></li>
-<li><p><a class="reference internal" href="#arduino-custom" id="id17"><a class="reference internal" href="arduino_custom.html"><span class="doc std std-doc">arduino_custom</span></a></a></p></li>
-<li><p><a class="reference internal" href="#faq" id="id18"><a class="reference internal" href="faq.html"><span class="doc std std-doc">FAQ</span></a></a></p></li>
-</ul>
-</nav>
-<section id="controls">
-<h3><a class="toc-backref" href="#id1" role="doc-backlink"><a class="reference internal" href="controls.html"><span class="doc std std-doc">Controls</span></a></a><a class="headerlink" href="#controls" title="Link to this heading">#</a></h3>
-<p>Your task code’s main interface to the system - Neurokraken’s live status, controls and interactions:</p>
-<ul class="simple">
-<li><p>Read sensors</p></li>
-<li><p>Control devices</p></li>
-<li><p>The log dictionary</p>
-<ul>
-<li><p>Autologging sensor/task updates to its history</p></li>
-<li><p>Accessible and extendable for in-task usage</p></li>
-</ul>
-</li>
-<li><p>Camera frames</p></li>
-<li><p>Task controls: start/stop/active/quit/quitting</p></li>
-<li><p>State/Block overrides</p></li>
-</ul>
-</section>
-<section id="configuration">
-<h3><a class="toc-backref" href="#id2" role="doc-backlink"><a class="reference internal" href="configuration.html"><span class="doc">Configuration - The Neurokraken Object</span></a></a><a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
-<p>Used in 3 stages to define and run a task: Initialization, .load_task(), .run()</p>
-<ul class="simple">
-<li><p>initialization: The Computer and task electronics setup</p></li>
-<li><p>same task can run with different configurations.</p></li>
-<li><p>serial_in: arduino-side sensors, experiment accessible with <code class="docutils literal notranslate"><span class="pre">get.read_in(&quot;&lt;device_name&gt;&quot;)</span></code></p></li>
-<li><p>serial_out: arduino-side controllable peripherals, experiment accessible with <code class="docutils literal notranslate"><span class="pre">get.send_out(&quot;&lt;device_name&gt;&quot;,</span> <span class="pre">&lt;value&gt;)</span></code></p></li>
-<li><p>Adding one or more displays to your task</p></li>
-<li><p>Cameras and Microphones</p></li>
-<li><p>log_folder</p></li>
-</ul>
-</section>
-<section id="states">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink"><a class="reference internal" href="states.html"><span class="doc">States - Structuring task steps</span></a></a><a class="headerlink" href="#states" title="Link to this heading">#</a></h3>
-<p>States can be used to guide your experiment flow in a well compartimentalized easy to develop way.
-Alternatively your task can be organized as a single eternal state.</p>
-<ul class="simple">
-<li><p>loop_main, on_start, on_end</p></li>
-<li><p>loop_visual - adding custom interactive visuals to your task with py5</p></li>
-<li><p>state flow: state finished, next_state= and progress_state()</p></li>
-<li><p>copy and modify states for distinct purposes</p></li>
-<li><p>adding callbacks: run_at_start, run_at_end, permanent_states</p></li>
-<li><p>using trials and live-analysis</p></li>
-<li><p>blocks organize seperate state flows and switching between within one task.</p></li>
-</ul>
-</section>
-<section id="device-library">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink"><a class="reference internal" href="device_library.html"><span class="doc std std-doc">device_library</span></a></a><a class="headerlink" href="#device-library" title="Link to this heading">#</a></h3>
-<p>Documented electronic peripherals for neuroscience tasks</p>
-<ul class="simple">
-<li><p>Neurokraken.configurators.devices</p></li>
-<li><p>Self-creating arduino-side code</p></li>
-<li><p>Direct simple access from python</p></li>
-<li><p>Combinable and remixable according to task needs</p></li>
-<li><p>Example applications</p></li>
-<li><p>Arduino wiring guides</p></li>
-<li><p>Extendable</p></li>
-</ul>
-</section>
-<section id="cameras">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink"><a class="reference internal" href="cameras.html"><span class="doc">Cameras</span></a></a><a class="headerlink" href="#cameras" title="Link to this heading">#</a></h3>
-<p>Neurokraken works with standard USB cameras as well as advanced laboratory grade cameras</p>
-<ul class="simple">
-<li><p>live frame access for preview or live-processing</p></li>
-<li><p>automatic frame time logging</p></li>
-<li><p>configurable resolution and target fps</p></li>
-</ul>
-</section>
-<section id="microphones">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><a class="reference internal" href="microphones.html"><span class="doc std std-doc">microphones</span></a></a><a class="headerlink" href="#microphones" title="Link to this heading">#</a></h3>
-<p>Microphones connected to your PC can be used to record experiment audio.  This also works with 200khz specialized microphones.</p>
-</section>
-<section id="modes">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><a class="reference internal" href="modes.html"><span class="doc std std-doc">modes</span></a></a><a class="headerlink" href="#modes" title="Link to this heading">#</a></h3>
-<p>Special modes for neurokraken:</p>
-<ul class="simple">
-<li><p>keyboard mode: Develop tasks without connected teensy/electronics using keyboard keys as inputs</p></li>
-<li><p>agent mode: Run tasks with a script controlled agent/AI instead of a physical subject</p></li>
-</ul>
-</section>
-<section id="examples">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink"><a class="reference internal" href="examples.html"><span class="doc std std-doc">examples</span></a></a><a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
-<p>A range of examples within the repository’s tasks/examples covering a wide range of applications</p>
-<ul class="simple">
-<li><p>steering wheel</p></li>
-<li><p>olfactory stimulus decision</p></li>
-<li><p>live-AI video tracking</p></li>
-<li><p>reinforcement learning agent</p></li>
-<li><p>3D blender created corridor</p></li>
-<li><p>VIZDOOM reinforcement learning package</p></li>
-<li><p>python eye-tracking package</p></li>
-<li><p>Pong</p></li>
-<li><p>joystick game</p></li>
-<li><p>User Interfaces</p></li>
-<li><p>USB device optogenetics control</p></li>
-<li><p>…</p></li>
-</ul>
-</section>
-<section id="common-patterns">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink"><a class="reference internal" href="patterns.html"><span class="doc std std-doc">common_patterns</span></a></a><a class="headerlink" href="#common-patterns" title="Link to this heading">#</a></h3>
-<p>Example code snippets for common task use cases:</p>
-<ul class="simple">
-<li><p>UI overrides, logging text from a UI, scheduling repeated actions, loading subject information before task start,…</p></li>
-</ul>
-</section>
-<section id="ai-ml-cv">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink"><a class="reference internal" href="ai_ml_cv.html"><span class="doc std std-doc">AI/ML/CV</span></a></a><a class="headerlink" href="#ai-ml-cv" title="Link to this heading">#</a></h3>
-<p>Running high compute data processing as part of neurokraken tasks</p>
-<ul class="simple">
-<li><p>computer vision, machine learning, AI, …</p></li>
-<li><p>Cutils Examples: live position tracking using Cutie</p></li>
-</ul>
-</section>
-<section id="uis">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink"><a class="reference internal" href="examples_ui.html"><span class="std std-doc">UIs</span></a></a><a class="headerlink" href="#uis" title="Link to this heading">#</a></h3>
-<p>Add a window to display and plot experiment data, camera views and override experiment variables</p>
-</section>
-<section id="tools">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink"><a class="reference internal" href="tools.html"><span class="doc std std-doc">tools</span></a></a><a class="headerlink" href="#tools" title="Link to this heading">#</a></h3>
-<p>toolkit: self-contained utilities for neurokraken tasks:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://config2teensy.py">config2teensy.py</a>: autogenerate teensy/arduino code from a task script using its serial_in/serial_out</p></li>
-<li><p>Cutils: functions for automated cutie tracking using folders or live numpy image arrays</p></li>
-<li><p>Neurokraken performance testing</p></li>
-<li><p>valve drop size/opening time calibration</p></li>
-</ul>
-<p>tools:</p>
-<ul class="simple">
-<li><p>experiment helper functions</p></li>
-</ul>
-</section>
-<section id="runner-mode">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink"><a class="reference internal" href="runner_mode.html"><span class="doc std std-doc">runner mode</span></a></a><a class="headerlink" href="#runner-mode" title="Link to this heading">#</a></h3>
-<p>A runner for laboratories with an extensive number of tasks and variations</p>
-<ul class="simple">
-<li><p>arguments to select task, device configuration, experiment, subject, mode, ask for datapoints on startup, skip log creation, …</p></li>
-<li><p>useful modularization and control for advanced tasks</p></li>
-</ul>
-</section>
-<section id="outside-devices">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink"><a class="reference internal" href="outside_devices.html"><span class="doc std std-doc">outside devices</span></a></a><a class="headerlink" href="#outside-devices" title="Link to this heading">#</a></h3>
-<p>Integrate USB devices and existing neuroscience behavior equipment into neurokraken tasks</p>
-</section>
-<section id="installation">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink"><a class="reference internal" href="installation.html"><span class="doc std std-doc">installation</span></a></a><a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
-<p>Quick install and detailed installation instructions</p>
-</section>
-<section id="building-your-setup">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink"><a class="reference internal" href="building_your_setup.html"><span class="doc std std-doc">building_your_setup</span></a></a><a class="headerlink" href="#building-your-setup" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Hardware library: 3D printed modular elements for custom neuroscience experiment setups</p></li>
-<li><p>Device assembly instructions: Printable XYZ stage, odor delivery, …</p></li>
-<li><p>Building a behavior setup walkthrough</p></li>
-<li><p>Table of affordable and useful components for different neuroscience setups</p></li>
-</ul>
-</section>
-<section id="arduino-custom">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink"><a class="reference internal" href="arduino_custom.html"><span class="doc std std-doc">arduino_custom</span></a></a><a class="headerlink" href="#arduino-custom" title="Link to this heading">#</a></h3>
-<p>Adding a new custom self-made addition to the device library</p>
-<p>If you are interested in adding a new device and/or its Arduino code to your task, this is the place to start.</p>
-<!-- ### [for_developers](for_developers)
-
-How the Neurokraken works - useful for hacking-in new functionalities.
-- the networker: Automatic live updating of python side sensor input, automatic logging, execution of python side controls on arduino.
-- the main loop and other threads. Internal timing of processes -->
-</section>
-<section id="faq">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink"><a class="reference internal" href="faq.html"><span class="doc std std-doc">FAQ</span></a></a><a class="headerlink" href="#faq" title="Link to this heading">#</a></h3>
-<p>Frequently asked questions</p>
-</section>
-</section>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -731,7 +501,7 @@ How the Neurokraken works - useful for hacking-in new functionalities.
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -739,27 +509,6 @@ How the Neurokraken works - useful for hacking-in new functionalities.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-start">Where to start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-kraken">About the Kraken</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neurokraken-overview">Neurokraken Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controls"><span class="xref myst">Controls</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration"><span class="xref std std-doc">configuration</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#states"><span class="xref std std-doc">states</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#device-library"><span class="xref myst">device_library</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cameras"><span class="xref std std-doc">cameras</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microphones"><span class="xref myst">microphones</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes"><span class="xref myst">modes</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples"><span class="xref myst">examples</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-patterns"><span class="xref myst">common_patterns</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-ml-cv"><span class="xref myst">AI/ML/CV</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uis"><span class="xref myst">UIs</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools"><span class="xref myst">tools</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runner-mode"><span class="xref myst">runner mode</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outside-devices"><span class="xref myst">outside devices</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation"><span class="xref myst">installation</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-your-setup"><span class="xref myst">building_your_setup</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-custom"><span class="xref myst">arduino_custom</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faq"><span class="xref myst">FAQ</span></a></li>
-</ul>
-</li>
 </ul>
   </nav></div>
 
@@ -773,10 +522,6 @@ How the Neurokraken works - useful for hacking-in new functionalities.
   
   <div class="footer-item">
     
-<p class="component-author">
-By The Neuroraken developers
-</p>
-
   </div>
   
   <div class="footer-item">
@@ -784,7 +529,7 @@ By The Neuroraken developers
 
   <p class="copyright">
     
-      © Copyright CC0 (2025).
+      © Copyright All CC0 (2025)  *except for figure example-range.png in Introduction.
       <br/>
     
   </p>

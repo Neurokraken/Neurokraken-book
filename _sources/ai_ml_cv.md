@@ -1,7 +1,161 @@
-# AI/ML/Computer Vision
+# AI/ML/Computer Vision Examples
+
+## Shuttle_tracked
+
+In this task for an open environment 2 touch-sensitive reward spouts are placed in the environment. Licking one triggers a reward and trigger receptivity at the other, encouraging subjects to rapidly and efficiently shuttle between the 2 spouts for a large number of rewards.
+
+The task also integrates cutie for live tracking when setting `with_cutie = True`. Please check out the the [cutie examples](cutie_examples) and our [Cutie documentation](cutie_tracking) for more information on integrating cutie and live tracking into your tasks.
+
+```python
+with_cutie = False
+
+# ------------------------ TASK SETUP ------------------------
+
+from neurokraken import Neurokraken, State
+from neurokraken.configurators import devices, Camera
+
+serial_in = {
+    'lick_left': devices.capacitive_touch(pins=[10, 11], keys=['a']),
+    'lick_right': devices.capacitive_touch(pins=[29, 30], keys=['d'])
+}
+
+serial_out = {
+    'reward_left': devices.timed_on(pin=40),
+    'reward_right': devices.timed_on(pin=41)
+}
+
+cam_width, cam_height = 1280, 720
+cameras = [Camera(name='camera', width=cam_width, height=cam_height)]
+if not with_cutie:
+    cameras = []
+
+nk = Neurokraken(serial_in=serial_in, serial_out=serial_out, cameras=cameras,
+                 log_dir='./', mode='keyboard')
+
+#------------------------- CREATE A TASK AND RUN IT -------------------------
+
+from neurokraken.controls import get
+
+threshold = 4000
+
+class Lick_left(State):
+    def loop_main(self):
+        global threshold
+        if get.read_in("lick_left") > threshold:
+            get.log['trials'][-1]['t_lick_l'] = get.read_in('t_ms')
+            get.send_out('reward_right', 60)
+            return True, 0 
+        return False, 0
+
+class Lick_right(State):
+    def loop_main(self):
+        global threshold
+        if get.read_in("lick_right") > threshold:
+            get.log['trials'][-1]['t_lick_r'] = get.read_in('t_ms')
+            get.send_out('reward_left', 60)
+            return True, 0 
+        return False, 0
+
+task = {
+    'lick_left': Lick_left(max_time_s=60_000, next_state='lick_right'),
+    'lick_right': Lick_right(max_time_s=60_000, next_state='lick_left', trial_complete=True)
+}
+
+nk.load_task(task)
+
+if not with_cutie and __name__ == '__main__':
+    nk.run()
+    exit()
+
+# ------------------------ CUTIE TRACKING AND UI ------------------------
+
+# The approach is the same as in toolkit/cutie/live_webcam_example.py using the same optimizations of a 
+# parallel_predict() loop/thread and pre-created numpy- and py5 images for shared usage and performance,
+# but now with the added context of a neurokraken task
+
+cutie_config_path = r'C:\path\to\cloned\repository\of\Cutie\cutie\config'
+reference_folder = r'C:\Path\to\folder\of\reference\imageJPGs\and\maskPNGs\pairs\created\with\cutie\interactivedemo'
+
+from py5 import Sketch
+import threading
+from pathlib import Path
+import numpy as np
+
+# import the cutie processing utilities script using import_file - this approach can be used for integrating
+# python projects saved in disparate folders.
+from neurokraken import tools
+cutils_path = str(Path(__file__).parent.parent.parent.parent / 'toolkit/cutie/cutils.py')
+cutils = tools.import_file(cutils_path)
+
+cutils.create_cutie(cutie_config_path)
+cutils.load_references(reference_folder)
+
+processed_frame = np.zeros(shape=(cam_height, cam_width, 3), dtype=np.uint8)
+masks =           np.zeros(shape=(cam_height, cam_width, 3), dtype=np.uint8)
+
+def parallel_predict():
+    # cutie will keep predicting frames in this loop. In a proper experiment we might also save the created masks,
+    # calculate information like the center of mass, and add relevant data for the experiment to get.log
+    global processed_frame, masks
+    while True:
+        if get.quitting:
+            break
+        frame = get.camera(0)
+        # cutie works on RGB images => turn the frame from greyscale i.e. (720, 1280) into RGB (720, 1280, 3)
+        frame = np.stack([frame, frame, frame], axis=-1)
+        processed_frame, masks = cutils.predict_frame(frame, apply_pallete=True)
+
+class UI(Sketch):
+    def settings(self):
+        self.size(800, 300, self.P2D)
+
+    def setup(self):
+        global processed_frame_py5, masks_py5
+        processed_frame_py5 = self.create_image(1280, 720, self.RGB)
+        masks_py5 =           self.create_image(1280, 720, self.RGB)
+
+    def draw(self):
+        global processed_frame, masks, processed_frame_py5, masks_py5
+
+        self.background(50)
+        
+        self.create_image_from_numpy(processed_frame, bands='RGB', dst=processed_frame_py5)
+        self.image(processed_frame_py5, 0, 0, 400, 300)
+
+        self.create_image_from_numpy(masks, bands='RGB', dst=masks_py5)
+        self.image(masks_py5, 400, 0, 400, 300)
+
+    def exiting(self):
+        get.quit()
+
+threading.Thread(target=parallel_predict, daemon=True).start()
+
+ui = UI()
+ui.run_sketch(block=False)
+
+nk.run()
+```
+
+(cutie_examples)=
+## Cutie Examples
+
+Additional cutie-related examples exist in Neurokraken's toolkit/cutie folder to demonstrate usage of standalone cutie or the `toolkit/cutils.py` in a standalone way or one that can be integrated into neurokraken task
+
+### process_folder.py
+
+> toolkit/cutie/process_folder.py
+
+This example shows using `cutils.create_cutie()`, `cutils.load_references()` and `cutils.predict_folder()` to automatically process a folder of camera frames using a couple of pre-selected reference examples.
+
+### live-webcam-example\.py
+
+> toolkit/cutie/live-webcam-example.py
+
+This example shows using `cutils.create_cutie()`, `cutils.load_references()` and `cutils.predict_frame()` to live process webcam frames with cutie. script contains 2 versions, one starting example in which cutie and the UI showing its results are run in the same draw loop, and one slightly longer alternative version where cutie runs in a separate thread for higher performance as it is likely to be used within actual neurokraken experiments.
 
 ## The AI processing loop
 
+(cutie_tracking)=
 ## Tracking movements with Cutie
 
 [Cutie](https://github.com/hkchengrex/Cutie) [[2310.12982] Putting the Object Back into Video Object Segmentation](https://arxiv.org/abs/2310.12982) is a Segmentation Model that we found to be very powerful for tracking the body, limbs, pupils, and other elements related to our experiment subjects. Cutie can run on a existing recorded video or with some minor modifications live within the context of your experiment. For example you can have an experiment state be depending on where a freely moving subject is currently positioned in an open or labyrinth environment, or when 2 tracked elements interact, or where a hand is placed. Or you can run Cutie on an existing video to to find correlations post the original experiment. Cutie doesn't have to be trained/fine-tuned on its targets and can work from once-made reference images with click selected targets. Unlike posenet models that provide you with skeleton points, a segmentation model provides you with the entire pixel area of your tracked target, i.e. an arm or snout. A target center can still easily be calculated, however having access to the occupied area could possibly also enable infering further information like a subject's respiration cycle.

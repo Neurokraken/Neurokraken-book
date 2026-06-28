@@ -1,4 +1,4 @@
-# Keyboard and Agent Mode
+# Keyboard and Agent Mode Examples
 
 ## using agents
 
@@ -217,8 +217,8 @@ class Choice(State):
                     (self.color == 'blue'  and self.frequency ==  600):
                     print('---REWARD---')
                     get.send_out('reward_valve', 40)
-            return True, 0
-        return False, 0
+            # the time is up, an outcome for not pressing was provided (reward or nothing) -> progress to the next trial
+            get.progress_state('choice')
     
     def loop_visual(self, sketch):
         if self.color == 'blue':
@@ -228,9 +228,7 @@ class Choice(State):
         # update the frame data
         get.frame = sketch.get_np_pixels(bands='RGB')
 
-task = {
-    'choice': Choice(max_time_s=4, next_state='choice'),
-}
+task = {'choice': Choice()}
 
 nk.load_task(task)
 

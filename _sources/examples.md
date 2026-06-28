@@ -1,6 +1,6 @@
 # Task Examples
 
-You can find helpful examples within the [examples folder of the neurokraken repository](https://github.com/PasseckerLab/murine-rig-development/tree/main/examples)
+You can find helpful examples within the [examples folder of the neurokraken repository](https://github.com/Neurokraken/Neurokraken/tree/main/examples)
 
 These examples are ready to run and showcase the range of neurokraken's capabilities. By default they use `mode='keyboard'` in the Neurokraken initialization allowing them to run without connected electronics. As neurokraken is built for ease-of-use running neurokraken tasks with connected physical devices, only requires changing to `mode='teensy'`, running `config2teensy.py`, and uploading the code it created in the `teensy` folder to your teensy.
 For keyboard mode inputs contain an additional keys=[] list allowing you to map keyboard keys to inputs - this property is not needed outside of keyboard mode.
@@ -17,7 +17,7 @@ Use `Ctrl + Alt + Q` to quit running tasks. In further developed tasks you might
 :local:
 ```
 
-## Minimal examples
+## Introduction examples
 
 These examples are small introductory examples to get you started with Neurokraken
 
@@ -25,7 +25,7 @@ These examples are small introductory examples to get you started with Neurokrak
 
 This task just runs a minimal state loop forever until you end the run.
 
-```
+```python
 # setup configuration
 from neurokraken import Neurokraken, State
 from neurokraken.configurators import devices, Display, Camera, Microphone
@@ -40,8 +40,8 @@ from neurokraken.controls import get
 
 class My_State(State):
     def loop_main(self):
-        # your experiment code will loop here
-        return False, 0
+        # add your experiment code here where it will run in a loop
+        pass
     
 task = {
     'state_name': My_State(next_state='state_name'),
@@ -84,14 +84,11 @@ class Green(State):
             self.led_status = not self.led_status
             get.send_out('led', self.led_status)
             self.t_last_switch = get.time_ms
-        return False, 0
     
     def loop_visual(self, sketch):
         sketch.background(0,255,0)
 
-task = {
-    'waiting': Green(next_state='waiting'),
-}
+task = Green()
 
 nk.load_task(task)
 
@@ -109,7 +106,7 @@ from neurokraken.configurators import devices, Display, Camera, Microphone
 
 serial_in =  {'light_beam': devices.analog_read(pin=3, keys=['s', 'w'])}
 serial_out = {'reward_valve': devices.timed_on(pin=2),
-              'LED': devices.direct_on(pin=3)}
+              'LED': devices.direct_on(pin=4)}
 
 nk = Neurokraken(serial_in=serial_in, serial_out=serial_out, mode='keyboard')
 
@@ -117,18 +114,21 @@ nk = Neurokraken(serial_in=serial_in, serial_out=serial_out, mode='keyboard')
 from neurokraken.controls import get
 
 class Poke_for_reward(State):
+    def on_start(self):
+        get.send_out('LED', True)
+
     def loop_main(self):
-        if get.read_in('light_beam') > 512:
-            get.send_out('LED', True)
-            return True, 0
-        else:
+        if get.read_in('light_beam') < 400:
             get.send_out('reward_valve', 100)
             get.send_out('LED', False)
-            return False, 0
+            get.progress_state('delay')
+
+class Delay(State):
+    pass
 
 task = {
-    'poke': Poke_for_reward(next_state='delay'),
-    'delay': State(next_state='poke', max_time_s=10)
+    'poke': Poke_for_reward(),
+    'delay': Delay(next_state='poke', max_time_s=8)
 }
 
 nk.load_task(task)
@@ -171,124 +171,17 @@ class Touch_When_Visible(State):
             self.visible = not self.visible
             self.last_switch = get.time_ms
 
-        return False, 0
-
     def loop_visual(self, sketch):
         sketch.background(0,0,0)    
         if self.visible:        
             sketch.fill(0, 255, 0)
             sketch.rect(200, 200, 400, 300)
 
-task = {'my_first_state': Touch_When_Visible(next_state='my_first_state')}
+task = Touch_When_Visible()
 
 nk.load_task(task)
 
 nk.run()
-```
-
-## Runner mode
-
-In Runner mode tasks are organized in a folder containing separate files for the device configuration `config.py`, task `task.py`, and parallel code (like an UI) `launch.py`.
-
-Runner mode can be run with `kraken.bat` (if you have an activateable conda environment named neurokraken) or `kraken.py`, which will provide you with a list of all tasks found within the `tasks` folder to choose from.
-To run this example add a new folder with a name of your choice like `runner_mode_example` containing the respective files to `tasks`.
-Runner mode can be provided with arguments for dynamic execution, like `kraken.bat --task runner_mode_example --keyboard` to directly execute the runner_mode_example task in keyboard mode.
-
-The following example is the same as minimal.py above, with the addition of
-- a list of datapoints to be prompted upon execution, including subject options
-- a UI (`launch.py`) with a control for the task's shown color
-
-You can learn more about runner mode in the [modes](modes) chapter.
-
-> <span>config.py</span> <!-- span to avoid auto-formatting into a hyperlink -->
-
-```python
-# Instead of being bundled with the config.py a subjects dictionary could be loaded from a .json file or remote source
-subjects = [{'ID': 'Alpha', 'sex': 'female'},
-            {'ID': 'Beta',  'sex': 'female'},
-            {'ID': 'Gamma', 'sex': 'male'},
-            {'ID': 'Delta', 'sex': 'male'}]
-
-# runner mode can prompt for named datapoints upon execution
-ask_for = ['ID', 'weight', 'group']
-
-from neurokraken.configurators import Display, devices
-display = Display(size=(800, 600))
-
-cameras = [ ]
-
-serial_in = { }
-serial_out = {'led': devices.direct_on(pin=3, start_value=False)}
-```
-
-> <span>task.py</span>
-
-```python
-from neurokraken.controls import get
-from neurokraken import State
-
-get.color = (0, 255, 0)
-
-class Color(State):
-    """We will just show the color on a display in this state and blink an LED every 5 seconds"""
-    def on_start(self):
-        # store relevant variables within the state self
-        self.t_last_switch = 0
-        self.led_status = False
-
-    def loop_main(self):
-        if get.time_ms > self.t_last_switch + 5_000:
-            self.led_status = not self.led_status
-            get.send_out('led', self.led_status)
-            self.t_last_switch = get.time_ms
-        return False, 0
-    
-    def loop_visual(self, sketch):
-        sketch.background(*get.color)
-
-task = {
-    'waiting': Color(next_state='waiting'),
-}
-```
-
-> <span>launch.py</span>
-
-```python
-# code that would be executed just before neurokraken.run() can be included in an optional launch.py
-# This typically covers UIs and parallel analysis/processing loops like cutie
-
-from py5 import Sketch
-import krakengui as gui
-from neurokraken.controls import get
-import random
-
-def recolor_background():
-    get.color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-
-class UI(Sketch):
-    def settings(self):
-        self.size(200, 150)
-
-    def setup(self):
-        gui.use_sketch(self)
-
-        gui.Button(label='randomize background', pos=(25, 50), on_click=recolor_background)
-
-    def draw(self):
-        self.background(0)
-        self.fill(255);     self.stroke(255);     self.text_size(15)
-        self.text(f't_ms: {int(get.time_ms)}', 25, 25)
-        if get.quitting:
-            self.exit_sketch()
-
-    def exiting(self):
-        # close end the experiment when the UI window is closed
-        get.quit()
-
-# run the UI
-
-ui = UI()
-ui.run_sketch(block=False)
 ```
 
 ## steering
@@ -474,9 +367,7 @@ class Corridor(State):
 
         if self.position >= 660:
             # the end was reached, go on to the next trial
-            return True, 0
-
-        return False, 0
+            get.progress_state('corridor')
 
     def loop_visual(self, sketch):
         sketch.background(0, 0, 40)
@@ -502,9 +393,7 @@ class Corridor(State):
         
 #------------------------- TASK PROTOCOL BLOCKS AND BLOCK TRIAL STATES -------------------------
 
-task  = {
-'corridor': Corridor(max_time_s=1_000_000, next_state='corridor')
-}
+task = {'corridor': Corridor()}
 
 nk.load_task(task)
 
@@ -548,10 +437,9 @@ serial_out = {'reward': devices.timed_on(pin=40)}
 
 nk = Neurokraken(serial_in, serial_out, display=Display(size=(800, 600)), mode='keyboard')
 
-import vizdoom as vzd # pip install vizdoom --pre
 from neurokraken.controls import get
-from neurokraken.tools import Millis
-millis_timer = Millis()
+from neurokraken.tools import Timer
+timer = Timer()
 
 import numpy as np
 
@@ -596,12 +484,12 @@ class DOOM(State):
 
     def loop_main(self):
         # slow down the game loop executions to a 60 fps framerate
-        if millis_timer() < 16:
-            return False, 0
-        millis_timer.zero()
+        if timer() < 16:
+            return
+        timer.zero()
         
         if get.game.is_episode_finished():
-            return True, 0
+            get.progress_state('DOOM')
         else:
             state = get.game.get_state()
             get.screen_buf = state.screen_buffer 
@@ -629,8 +517,6 @@ class DOOM(State):
             if points > self.total_rewards:
                self.total_rewards = points
                get.send_out('reward', 70)
-
-        return False, 0
         
     def loop_visual(self, sketch):
         # pass the current screen_buffer to a py5 image and display it
@@ -644,7 +530,7 @@ class DOOM(State):
 #------------------------- TRAINING PROTOCOL BLOCKS AND BLOCK TRIAL STATES -------------------------
 
 task = {
-    'DOOM': DOOM(max_time_s=180, next_state='DOOM'),
+    'DOOM': DOOM(max_time_s=180),
 }
 
 # call the game environment's close function upon neurokraken quit
@@ -677,8 +563,8 @@ nk = Neurokraken(serial_in, serial_out, display=Display(size=(800, 600)), mode='
 from pathlib import Path
 import random
 from neurokraken.controls import get
-from neurokraken.tools import Millis
-millis_timer = Millis()
+from neurokraken.tools import Timer
+timer = Timer()
 
 spawn_points = [[100, 100], [700, 100], [100, 500], [700, 500]]
 
@@ -706,9 +592,9 @@ class Game(State):
 
     def loop_main(self):
         # run game loop calculations at a 60 fps framerate
-        if millis_timer() < 16:
-            return False, 0
-        millis_timer.zero()
+        if timer() < 16:
+            return
+        timer.zero()
 
         # go from range 0-1024 into -1 to +1
         self.delta_x = (get.read_in('LR') / 512) - 1.0
@@ -726,8 +612,6 @@ class Game(State):
             get.send_out('reward', 100)
             spawn_options = [s for s in spawn_points if distance(self.x, self.y, s[0], s[1]) > 250]
             self.reward_pos = random.choice(spawn_options)
-
-        return False, 0
 
     def loop_visual(self, sketch):
         sketch.background(0)
@@ -785,8 +669,8 @@ nk = Neurokraken(serial_in=serial_in, serial_out=serial_out,
 
 import random
 from neurokraken.controls import get
-from neurokraken.tools import Millis
-millis_timer = Millis()
+from neurokraken.tools import Timer
+timer = Timer()
 
 get.score = [0, 0]
 get.speed = 10
@@ -806,10 +690,10 @@ class Pong(State):
         self.last_position = get.read_in('movement')
 
     def loop_main(self):
-        if millis_timer() < 16:
+        if timer() < 16:
             # run at ~60 hz => only continue if 16ms have passed
-            return False, 0
-        millis_timer.zero()
+            return
+        timer.zero()
         # update the player paddle position
         new_position = get.read_in('movement')
         delta_player = new_position - self.last_position
@@ -862,7 +746,8 @@ class Pong(State):
             get.log['trials'][-1]['win'] = False
             finished = True
 
-        return finished, 0
+        if finished:
+            get.progress_state('pong')
         
     def loop_visual(self, sketch):
         sketch.background(0)
@@ -881,7 +766,7 @@ class Pong(State):
         sketch.text(f'{get.score[0]}        {get.score[1]}', 400, 40)
 
 task = {
-    'pong': Pong(next_state='pong', trial_complete=True),
+    'pong': Pong(trial_complete=True),
 }
 
 nk.load_task(task)
@@ -901,15 +786,11 @@ An example where a correct sequence has to be poked for rewards will be added so
 
 An example showcasing odor delivery and corresponding lick choices will be added soon
 
-## dot_motion
-
-A minimal version of the advanced dot motion example will be added soon
-
-## Shuttle_tracked
+## Shuttle
 
 In this task for an open environment 2 touch-sensitive reward spouts are placed in the environment. Licking one triggers a reward and trigger receptivity at the other, encouraging subjects to rapidly and efficiently shuttle between the 2 spouts for a large number of rewards.
 
-The task also integrates cutie for live tracking when setting `with_cutie = True`. Please check out the the [cutie examples](cutie_examples) and our [Cutie documentation](ai_ml_cv) for more information on integrating cutie and live tracking into your tasks.
+Within the [AI examples](ai_ml_cv.md) you can also find an extended version of this task that integrates live-camera frame processing with the cutie AI model to live-track the subject during the task.
 
 ```python
 with_cutie = False
@@ -967,98 +848,10 @@ task = {
 }
 
 nk.load_task(task)
-
-if not with_cutie and __name__ == '__main__':
-    nk.run()
-    exit()
-
-# ------------------------ CUTIE TRACKING AND UI ------------------------
-
-# The approach is the same as in toolkit/cutie/live_webcam_example.py using the same optimizations of a 
-# parallel_predict() loop/thread and pre-created numpy- and py5 images for shared usage and performance,
-# but now with the added context of a neurokraken task
-
-cutie_config_path = r'C:\path\to\cloned\repository\of\Cutie\cutie\config'
-reference_folder = r'C:\Path\to\folder\of\reference\imageJPGs\and\maskPNGs\pairs\created\with\cutie\interactivedemo'
-
-from py5 import Sketch
-import threading
-from pathlib import Path
-import numpy as np
-
-# import the cutie processing utilities script using import_file - this approach can be used for integrating
-# python projects saved in disparate folders.
-from neurokraken import tools
-cutils_path = str(Path(__file__).parent.parent.parent.parent / 'toolkit/cutie/cutils.py')
-cutils = tools.import_file(cutils_path)
-
-cutils.create_cutie(cutie_config_path)
-cutils.load_references(reference_folder)
-
-processed_frame = np.zeros(shape=(cam_height, cam_width, 3), dtype=np.uint8)
-masks =           np.zeros(shape=(cam_height, cam_width, 3), dtype=np.uint8)
-
-def parallel_predict():
-    # cutie will keep predicting frames in this loop. In a proper experiment we might also save the created masks,
-    # calculate information like the center of mass, and add relevant data for the experiment to get.log
-    global processed_frame, masks
-    while True:
-        if get.quitting:
-            break
-        frame = get.camera(0)
-        # cutie works on RGB images => turn the frame from greyscale i.e. (720, 1280) into RGB (720, 1280, 3)
-        frame = np.stack([frame, frame, frame], axis=-1)
-        processed_frame, masks = cutils.predict_frame(frame, apply_pallete=True)
-
-class UI(Sketch):
-    def settings(self):
-        self.size(800, 300, self.P2D)
-
-    def setup(self):
-        global processed_frame_py5, masks_py5
-        processed_frame_py5 = self.create_image(1280, 720, self.RGB)
-        masks_py5 =           self.create_image(1280, 720, self.RGB)
-
-    def draw(self):
-        global processed_frame, masks, processed_frame_py5, masks_py5
-
-        self.background(50)
-        
-        self.create_image_from_numpy(processed_frame, bands='RGB', dst=processed_frame_py5)
-        self.image(processed_frame_py5, 0, 0, 400, 300)
-
-        self.create_image_from_numpy(masks, bands='RGB', dst=masks_py5)
-        self.image(masks_py5, 400, 0, 400, 300)
-
-    def exiting(self):
-        get.quit()
-
-threading.Thread(target=parallel_predict, daemon=True).start()
-
-ui = UI()
-ui.run_sketch(block=False)
-
 nk.run()
 ```
 
-(cutie_examples)=
-## Cutie Examples
-
-Additional cutie-related examples exist in Neurokraken's toolkit/cutie folder to demonstrate usage of standalone cutie or the `toolkit/cutils.py` in a standalone way or one that can be integrated into neurokraken task
-
-### process_folder.py
-
-> toolkit/cutie/process_folder.py
-
-This example shows using `cutils.create_cutie()`, `cutils.load_references()` and `cutils.predict_folder()` to automatically process a folder of camera frames using a couple of pre-selected reference examples.
-
-### live-webcam-example.py
-
-> toolkit/cutie/live-webcam-example.py
-
-This example shows using `cutils.create_cutie()`, `cutils.load_references()` and `cutils.predict_frame()` to live process webcam frames with cutie. script contains 2 versions, one starting example in which cutie and the UI showing its results are run in the same draw loop, and one slightly longer alternative version where cutie runs in a separate thread for higher performance as it is likely to be used within actual neurokraken experiments.
-
-## dot motion_advanced
+## dot motion
 
 A touchscreen task where many dots move in semirandom directions and the user has to touch the dominant target side.
 
@@ -1198,10 +991,10 @@ task = {
 
 nk.load_task(task)
 
-#------------------------- UI -------------------------
-
 from py5 import Sketch
 import krakengui as gui
+
+#------------------------- UI -------------------------
 
 class UI(Sketch):
     def settings(self):
@@ -1234,210 +1027,6 @@ class UI(Sketch):
 
     def exiting(self):
         get.quit()
-
-ui = UI()
-ui.run_sketch(block=False)
-
-nk.run()
-```
-
-## steering_advanced
-
-An advanced version of the steering task exemplifying a range of advanced features working together.
-
-Here the shape has to be steered from the side to the center with the probability of the shape spawning on the left or right switching after 5 trials with >75% correct choices
-
-Additions include:
-- GUI with override buttons and live data (time, wheel position, side spawn probabilities...)
-- Pulse clocks for time alignment with external devices
-- Rotary encoder extension with a control to reset to 0
-- autostart=False with experiment start and stop triggered from the UI
-- splitting state sequence after choice
-- manual trial log additions and access
-- performance and trial check to decide whether the probability should be changed
-- self-made image used for the steered shape
-
-```python
-from neurokraken import Neurokraken, State
-from neurokraken.configurators import Display, devices
-
-serial_in = {
-    'clock_100ms':    devices.pulse_clock(pin=2, change_periods_ms= 100),
-    'clock_1s':       devices.pulse_clock(pin=3, change_periods_ms=1000),
-    'steering_wheel': devices.rotary_encoder(pins=(31, 32), keys=['left', 'right'])
-}
-
-serial_out = {
-    'reward_valve':   devices.timed_on(pin=40),
-    'steering_wheel': devices.rotary_encoder(pins=(31, 32), controls=True) # ! same name but controls=True
-}
-
-nk = Neurokraken(serial_in=serial_in, serial_out=serial_out,
-                 display=Display(size=(800, 600)), mode='keyboard', autostart=False)
-
-import random
-from neurokraken.controls import get
-from pathlib import Path
-
-#----------------------------------- TASK -----------------------------------
-
-probability_left_spawn = 0.5
-valve_open_t_ms = 60
-steering_scaling = 0.2
-
-class Delay(State):
-    def loop_visual(self, sketch):
-        sketch.background(0, 0, 0)
-
-class Timeout(State):        
-    def loop_visual(self, sketch):
-        sketch.background(64,0,0)
-
-class Reward(State):
-    def on_start(self):
-        global valve_open_t_ms
-        get.send_out('reward_valve', valve_open_t_ms)
-
-    def loop_visual(self, sketch):
-        sketch.background(0,64,0)
-
-class Steer(State):
-    def on_start(self):
-        # get the encoder position at the start of the state. All our movements will be 
-        # calculated as relative to this starting position. 
-        self.last_position = get.read_in('steering_wheel')
-
-        global probability_left_spawn
-        if random.random() < probability_left_spawn:
-            get.log['trials'][-1]['side'] = 'l'
-            self.position = 200
-        else:
-            get.log['trials'][-1]['side'] = 'r'
-            self.position = 600
-        
-    def loop_main(self):
-        """When the shape was moved more than 200 from its starting position and is at the center,
-        the State is completed and will move on to next_state 0. Otherwise if the shape was steered
-        to the edge it will move on to next_state 1"""
-        global steering_scaling
-        new_position = get.read_in('steering_wheel')
-        delta = new_position - self.last_position
-        delta *= steering_scaling
-        self.position += delta
-        
-        # update the current position for the next loop iteration
-        self.last_position = new_position
-
-        if get.log['trials'][-1]['side'] == 'l':
-            if self.position > 400:
-                return True, 0
-            elif self.position < 0:
-                return True, 1
-        else:
-            if self.position < 400:
-                return True, 0
-            elif self.position > 800:
-                return True, 1
-        # timeout condition
-        return False, 1
-
-    def loop_visual(self, sketch):
-        sketch.background(0)
-        sketch.image_mode(sketch.CENTER)
-        sketch.image(self.texture, self.position, 300, 100, 300)
-
-    def pre_task(self, sketch):
-        # the texture should be loaded before other functions might need it
-        self.texture = str(Path(__file__).parent / 'assets' / 'steering_texture.png')
-        self.texture = sketch.load_image(str(self.texture))
-        
-#------------------------- SCHEDULE -------------------------
-
-# To schedule task changes we write a function to provide as run_post_trial. (or as the final states' run_at_end=.)
-# Checking State's signature for a run_at_end-function it receives a reference to the current state
-# and whether it was sucessfully finished (or timed out).
-def switch_side_probability_if_performant():
-    """Check the recent 5 trials to determine the performance. If the subject 
-    performs correctly (rewarded) in more than 75% of the last 5 trials, the probability of the
-    stimulus appearing on the left side (probability_left_spawn) is adjusted.
-    The adjustment alternates the probability between 0.2 and 0.8."""
-
-    global probability_left_spawn
-    n_last_trials = 5
-    last_n_trials = get.log['trials'][-n_last_trials:]
-    # don't test if too few trials have been performed or a switch already took place recently.
-    if len(get.log['trials']) < n_last_trials:
-        return
-    num_recent_switches = len([t for t in last_n_trials if 'switched_side' in t])
-    if num_recent_switches != 0:
-        return
-    num_rewarded = len([t for t in last_n_trials if 'rewarded' in t]) # added by log_reward() beneath
-    ratio_correct = num_rewarded / n_last_trials
-    if ratio_correct > 0.75:
-        probability_left_spawn = 0.2 if probability_left_spawn > 0.5 else 0.8
-        get.log['trials'][-1]['switched_side'] = probability_left_spawn
-        print(f'switched to new left spawn probabiltiy: {probability_left_spawn}')
-
-# We can also provide a run_at_start function to states
-def log_reward():
-    get.log['trials'][-1]['rewarded'] = True
-
-#------------------------- TASK PROTOCOL -------------------------
-
-task = {
-    'waiting': Delay(max_time_s=1, next_state='steer'),
-    'steer':   Steer(max_time_s=30, next_state=['reward', 'timeout']),
-    'reward':  Reward(max_time_s=1, next_state='waiting',
-                      run_at_start=log_reward,
-                      trial_complete=True),
-    'timeout': Timeout(max_time_s=1, next_state='waiting',
-                       trial_complete=True)
-}
-
-nk.load_task(task, run_post_trial=switch_side_probability_if_performant)
-
-#------------------------- ADD A SMALL UI -------------------------
-from py5 import Sketch
-import krakengui as gui
-
-def override_reward():
-    global valve_open_t_ms
-    get.send_out('reward_valve', valve_open_t_ms)
-
-class UI(Sketch):
-    def settings(self):
-        self.size(500, 200)
-
-    def setup(self):
-        self.window_title('UI')
-        self.window_move(0,630)
-                
-        with gui.Col(pos=(270, 10)) as col:
-            col.add(gui.Button(label='override single reward',on_click=override_reward))
-            col.add(gui.Button(label='start task', on_click=get.start)) # as we set autostart=False we
-            col.add(gui.Button(label='stop task', on_click=get.stop))   # have to manually start the task
-            def reset_wheel(): get.send_out('steering_wheel', True)
-            col.add(gui.Button(label='reset wheel pos', on_click=reset_wheel))
-
-    def draw(self):
-        global probability_left_spawn
-        self.background(0)
-        self.fill(255);     self.stroke(255)
-        self.text_size(15)
-        # show some general task information, with \n to start newlines
-        self.text(f'time (ms): {get.read_in('t_ms')}\n' + 
-                  f'wheel pos: {get.read_in('steering_wheel')}\n'
-                  f'probability_left_spawn: {probability_left_spawn}\n' +
-                  f'number of trials: {len(get.log["trials"])}\n', 10, 25)
-        
-        if get.quitting:
-            self.exit_sketch() # end the UI if the experiment is quitting from its side
-
-    def exiting(self):
-        # end the experiment when the UI window is closed
-        get.quit()
-
-#------------------------- START THE UI AND TASK -------------------------
 
 ui = UI()
 ui.run_sketch(block=False)

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -183,11 +183,13 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples / Guides</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Task Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples_ui.html">UI Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runner_mode.html">Runner Mode Examples</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Function Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -195,23 +197,15 @@
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration - The Neurokraken Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states.html">States - Structuring task steps</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Devices Reference</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino, ...</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cameras.html">Cameras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="microphones.html">Microphones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device_library.html">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modalities.html">Sensors and Stimuli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device_library.html">Configurators.devices Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wiring_guides.html">Wiring guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arduino_custom.html">Add your own device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outside_devices.html">Integrating Outside Devices</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="runner_mode.html">Runner Mode</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware</span></p>
 <ul class="nav bd-sidenav">
@@ -219,6 +213,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 
@@ -263,7 +258,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/PasseckerLab/Neurokraken" target="_blank"
+<a href="https://github.com/Neurokraken/Neurokraken" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -379,20 +374,19 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contents </h2>
+                <h2> On this page </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-examples">Minimal examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-examples">Introduction examples</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal">minimal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blink">blink</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quickstart">quickstart</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display">display</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runner-mode">Runner mode</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steering">steering</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corridor-3d">corridor_3d</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corridor-3d">corridor_3d</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizing-a-3d-obj-with-blender-and-py5">Utilizing a 3D .obj with blender and py5</a></li>
 </ul>
 </li>
@@ -402,15 +396,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eye-tracking">eye_tracking</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-poke">sequence_poke</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#olfactory-discrimination">olfactory_discrimination</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-motion">dot_motion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shuttle-tracked">Shuttle_tracked</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cutie-examples">Cutie Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-folder-py">process_folder.py</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#live-webcam-example-py">live-webcam-example.py</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-motion-advanced">dot motion_advanced</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steering-advanced">steering_advanced</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shuttle">Shuttle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-motion">dot motion</a></li>
 </ul>
             </nav>
         </div>
@@ -424,7 +411,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="task-examples">
 <h1>Task Examples<a class="headerlink" href="#task-examples" title="Link to this heading">#</a></h1>
-<p>You can find helpful examples within the <a class="reference external" href="https://github.com/PasseckerLab/murine-rig-development/tree/main/examples">examples folder of the neurokraken repository</a></p>
+<p>You can find helpful examples within the <a class="reference external" href="https://github.com/Neurokraken/Neurokraken/tree/main/examples">examples folder of the neurokraken repository</a></p>
 <p>These examples are ready to run and showcase the range of neurokraken’s capabilities. By default they use <code class="docutils literal notranslate"><span class="pre">mode='keyboard'</span></code> in the Neurokraken initialization allowing them to run without connected electronics. As neurokraken is built for ease-of-use running neurokraken tasks with connected physical devices, only requires changing to <code class="docutils literal notranslate"><span class="pre">mode='teensy'</span></code>, running <code class="docutils literal notranslate"><span class="pre">config2teensy.py</span></code>, and uploading the code it created in the <code class="docutils literal notranslate"><span class="pre">teensy</span></code> folder to your teensy.
 For keyboard mode inputs contain an additional keys=[] list allowing you to map keyboard keys to inputs - this property is not needed outside of keyboard mode.</p>
 <p>Some examples showing how to integrate external packages/utilities have additional requirements that are noted here and will have to be <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">installed</span></code> in order to run respective examples like VizDOOM and eye_tracking.</p>
@@ -435,46 +422,37 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
 </div>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#minimal-examples" id="id2">Minimal examples</a></p>
+<li><p><a class="reference internal" href="#introduction-examples" id="id1">Introduction examples</a></p>
 <ul>
-<li><p><a class="reference internal" href="#minimal" id="id3">minimal</a></p></li>
-<li><p><a class="reference internal" href="#blink" id="id4">blink</a></p></li>
-<li><p><a class="reference internal" href="#quickstart" id="id5">quickstart</a></p></li>
-<li><p><a class="reference internal" href="#display" id="id6">display</a></p></li>
+<li><p><a class="reference internal" href="#minimal" id="id2">minimal</a></p></li>
+<li><p><a class="reference internal" href="#blink" id="id3">blink</a></p></li>
+<li><p><a class="reference internal" href="#quickstart" id="id4">quickstart</a></p></li>
+<li><p><a class="reference internal" href="#display" id="id5">display</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#runner-mode" id="id7">Runner mode</a></p></li>
-<li><p><a class="reference internal" href="#steering" id="id8">steering</a></p></li>
-<li><p><a class="reference internal" href="#corridor-3d" id="id9">corridor_3d</a></p>
+<li><p><a class="reference internal" href="#steering" id="id6">steering</a></p></li>
+<li><p><a class="reference internal" href="#corridor-3d" id="id7">corridor_3d</a></p>
 <ul>
-<li><p><a class="reference internal" href="#utilizing-a-3d-obj-with-blender-and-py5" id="id10">Utilizing a 3D .obj with blender and py5</a></p></li>
+<li><p><a class="reference internal" href="#utilizing-a-3d-obj-with-blender-and-py5" id="id8">Utilizing a 3D .obj with blender and py5</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#doom" id="id11">DOOM</a></p></li>
-<li><p><a class="reference internal" href="#game" id="id12">game</a></p></li>
-<li><p><a class="reference internal" href="#pong" id="id13">pong</a></p></li>
-<li><p><a class="reference internal" href="#eye-tracking" id="id14">eye_tracking</a></p></li>
-<li><p><a class="reference internal" href="#sequence-poke" id="id15">sequence_poke</a></p></li>
-<li><p><a class="reference internal" href="#olfactory-discrimination" id="id16">olfactory_discrimination</a></p></li>
-<li><p><a class="reference internal" href="#dot-motion" id="id17">dot_motion</a></p></li>
-<li><p><a class="reference internal" href="#shuttle-tracked" id="id18">Shuttle_tracked</a></p></li>
-<li><p><a class="reference internal" href="#cutie-examples" id="id19">Cutie Examples</a></p>
-<ul>
-<li><p><a class="reference internal" href="#process-folder-py" id="id20">process_folder.py</a></p></li>
-<li><p><a class="reference internal" href="#live-webcam-example-py" id="id21">live-webcam-example.py</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#dot-motion-advanced" id="id22">dot motion_advanced</a></p></li>
-<li><p><a class="reference internal" href="#steering-advanced" id="id23">steering_advanced</a></p></li>
+<li><p><a class="reference internal" href="#doom" id="id9">DOOM</a></p></li>
+<li><p><a class="reference internal" href="#game" id="id10">game</a></p></li>
+<li><p><a class="reference internal" href="#pong" id="id11">pong</a></p></li>
+<li><p><a class="reference internal" href="#eye-tracking" id="id12">eye_tracking</a></p></li>
+<li><p><a class="reference internal" href="#sequence-poke" id="id13">sequence_poke</a></p></li>
+<li><p><a class="reference internal" href="#olfactory-discrimination" id="id14">olfactory_discrimination</a></p></li>
+<li><p><a class="reference internal" href="#shuttle" id="id15">Shuttle</a></p></li>
+<li><p><a class="reference internal" href="#dot-motion" id="id16">dot motion</a></p></li>
 </ul>
 </nav>
-<section id="minimal-examples">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Minimal examples</a><a class="headerlink" href="#minimal-examples" title="Link to this heading">#</a></h2>
+<section id="introduction-examples">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Introduction examples</a><a class="headerlink" href="#introduction-examples" title="Link to this heading">#</a></h2>
 <p>These examples are small introductory examples to get you started with Neurokraken</p>
 <section id="minimal">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">minimal</a><a class="headerlink" href="#minimal" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">minimal</a><a class="headerlink" href="#minimal" title="Link to this heading">#</a></h3>
 <p>This task just runs a minimal state loop forever until you end the run.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup configuration</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup configuration</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken</span><span class="w"> </span><span class="kn">import</span> <span class="n">Neurokraken</span><span class="p">,</span> <span class="n">State</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.configurators</span><span class="w"> </span><span class="kn">import</span> <span class="n">devices</span><span class="p">,</span> <span class="n">Display</span><span class="p">,</span> <span class="n">Camera</span><span class="p">,</span> <span class="n">Microphone</span>
 
@@ -488,8 +466,8 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">My_State</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># your experiment code will loop here</span>
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="c1"># add your experiment code here where it will run in a loop</span>
+        <span class="k">pass</span>
     
 <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;state_name&#39;</span><span class="p">:</span> <span class="n">My_State</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;state_name&#39;</span><span class="p">),</span>
@@ -502,7 +480,7 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
 </div>
 </section>
 <section id="blink">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">blink</a><a class="headerlink" href="#blink" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">blink</a><a class="headerlink" href="#blink" title="Link to this heading">#</a></h3>
 <p>We will just show the color green on a display in this state and blink an LED every 5 seconds. This example is a good starting point to understand the basic structure of Neurokraken and then modify into your task of interest.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken</span><span class="w"> </span><span class="kn">import</span> <span class="n">Neurokraken</span><span class="p">,</span> <span class="n">State</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.configurators</span><span class="w"> </span><span class="kn">import</span> <span class="n">Display</span><span class="p">,</span> <span class="n">devices</span>
@@ -531,14 +509,11 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
             <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span>
             <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;led&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">t_last_switch</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">time_ms</span>
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
     
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
         <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;waiting&#39;</span><span class="p">:</span> <span class="n">Green</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;waiting&#39;</span><span class="p">),</span>
-<span class="p">}</span>
+<span class="n">task</span> <span class="o">=</span> <span class="n">Green</span><span class="p">()</span>
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 
@@ -547,7 +522,7 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
 </div>
 </section>
 <section id="quickstart">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">quickstart</a><a class="headerlink" href="#quickstart" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">quickstart</a><a class="headerlink" href="#quickstart" title="Link to this heading">#</a></h3>
 <p>The example created in the quickstart chapter</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup configuration</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken</span><span class="w"> </span><span class="kn">import</span> <span class="n">Neurokraken</span><span class="p">,</span> <span class="n">State</span>
@@ -555,7 +530,7 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
 
 <span class="n">serial_in</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;light_beam&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">analog_read</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">])}</span>
 <span class="n">serial_out</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;reward_valve&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">timed_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-              <span class="s1">&#39;LED&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">direct_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">)}</span>
+              <span class="s1">&#39;LED&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">direct_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">4</span><span class="p">)}</span>
 
 <span class="n">nk</span> <span class="o">=</span> <span class="n">Neurokraken</span><span class="p">(</span><span class="n">serial_in</span><span class="o">=</span><span class="n">serial_in</span><span class="p">,</span> <span class="n">serial_out</span><span class="o">=</span><span class="n">serial_out</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;keyboard&#39;</span><span class="p">)</span>
 
@@ -563,18 +538,21 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
 <span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Poke_for_reward</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;LED&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;light_beam&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">512</span><span class="p">:</span>
-            <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;LED&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;light_beam&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">400</span><span class="p">:</span>
             <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;reward_valve&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
             <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;LED&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
+            <span class="n">get</span><span class="o">.</span><span class="n">progress_state</span><span class="p">(</span><span class="s1">&#39;delay&#39;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Delay</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
+    <span class="k">pass</span>
 
 <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;poke&#39;</span><span class="p">:</span> <span class="n">Poke_for_reward</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;delay&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;delay&#39;</span><span class="p">:</span> <span class="n">State</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;poke&#39;</span><span class="p">,</span> <span class="n">max_time_s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="s1">&#39;poke&#39;</span><span class="p">:</span> <span class="n">Poke_for_reward</span><span class="p">(),</span>
+    <span class="s1">&#39;delay&#39;</span><span class="p">:</span> <span class="n">Delay</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;poke&#39;</span><span class="p">,</span> <span class="n">max_time_s</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
@@ -584,7 +562,7 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
 </div>
 </section>
 <section id="display">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">display</a><a class="headerlink" href="#display" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">display</a><a class="headerlink" href="#display" title="Link to this heading">#</a></h3>
 <p>Another short introduction example</p>
 <p>Here a a green rectangle is periodically appearing on the screen. Triggering a touch sensor during its appearance leads to a the delivery of a reward drink droplet from a valve.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken</span><span class="w"> </span><span class="kn">import</span> <span class="n">Neurokraken</span><span class="p">,</span> <span class="n">State</span>
@@ -615,15 +593,13 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
             <span class="bp">self</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">visible</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">last_switch</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">time_ms</span>
 
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
-
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
         <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>    
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">visible</span><span class="p">:</span>        
             <span class="n">sketch</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
             <span class="n">sketch</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
 
-<span class="n">task</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;my_first_state&#39;</span><span class="p">:</span> <span class="n">Touch_When_Visible</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;my_first_state&#39;</span><span class="p">)}</span>
+<span class="n">task</span> <span class="o">=</span> <span class="n">Touch_When_Visible</span><span class="p">()</span>
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 
@@ -632,112 +608,8 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
 </div>
 </section>
 </section>
-<section id="runner-mode">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Runner mode</a><a class="headerlink" href="#runner-mode" title="Link to this heading">#</a></h2>
-<p>In Runner mode tasks are organized in a folder containing separate files for the device configuration <code class="docutils literal notranslate"><span class="pre">config.py</span></code>, task <code class="docutils literal notranslate"><span class="pre">task.py</span></code>, and parallel code (like an UI) <code class="docutils literal notranslate"><span class="pre">launch.py</span></code>.</p>
-<p>Runner mode can be run with <code class="docutils literal notranslate"><span class="pre">kraken.bat</span></code> (if you have an activateable conda environment named neurokraken) or <code class="docutils literal notranslate"><span class="pre">kraken.py</span></code>, which will provide you with a list of all tasks found within the <code class="docutils literal notranslate"><span class="pre">tasks</span></code> folder to choose from.
-To run this example add a new folder with a name of your choice like <code class="docutils literal notranslate"><span class="pre">runner_mode_example</span></code> containing the respective files to <code class="docutils literal notranslate"><span class="pre">tasks</span></code>.
-Runner mode can be provided with arguments for dynamic execution, like <code class="docutils literal notranslate"><span class="pre">kraken.bat</span> <span class="pre">--task</span> <span class="pre">runner_mode_example</span> <span class="pre">--keyboard</span></code> to directly execute the runner_mode_example task in keyboard mode.</p>
-<p>The following example is the same as <a class="reference external" href="http://minimal.py">minimal.py</a> above, with the addition of</p>
-<ul class="simple">
-<li><p>a list of datapoints to be prompted upon execution, including subject options</p></li>
-<li><p>a UI (<code class="docutils literal notranslate"><span class="pre">launch.py</span></code>) with a control for the task’s shown color</p></li>
-</ul>
-<p>You can learn more about runner mode in the <a class="reference internal" href="modes.html"><span class="doc std std-doc">modes</span></a> chapter.</p>
-<blockquote>
-<div><p><span>config.py</span> <!-- span to avoid auto-formatting into a hyperlink --></p>
-</div></blockquote>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instead of being bundled with the config.py a subjects dictionary could be loaded from a .json file or remote source</span>
-<span class="n">subjects</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpha&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;female&#39;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Beta&#39;</span><span class="p">,</span>  <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;female&#39;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Gamma&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;male&#39;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Delta&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;male&#39;</span><span class="p">}]</span>
-
-<span class="c1"># runner mode can prompt for named datapoints upon execution</span>
-<span class="n">ask_for</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">]</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.configurators</span><span class="w"> </span><span class="kn">import</span> <span class="n">Display</span><span class="p">,</span> <span class="n">devices</span>
-<span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
-
-<span class="n">cameras</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
-
-<span class="n">serial_in</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
-<span class="n">serial_out</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;led&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">direct_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">start_value</span><span class="o">=</span><span class="kc">False</span><span class="p">)}</span>
-</pre></div>
-</div>
-<blockquote>
-<div><p><span>task.py</span></p>
-</div></blockquote>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken</span><span class="w"> </span><span class="kn">import</span> <span class="n">State</span>
-
-<span class="n">get</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;We will just show the color on a display in this state and blink an LED every 5 seconds&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># store relevant variables within the state self</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">t_last_switch</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">time_ms</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_last_switch</span> <span class="o">+</span> <span class="mi">5_000</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span>
-            <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;led&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">t_last_switch</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">time_ms</span>
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
-    
-    <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
-        <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="o">*</span><span class="n">get</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
-
-<span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;waiting&#39;</span><span class="p">:</span> <span class="n">Color</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;waiting&#39;</span><span class="p">),</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<blockquote>
-<div><p><span>launch.py</span></p>
-</div></blockquote>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># code that would be executed just before neurokraken.run() can be included in an optional launch.py</span>
-<span class="c1"># This typically covers UIs and parallel analysis/processing loops like cutie</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">py5</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sketch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">krakengui</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gui</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">recolor_background</span><span class="p">():</span>
-    <span class="n">get</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">UI</span><span class="p">(</span><span class="n">Sketch</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">settings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">gui</span><span class="o">.</span><span class="n">use_sketch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-
-        <span class="n">gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;randomize background&#39;</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">on_click</span><span class="o">=</span><span class="n">recolor_background</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stroke</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>     <span class="bp">self</span><span class="o">.</span><span class="n">text_size</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;t_ms: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">get</span><span class="o">.</span><span class="n">time_ms</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">quitting</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">exit_sketch</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">exiting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># close end the experiment when the UI window is closed</span>
-        <span class="n">get</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-
-<span class="c1"># run the UI</span>
-
-<span class="n">ui</span> <span class="o">=</span> <span class="n">UI</span><span class="p">()</span>
-<span class="n">ui</span><span class="o">.</span><span class="n">run_sketch</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
 <section id="steering">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">steering</a><a class="headerlink" href="#steering" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">steering</a><a class="headerlink" href="#steering" title="Link to this heading">#</a></h2>
 <p>A simple steering task with the goal of steering a displayed shape from the center to the more rewarding side.
 Once the edge has been reached a green or red delay state visual will be shown to reinforce the outcome.</p>
 <p>This task utilizes a trial structure and will change the more rewarding side every 5 trials.</p>
@@ -826,7 +698,7 @@ Once the edge has been reached a green or red delay state visual will be shown t
 </div>
 </section>
 <section id="corridor-3d">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">corridor_3d</a><a class="headerlink" href="#corridor-3d" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">corridor_3d</a><a class="headerlink" href="#corridor-3d" title="Link to this heading">#</a></h2>
 <p>In this task the subject traverses a virtual world created in blender along a corridor track by moving a steering wheel, treading disk, hover ball or similar input.
 The path leads through a central tunnel segment and once the end of the path is reached the subject will be teleported back to the start.
 Stopping movement in the tunnel segment however will lead to a reward that can be collected once on the way to the end.</p>
@@ -838,7 +710,7 @@ Stopping movement in the tunnel segment however will lead to a reward that can b
 <li><p>positioning 3D elements and the camera in space dependent on task parameters</p></li>
 </ul>
 <section id="utilizing-a-3d-obj-with-blender-and-py5">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Utilizing a 3D .obj with blender and py5</a><a class="headerlink" href="#utilizing-a-3d-obj-with-blender-and-py5" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Utilizing a 3D .obj with blender and py5</a><a class="headerlink" href="#utilizing-a-3d-obj-with-blender-and-py5" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>If you are not familiar with blender, it is an outstanding open source project that allows modeling 3D objects, state of the art movies and more.</p></li>
 <li><p>The BlenderGuru Donut tutorial on youtube is a great introduction to blender</p></li>
@@ -914,9 +786,7 @@ Py5/Processing differs from from Blender by using a left hand coordinate system 
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">&gt;=</span> <span class="mi">660</span><span class="p">:</span>
             <span class="c1"># the end was reached, go on to the next trial</span>
-            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span>
-
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
+            <span class="n">get</span><span class="o">.</span><span class="n">progress_state</span><span class="p">(</span><span class="s1">&#39;corridor&#39;</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
         <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
@@ -942,9 +812,7 @@ Py5/Processing differs from from Blender by using a left hand coordinate system 
         
 <span class="c1">#------------------------- TASK PROTOCOL BLOCKS AND BLOCK TRIAL STATES -------------------------</span>
 
-<span class="n">task</span>  <span class="o">=</span> <span class="p">{</span>
-<span class="s1">&#39;corridor&#39;</span><span class="p">:</span> <span class="n">Corridor</span><span class="p">(</span><span class="n">max_time_s</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span> <span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;corridor&#39;</span><span class="p">)</span>
-<span class="p">}</span>
+<span class="n">task</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;corridor&#39;</span><span class="p">:</span> <span class="n">Corridor</span><span class="p">()}</span>
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 
@@ -954,7 +822,7 @@ Py5/Processing differs from from Blender by using a left hand coordinate system 
 </section>
 </section>
 <section id="doom">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">DOOM</a><a class="headerlink" href="#doom" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">DOOM</a><a class="headerlink" href="#doom" title="Link to this heading">#</a></h2>
 <p>In this task the subject plays DOOM. That’s it.
 ViZDoom <a class="reference external" href="https://vizdoom.cs.put.edu.pl/">https://vizdoom.cs.put.edu.pl/</a> is a reinforcement learning environment primarily intended for research in machine visual learning and deep reinforcement learning.</p>
 <p>This task provides an example for:</p>
@@ -988,10 +856,9 @@ ViZDoom <a class="reference external" href="https://vizdoom.cs.put.edu.pl/">http
 
 <span class="n">nk</span> <span class="o">=</span> <span class="n">Neurokraken</span><span class="p">(</span><span class="n">serial_in</span><span class="p">,</span> <span class="n">serial_out</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="n">Display</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;keyboard&#39;</span><span class="p">)</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">vizdoom</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">vzd</span> <span class="c1"># pip install vizdoom --pre</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">Millis</span>
-<span class="n">millis_timer</span> <span class="o">=</span> <span class="n">Millis</span><span class="p">()</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
+<span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -1036,12 +903,12 @@ ViZDoom <a class="reference external" href="https://vizdoom.cs.put.edu.pl/">http
 
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># slow down the game loop executions to a 60 fps framerate</span>
-        <span class="k">if</span> <span class="n">millis_timer</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="n">millis_timer</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">timer</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">timer</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
         
         <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">is_episode_finished</span><span class="p">():</span>
-            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span>
+            <span class="n">get</span><span class="o">.</span><span class="n">progress_state</span><span class="p">(</span><span class="s1">&#39;DOOM&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">state</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span>
             <span class="n">get</span><span class="o">.</span><span class="n">screen_buf</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">screen_buffer</span> 
@@ -1069,8 +936,6 @@ ViZDoom <a class="reference external" href="https://vizdoom.cs.put.edu.pl/">http
             <span class="k">if</span> <span class="n">points</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_rewards</span><span class="p">:</span>
                <span class="bp">self</span><span class="o">.</span><span class="n">total_rewards</span> <span class="o">=</span> <span class="n">points</span>
                <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;reward&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
         
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
         <span class="c1"># pass the current screen_buffer to a py5 image and display it</span>
@@ -1084,7 +949,7 @@ ViZDoom <a class="reference external" href="https://vizdoom.cs.put.edu.pl/">http
 <span class="c1">#------------------------- TRAINING PROTOCOL BLOCKS AND BLOCK TRIAL STATES -------------------------</span>
 
 <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;DOOM&#39;</span><span class="p">:</span> <span class="n">DOOM</span><span class="p">(</span><span class="n">max_time_s</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;DOOM&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;DOOM&#39;</span><span class="p">:</span> <span class="n">DOOM</span><span class="p">(</span><span class="n">max_time_s</span><span class="o">=</span><span class="mi">180</span><span class="p">),</span>
 <span class="p">}</span>
 
 <span class="c1"># call the game environment&#39;s close function upon neurokraken quit</span>
@@ -1095,7 +960,7 @@ ViZDoom <a class="reference external" href="https://vizdoom.cs.put.edu.pl/">http
 </div>
 </section>
 <section id="game">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">game</a><a class="headerlink" href="#game" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">game</a><a class="headerlink" href="#game" title="Link to this heading">#</a></h2>
 <p>An example using 2D assets to create a simple game arena that can be navigated for rewards.
 For control a PSP 2000 joystick is used which can be connected to the teensy as 2 analog_read devices.</p>
 <p>This task provides an example for</p>
@@ -1117,8 +982,8 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">Millis</span>
-<span class="n">millis_timer</span> <span class="o">=</span> <span class="n">Millis</span><span class="p">()</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
+<span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
 
 <span class="n">spawn_points</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">700</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span> <span class="p">[</span><span class="mi">700</span><span class="p">,</span> <span class="mi">500</span><span class="p">]]</span>
 
@@ -1146,9 +1011,9 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># run game loop calculations at a 60 fps framerate</span>
-        <span class="k">if</span> <span class="n">millis_timer</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="n">millis_timer</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">timer</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">timer</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
 
         <span class="c1"># go from range 0-1024 into -1 to +1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">delta_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;LR&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">512</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span>
@@ -1166,8 +1031,6 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
             <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;reward&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
             <span class="n">spawn_options</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">spawn_points</span> <span class="k">if</span> <span class="n">distance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">250</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">reward_pos</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">spawn_options</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
         <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1198,7 +1061,7 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
 </div>
 </section>
 <section id="pong">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">pong</a><a class="headerlink" href="#pong" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">pong</a><a class="headerlink" href="#pong" title="Link to this heading">#</a></h2>
 <p>In this task the subject plays pong vs an AI opponent using a steering wheel</p>
 <p>This task provides an example for</p>
 <ul class="simple">
@@ -1225,8 +1088,8 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">Millis</span>
-<span class="n">millis_timer</span> <span class="o">=</span> <span class="n">Millis</span><span class="p">()</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
+<span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
 
 <span class="n">get</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">get</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1246,10 +1109,10 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
         <span class="bp">self</span><span class="o">.</span><span class="n">last_position</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;movement&#39;</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">millis_timer</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">timer</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
             <span class="c1"># run at ~60 hz =&gt; only continue if 16ms have passed</span>
-            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="n">millis_timer</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+            <span class="k">return</span>
+        <span class="n">timer</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
         <span class="c1"># update the player paddle position</span>
         <span class="n">new_position</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;movement&#39;</span><span class="p">)</span>
         <span class="n">delta_player</span> <span class="o">=</span> <span class="n">new_position</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_position</span>
@@ -1302,7 +1165,8 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
             <span class="n">get</span><span class="o">.</span><span class="n">log</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;win&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="n">finished</span> <span class="o">=</span> <span class="kc">True</span>
 
-        <span class="k">return</span> <span class="n">finished</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">finished</span><span class="p">:</span>
+            <span class="n">get</span><span class="o">.</span><span class="n">progress_state</span><span class="p">(</span><span class="s1">&#39;pong&#39;</span><span class="p">)</span>
         
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
         <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1321,7 +1185,7 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
         <span class="n">sketch</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">get</span><span class="o">.</span><span class="n">score</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">        </span><span class="si">{</span><span class="n">get</span><span class="o">.</span><span class="n">score</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
 
 <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;pong&#39;</span><span class="p">:</span> <span class="n">Pong</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;pong&#39;</span><span class="p">,</span> <span class="n">trial_complete</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="s1">&#39;pong&#39;</span><span class="p">:</span> <span class="n">Pong</span><span class="p">(</span><span class="n">trial_complete</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
 <span class="p">}</span>
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
@@ -1331,25 +1195,21 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
 </div>
 </section>
 <section id="eye-tracking">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">eye_tracking</a><a class="headerlink" href="#eye-tracking" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">eye_tracking</a><a class="headerlink" href="#eye-tracking" title="Link to this heading">#</a></h2>
 <p>An eye tracking example using <a class="reference external" href="https://github.com/antoinelame/GazeTracking">GazeTracking</a> will be added soon</p>
 </section>
 <section id="sequence-poke">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">sequence_poke</a><a class="headerlink" href="#sequence-poke" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">sequence_poke</a><a class="headerlink" href="#sequence-poke" title="Link to this heading">#</a></h2>
 <p>An example where a correct sequence has to be poked for rewards will be added soon</p>
 </section>
 <section id="olfactory-discrimination">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">olfactory_discrimination</a><a class="headerlink" href="#olfactory-discrimination" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">olfactory_discrimination</a><a class="headerlink" href="#olfactory-discrimination" title="Link to this heading">#</a></h2>
 <p>An example showcasing odor delivery and corresponding lick choices will be added soon</p>
 </section>
-<section id="dot-motion">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">dot_motion</a><a class="headerlink" href="#dot-motion" title="Link to this heading">#</a></h2>
-<p>A minimal version of the advanced dot motion example will be added soon</p>
-</section>
-<section id="shuttle-tracked">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">Shuttle_tracked</a><a class="headerlink" href="#shuttle-tracked" title="Link to this heading">#</a></h2>
+<section id="shuttle">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Shuttle</a><a class="headerlink" href="#shuttle" title="Link to this heading">#</a></h2>
 <p>In this task for an open environment 2 touch-sensitive reward spouts are placed in the environment. Licking one triggers a reward and trigger receptivity at the other, encouraging subjects to rapidly and efficiently shuttle between the 2 spouts for a large number of rewards.</p>
-<p>The task also integrates cutie for live tracking when setting <code class="docutils literal notranslate"><span class="pre">with_cutie</span> <span class="pre">=</span> <span class="pre">True</span></code>. Please check out the the <a class="reference internal" href="#cutie-examples"><span class="std std-ref">cutie examples</span></a> and our <a class="reference internal" href="ai_ml_cv.html"><span class="doc std std-doc">Cutie documentation</span></a> for more information on integrating cutie and live tracking into your tasks.</p>
+<p>Within the <a class="reference internal" href="ai_ml_cv.html"><span class="std std-doc">AI examples</span></a> you can also find an extended version of this task that integrates live-camera frame processing with the cutie AI model to live-track the subject during the task.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">with_cutie</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="c1"># ------------------------ TASK SETUP ------------------------</span>
@@ -1405,101 +1265,12 @@ For control a PSP 2000 joystick is used which can be connected to the teensy as 
 <span class="p">}</span>
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="ow">not</span> <span class="n">with_cutie</span> <span class="ow">and</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">nk</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-    <span class="n">exit</span><span class="p">()</span>
-
-<span class="c1"># ------------------------ CUTIE TRACKING AND UI ------------------------</span>
-
-<span class="c1"># The approach is the same as in toolkit/cutie/live_webcam_example.py using the same optimizations of a </span>
-<span class="c1"># parallel_predict() loop/thread and pre-created numpy- and py5 images for shared usage and performance,</span>
-<span class="c1"># but now with the added context of a neurokraken task</span>
-
-<span class="n">cutie_config_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\path\to\cloned\repository\of\Cutie\cutie\config&#39;</span>
-<span class="n">reference_folder</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Path\to\folder\of\reference\imageJPGs\and\maskPNGs\pairs\created\with\cutie\interactivedemo&#39;</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">py5</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sketch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># import the cutie processing utilities script using import_file - this approach can be used for integrating</span>
-<span class="c1"># python projects saved in disparate folders.</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken</span><span class="w"> </span><span class="kn">import</span> <span class="n">tools</span>
-<span class="n">cutils_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;toolkit/cutie/cutils.py&#39;</span><span class="p">)</span>
-<span class="n">cutils</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="n">cutils_path</span><span class="p">)</span>
-
-<span class="n">cutils</span><span class="o">.</span><span class="n">create_cutie</span><span class="p">(</span><span class="n">cutie_config_path</span><span class="p">)</span>
-<span class="n">cutils</span><span class="o">.</span><span class="n">load_references</span><span class="p">(</span><span class="n">reference_folder</span><span class="p">)</span>
-
-<span class="n">processed_frame</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">cam_height</span><span class="p">,</span> <span class="n">cam_width</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-<span class="n">masks</span> <span class="o">=</span>           <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">cam_height</span><span class="p">,</span> <span class="n">cam_width</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">parallel_predict</span><span class="p">():</span>
-    <span class="c1"># cutie will keep predicting frames in this loop. In a proper experiment we might also save the created masks,</span>
-    <span class="c1"># calculate information like the center of mass, and add relevant data for the experiment to get.log</span>
-    <span class="k">global</span> <span class="n">processed_frame</span><span class="p">,</span> <span class="n">masks</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">quitting</span><span class="p">:</span>
-            <span class="k">break</span>
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">camera</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="c1"># cutie works on RGB images =&gt; turn the frame from greyscale i.e. (720, 1280) into RGB (720, 1280, 3)</span>
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">frame</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">frame</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">processed_frame</span><span class="p">,</span> <span class="n">masks</span> <span class="o">=</span> <span class="n">cutils</span><span class="o">.</span><span class="n">predict_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">apply_pallete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">UI</span><span class="p">(</span><span class="n">Sketch</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">settings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">P2D</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">global</span> <span class="n">processed_frame_py5</span><span class="p">,</span> <span class="n">masks_py5</span>
-        <span class="n">processed_frame_py5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_image</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">RGB</span><span class="p">)</span>
-        <span class="n">masks_py5</span> <span class="o">=</span>           <span class="bp">self</span><span class="o">.</span><span class="n">create_image</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">RGB</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">global</span> <span class="n">processed_frame</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">processed_frame_py5</span><span class="p">,</span> <span class="n">masks_py5</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">create_image_from_numpy</span><span class="p">(</span><span class="n">processed_frame</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="s1">&#39;RGB&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">processed_frame_py5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">processed_frame_py5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">create_image_from_numpy</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="s1">&#39;RGB&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">masks_py5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">masks_py5</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">exiting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">get</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-
-<span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">parallel_predict</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-
-<span class="n">ui</span> <span class="o">=</span> <span class="n">UI</span><span class="p">()</span>
-<span class="n">ui</span><span class="o">.</span><span class="n">run_sketch</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
 <span class="n">nk</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
-<section id="cutie-examples">
-<span id="id1"></span><h2><a class="toc-backref" href="#id19" role="doc-backlink">Cutie Examples</a><a class="headerlink" href="#cutie-examples" title="Link to this heading">#</a></h2>
-<p>Additional cutie-related examples exist in Neurokraken’s toolkit/cutie folder to demonstrate usage of standalone cutie or the <code class="docutils literal notranslate"><span class="pre">toolkit/cutils.py</span></code> in a standalone way or one that can be integrated into neurokraken task</p>
-<section id="process-folder-py">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">process_folder.py</a><a class="headerlink" href="#process-folder-py" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><p>toolkit/cutie/process_folder.py</p>
-</div></blockquote>
-<p>This example shows using <code class="docutils literal notranslate"><span class="pre">cutils.create_cutie()</span></code>, <code class="docutils literal notranslate"><span class="pre">cutils.load_references()</span></code> and <code class="docutils literal notranslate"><span class="pre">cutils.predict_folder()</span></code> to automatically process a folder of camera frames using a couple of pre-selected reference examples.</p>
-</section>
-<section id="live-webcam-example-py">
-<h3><a class="reference external" href="http://live-webcam-example.py">live-webcam-example.py</a><a class="headerlink" href="#live-webcam-example-py" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><p>toolkit/cutie/live-webcam-example.py</p>
-</div></blockquote>
-<p>This example shows using <code class="docutils literal notranslate"><span class="pre">cutils.create_cutie()</span></code>, <code class="docutils literal notranslate"><span class="pre">cutils.load_references()</span></code> and <code class="docutils literal notranslate"><span class="pre">cutils.predict_frame()</span></code> to live process webcam frames with cutie. script contains 2 versions, one starting example in which cutie and the UI showing its results are run in the same draw loop, and one slightly longer alternative version where cutie runs in a separate thread for higher performance as it is likely to be used within actual neurokraken experiments.</p>
-</section>
-</section>
-<section id="dot-motion-advanced">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink">dot motion_advanced</a><a class="headerlink" href="#dot-motion-advanced" title="Link to this heading">#</a></h2>
+<section id="dot-motion">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">dot motion</a><a class="headerlink" href="#dot-motion" title="Link to this heading">#</a></h2>
 <p>A touchscreen task where many dots move in semirandom directions and the user has to touch the dominant target side.</p>
 <p>This task makes use of python class structures to define a list of dot objects saved in <code class="docutils literal notranslate"><span class="pre">.get</span></code> for global access.
 An UI allows live update to a range of variables to update the difficulty including the average angle and standard deviation around it, the speed, dot teleport probability, dot size, and total number of dots.</p>
@@ -1633,10 +1404,10 @@ An UI allows live update to a range of variables to update the difficulty includ
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 
-<span class="c1">#------------------------- UI -------------------------</span>
-
 <span class="kn">from</span><span class="w"> </span><span class="nn">py5</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sketch</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">krakengui</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gui</span>
+
+<span class="c1">#------------------------- UI -------------------------</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">UI</span><span class="p">(</span><span class="n">Sketch</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">settings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1669,209 +1440,6 @@ An UI allows live update to a range of variables to update the difficulty includ
 
     <span class="k">def</span><span class="w"> </span><span class="nf">exiting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">get</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-
-<span class="n">ui</span> <span class="o">=</span> <span class="n">UI</span><span class="p">()</span>
-<span class="n">ui</span><span class="o">.</span><span class="n">run_sketch</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">nk</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
-<section id="steering-advanced">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink">steering_advanced</a><a class="headerlink" href="#steering-advanced" title="Link to this heading">#</a></h2>
-<p>An advanced version of the steering task exemplifying a range of advanced features working together.</p>
-<p>Here the shape has to be steered from the side to the center with the probability of the shape spawning on the left or right switching after 5 trials with &gt;75% correct choices</p>
-<p>Additions include:</p>
-<ul class="simple">
-<li><p>GUI with override buttons and live data (time, wheel position, side spawn probabilities…)</p></li>
-<li><p>Pulse clocks for time alignment with external devices</p></li>
-<li><p>Rotary encoder extension with a control to reset to 0</p></li>
-<li><p>autostart=False with experiment start and stop triggered from the UI</p></li>
-<li><p>splitting state sequence after choice</p></li>
-<li><p>manual trial log additions and access</p></li>
-<li><p>performance and trial check to decide whether the probability should be changed</p></li>
-<li><p>self-made image used for the steered shape</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken</span><span class="w"> </span><span class="kn">import</span> <span class="n">Neurokraken</span><span class="p">,</span> <span class="n">State</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.configurators</span><span class="w"> </span><span class="kn">import</span> <span class="n">Display</span><span class="p">,</span> <span class="n">devices</span>
-
-<span class="n">serial_in</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;clock_100ms&#39;</span><span class="p">:</span>    <span class="n">devices</span><span class="o">.</span><span class="n">pulse_clock</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">change_periods_ms</span><span class="o">=</span> <span class="mi">100</span><span class="p">),</span>
-    <span class="s1">&#39;clock_1s&#39;</span><span class="p">:</span>       <span class="n">devices</span><span class="o">.</span><span class="n">pulse_clock</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">change_periods_ms</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-    <span class="s1">&#39;steering_wheel&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">rotary_encoder</span><span class="p">(</span><span class="n">pins</span><span class="o">=</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">])</span>
-<span class="p">}</span>
-
-<span class="n">serial_out</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;reward_valve&#39;</span><span class="p">:</span>   <span class="n">devices</span><span class="o">.</span><span class="n">timed_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span>
-    <span class="s1">&#39;steering_wheel&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">rotary_encoder</span><span class="p">(</span><span class="n">pins</span><span class="o">=</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">controls</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># ! same name but controls=True</span>
-<span class="p">}</span>
-
-<span class="n">nk</span> <span class="o">=</span> <span class="n">Neurokraken</span><span class="p">(</span><span class="n">serial_in</span><span class="o">=</span><span class="n">serial_in</span><span class="p">,</span> <span class="n">serial_out</span><span class="o">=</span><span class="n">serial_out</span><span class="p">,</span>
-                 <span class="n">display</span><span class="o">=</span><span class="n">Display</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;keyboard&#39;</span><span class="p">,</span> <span class="n">autostart</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-
-<span class="c1">#----------------------------------- TASK -----------------------------------</span>
-
-<span class="n">probability_left_spawn</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">valve_open_t_ms</span> <span class="o">=</span> <span class="mi">60</span>
-<span class="n">steering_scaling</span> <span class="o">=</span> <span class="mf">0.2</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Delay</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
-        <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Timeout</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>        
-    <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
-        <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Reward</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">global</span> <span class="n">valve_open_t_ms</span>
-        <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;reward_valve&#39;</span><span class="p">,</span> <span class="n">valve_open_t_ms</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
-        <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Steer</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># get the encoder position at the start of the state. All our movements will be </span>
-        <span class="c1"># calculated as relative to this starting position. </span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">last_position</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;steering_wheel&#39;</span><span class="p">)</span>
-
-        <span class="k">global</span> <span class="n">probability_left_spawn</span>
-        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">probability_left_spawn</span><span class="p">:</span>
-            <span class="n">get</span><span class="o">.</span><span class="n">log</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;side&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;l&#39;</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="mi">200</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">get</span><span class="o">.</span><span class="n">log</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;side&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="mi">600</span>
-        
-    <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;When the shape was moved more than 200 from its starting position and is at the center,</span>
-<span class="sd">        the State is completed and will move on to next_state 0. Otherwise if the shape was steered</span>
-<span class="sd">        to the edge it will move on to next_state 1&quot;&quot;&quot;</span>
-        <span class="k">global</span> <span class="n">steering_scaling</span>
-        <span class="n">new_position</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;steering_wheel&#39;</span><span class="p">)</span>
-        <span class="n">delta</span> <span class="o">=</span> <span class="n">new_position</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_position</span>
-        <span class="n">delta</span> <span class="o">*=</span> <span class="n">steering_scaling</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">+=</span> <span class="n">delta</span>
-        
-        <span class="c1"># update the current position for the next loop iteration</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">last_position</span> <span class="o">=</span> <span class="n">new_position</span>
-
-        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">log</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;side&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">&gt;</span> <span class="mi">400</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">&lt;</span> <span class="mi">400</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">&gt;</span> <span class="mi">800</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span>
-        <span class="c1"># timeout condition</span>
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">1</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
-        <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">sketch</span><span class="o">.</span><span class="n">image_mode</span><span class="p">(</span><span class="n">sketch</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
-        <span class="n">sketch</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">texture</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">pre_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
-        <span class="c1"># the texture should be loaded before other functions might need it</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;assets&#39;</span> <span class="o">/</span> <span class="s1">&#39;steering_texture.png&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> <span class="n">sketch</span><span class="o">.</span><span class="n">load_image</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">texture</span><span class="p">))</span>
-        
-<span class="c1">#------------------------- SCHEDULE -------------------------</span>
-
-<span class="c1"># To schedule task changes we write a function to provide as run_post_trial. (or as the final states&#39; run_at_end=.)</span>
-<span class="c1"># Checking State&#39;s signature for a run_at_end-function it receives a reference to the current state</span>
-<span class="c1"># and whether it was sucessfully finished (or timed out).</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">switch_side_probability_if_performant</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check the recent 5 trials to determine the performance. If the subject </span>
-<span class="sd">    performs correctly (rewarded) in more than 75% of the last 5 trials, the probability of the</span>
-<span class="sd">    stimulus appearing on the left side (probability_left_spawn) is adjusted.</span>
-<span class="sd">    The adjustment alternates the probability between 0.2 and 0.8.&quot;&quot;&quot;</span>
-
-    <span class="k">global</span> <span class="n">probability_left_spawn</span>
-    <span class="n">n_last_trials</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="n">last_n_trials</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">log</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">][</span><span class="o">-</span><span class="n">n_last_trials</span><span class="p">:]</span>
-    <span class="c1"># don&#39;t test if too few trials have been performed or a switch already took place recently.</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">get</span><span class="o">.</span><span class="n">log</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">n_last_trials</span><span class="p">:</span>
-        <span class="k">return</span>
-    <span class="n">num_recent_switches</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">last_n_trials</span> <span class="k">if</span> <span class="s1">&#39;switched_side&#39;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">num_recent_switches</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span>
-    <span class="n">num_rewarded</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">last_n_trials</span> <span class="k">if</span> <span class="s1">&#39;rewarded&#39;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">])</span> <span class="c1"># added by log_reward() beneath</span>
-    <span class="n">ratio_correct</span> <span class="o">=</span> <span class="n">num_rewarded</span> <span class="o">/</span> <span class="n">n_last_trials</span>
-    <span class="k">if</span> <span class="n">ratio_correct</span> <span class="o">&gt;</span> <span class="mf">0.75</span><span class="p">:</span>
-        <span class="n">probability_left_spawn</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="k">if</span> <span class="n">probability_left_spawn</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="mf">0.8</span>
-        <span class="n">get</span><span class="o">.</span><span class="n">log</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;switched_side&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">probability_left_spawn</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;switched to new left spawn probabiltiy: </span><span class="si">{</span><span class="n">probability_left_spawn</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># We can also provide a run_at_start function to states</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">log_reward</span><span class="p">():</span>
-    <span class="n">get</span><span class="o">.</span><span class="n">log</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;rewarded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1">#------------------------- TASK PROTOCOL -------------------------</span>
-
-<span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;waiting&#39;</span><span class="p">:</span> <span class="n">Delay</span><span class="p">(</span><span class="n">max_time_s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;steer&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;steer&#39;</span><span class="p">:</span>   <span class="n">Steer</span><span class="p">(</span><span class="n">max_time_s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">next_state</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;reward&#39;</span><span class="p">,</span> <span class="s1">&#39;timeout&#39;</span><span class="p">]),</span>
-    <span class="s1">&#39;reward&#39;</span><span class="p">:</span>  <span class="n">Reward</span><span class="p">(</span><span class="n">max_time_s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;waiting&#39;</span><span class="p">,</span>
-                      <span class="n">run_at_start</span><span class="o">=</span><span class="n">log_reward</span><span class="p">,</span>
-                      <span class="n">trial_complete</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-    <span class="s1">&#39;timeout&#39;</span><span class="p">:</span> <span class="n">Timeout</span><span class="p">(</span><span class="n">max_time_s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;waiting&#39;</span><span class="p">,</span>
-                       <span class="n">trial_complete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">run_post_trial</span><span class="o">=</span><span class="n">switch_side_probability_if_performant</span><span class="p">)</span>
-
-<span class="c1">#------------------------- ADD A SMALL UI -------------------------</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">py5</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sketch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">krakengui</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gui</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">override_reward</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">valve_open_t_ms</span>
-    <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;reward_valve&#39;</span><span class="p">,</span> <span class="n">valve_open_t_ms</span><span class="p">)</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">UI</span><span class="p">(</span><span class="n">Sketch</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">settings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">window_title</span><span class="p">(</span><span class="s1">&#39;UI&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">window_move</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">630</span><span class="p">)</span>
-                
-        <span class="k">with</span> <span class="n">gui</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="k">as</span> <span class="n">col</span><span class="p">:</span>
-            <span class="n">col</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;override single reward&#39;</span><span class="p">,</span><span class="n">on_click</span><span class="o">=</span><span class="n">override_reward</span><span class="p">))</span>
-            <span class="n">col</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;start task&#39;</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">get</span><span class="o">.</span><span class="n">start</span><span class="p">))</span> <span class="c1"># as we set autostart=False we</span>
-            <span class="n">col</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;stop task&#39;</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">get</span><span class="o">.</span><span class="n">stop</span><span class="p">))</span>   <span class="c1"># have to manually start the task</span>
-            <span class="k">def</span><span class="w"> </span><span class="nf">reset_wheel</span><span class="p">():</span> <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;steering_wheel&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-            <span class="n">col</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;reset wheel pos&#39;</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">reset_wheel</span><span class="p">))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">global</span> <span class="n">probability_left_spawn</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stroke</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">text_size</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
-        <span class="c1"># show some general task information, with \n to start newlines</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;time (ms): </span><span class="si">{</span><span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;t_ms&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> 
-                  <span class="sa">f</span><span class="s1">&#39;wheel pos: </span><span class="si">{</span><span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;steering_wheel&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
-                  <span class="sa">f</span><span class="s1">&#39;probability_left_spawn: </span><span class="si">{</span><span class="n">probability_left_spawn</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span>
-                  <span class="sa">f</span><span class="s1">&#39;number of trials: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">get</span><span class="o">.</span><span class="n">log</span><span class="p">[</span><span class="s2">&quot;trials&quot;</span><span class="p">])</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-        
-        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">quitting</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">exit_sketch</span><span class="p">()</span> <span class="c1"># end the UI if the experiment is quitting from its side</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">exiting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># end the experiment when the UI window is closed</span>
-        <span class="n">get</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-
-<span class="c1">#------------------------- START THE UI AND TASK -------------------------</span>
 
 <span class="n">ui</span> <span class="o">=</span> <span class="n">UI</span><span class="p">()</span>
 <span class="n">ui</span><span class="o">.</span><span class="n">run_sketch</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1942,20 +1510,19 @@ An UI allows live update to a range of variables to update the difficulty includ
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-examples">Minimal examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-examples">Introduction examples</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal">minimal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blink">blink</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quickstart">quickstart</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display">display</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runner-mode">Runner mode</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steering">steering</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corridor-3d">corridor_3d</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corridor-3d">corridor_3d</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizing-a-3d-obj-with-blender-and-py5">Utilizing a 3D .obj with blender and py5</a></li>
 </ul>
 </li>
@@ -1965,15 +1532,8 @@ An UI allows live update to a range of variables to update the difficulty includ
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eye-tracking">eye_tracking</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-poke">sequence_poke</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#olfactory-discrimination">olfactory_discrimination</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-motion">dot_motion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shuttle-tracked">Shuttle_tracked</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cutie-examples">Cutie Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-folder-py">process_folder.py</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#live-webcam-example-py">live-webcam-example.py</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-motion-advanced">dot motion_advanced</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steering-advanced">steering_advanced</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shuttle">Shuttle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-motion">dot motion</a></li>
 </ul>
   </nav></div>
 
@@ -1987,10 +1547,6 @@ An UI allows live update to a range of variables to update the difficulty includ
   
   <div class="footer-item">
     
-<p class="component-author">
-By The Neuroraken developers
-</p>
-
   </div>
   
   <div class="footer-item">
@@ -1998,7 +1554,7 @@ By The Neuroraken developers
 
   <p class="copyright">
     
-      © Copyright CC0 (2025).
+      © Copyright All CC0 (2025)  *except for figure example-range.png in Introduction.
       <br/>
     
   </p>

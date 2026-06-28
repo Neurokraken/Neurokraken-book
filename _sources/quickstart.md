@@ -1,50 +1,89 @@
 # Quickstart
 
-## Installation
+## Installing Python and Neurokraken
 
-````{Dropdown} installation instructions using python conda
-<!-- :open:  -->
+If you are new to python we reccommend `uv` as the easiest way to install python for your system. 
+`uv` is a python package and project manager that can be installed in a single windows powershell command. (https://docs.astral.sh/uv/getting-started/installation/)
 
-install the JDK from [Adoptium JDK download](https://adoptium.net/) as a requirement for the python py5 package.
-
-- Ensure "Add to PATH" and "Set JAVA_HOME variable" options are checkmarked during install.
-- If successful, running `java --version` in a new console will confirm the Java installation
-
-Move a command line into a folder where you want to set up the Neurokraken codebase. Then run the following commands to create a conda environment and install required packages into it.
-
-```bash
-git clone https://github.com/PasseckerLab/neurokraken
-cd neurokraken
-conda create --name neurokraken python==3.13
-conda activate neurokraken
-pip install .
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-You are now generally ready to run and develop Neurokraken tasks using your new neurokraken environment.
+You can now run python projects and scripts.
 
 ---
 
-To run tasks with connected actual electronics rather than just in keyboard/agent mode you further need to install the arduino IDE with the teensyduino add-on. This allows you to upload neurokraken's auto-generated arduino code to your teensy microcontroller.
+To install the neurokraken python package for your scripts or projects, open a command prompt in your script or project folder and run the following commands.
 
-- [The arduino IDE](https://www.arduino.cc/en/software/) 
-- [teensyduino](https://www.pjrc.com/teensy/teensyduino.html)
+If you are familiar with and prefer to use conda for python environment management follow the 2nd tab. If you prefer a local venv environment to be used without maintaining a standard pyproject.toml follow the 3rd.
 
----
+::::{tab-set}
+:::{tab-item} uv
+:sync: uv
+`uv init --bare` creates an empty pyproject.toml file (if one doesn't exist yet) and the `uv add` adds neurokraken to the pyproject.toml.
+```bash
+uv init --bare
+uv add git+https://github.com/Neurokraken/Neurokraken.git
+```
+:::
 
-More detailed information and alternatives (how to install python, using venv or uv instead of conda, how to install git or download the codebase without git, ...) can be found in the [Installation instructions chapter](installation)
+:::{tab-item} conda
+:sync: conda
+```bash
+conda create -n neurokraken-env python=3.13
+conda activate neurokraken-env
+pip install git+https://github.com/Neurokraken/Neurokraken.git
+```
+:::
+
+:::{tab-item} uv (venv)
+:sync: uv_venv
+```bash
+uv venv
+uv pip install git+https://github.com/Neurokraken/Neurokraken.git
+```
+:::
+::::
+
+````{Dropdown} If your system doesn't have git installed
+<!-- :open:  -->
+- Git typically comes pre-installed with windows, but if it is missing you can download git from [git-scm.com](https://git-scm.com/). The installer will ask about many settings, but the default options should be perfectly fine.
+- Once you have git installed (you can confirm this by typing `git` in the command line)
 ````
 
-To progress you should have a cloned or downloaded copy of the Neurokraken codebase from github.com/PasseckerLab/Neurokraken and set up a python environment with the package dependencies installed.
+---
+
+```{admonition} Arduino setup (optional) 
+:class: tip, dropdown
+To run tasks with connected actual electronics rather than just in keyboard/agent mode you need to install the arduino IDE with the teensyduino add-on. This allows you to upload neurokraken's auto-generated arduino code to your teensy microcontroller, but is not required to test-run and develop tasks in keyboard mode.
+- [The arduino IDE](https://www.arduino.cc/en/software/) 
+- [teensyduino](https://www.pjrc.com/teensy/teensyduino.html)
+```
 
 ## Run examples
 
-Within the codebase you will find a folder `examples` which contains example tasks that can help you get started with different neurokraken use cases. Examples are documented in [the examples chapter](examples) and within their code use `mode='keyboard'` allowing them to directly run without connected electronics.
+Within [the codebase](https://github.com/Neurokraken/Neurokraken) examples folder you will find a range of example tasks to started with different neurokraken use cases. Examples are documented in [the examples chapter](examples) and within their code use `mode='keyboard'` allowing them to directly run without connected electronics.
 
+You can download the entire codebase (including the examples folder) with `git clone https://github.com/Neurokraken/Neurokraken.git`.
+To run an example like corridor_3d.py we open a command prompt in the downloaded examples folder and run the following command.
+
+::::{tab-set}
+:::{tab-item} uv
+:sync: uv
 ```bash
-cd examples
-conda activate neurokraken # if using conda activate the environment
+uv run corridor_3d.py
+```
+:::
+
+:::{tab-item} conda
+:sync: conda
+test
+```bash
+conda activate neurokraken-env
 python corridor_3d.py
 ```
+:::
+::::
 
 In the following sections we will walk through how to develop a simple task from the beginning. In the end we cover how to leave keyboard mode and run the task with actual connected electronics and where to go next to explore neurokraken's capabilities.
 
@@ -67,20 +106,28 @@ from neurokraken.controls import get
 
 class My_State(State):
     def loop_main(self):
-        return False, 0
+        pass
     
-task = {
-    'state_name': My_State(next_state='state_name'),
-}
+task = My_State()
 
 nk.load_task(task)
 
 nk.run()
 ```
 
-- You can directly run this python script - Since we are using keyboard mode we don't need to connect a teensy.
-- `>>> python my_task.py`
-- As its loop_main is empty of code (outside of the return) this task will continue doing nothing until manually closed.
+- Since we are using keyboard mode we don't need to connect a teensy.
+- We can set up a python environment and run the task:
+  - `>>> uv init --bare`
+  - `>>> uv add git+https://github.com/Neurokraken/Neurokraken.git`
+  - `>>> uv run my_task.py`
+- with conda instad of uv we would run `conda activate neurokraken-env` and `python my_task.py`
+- As loop_main is empty of code this task will continue doing nothing until manually ended.
+
+```{note}
+- Neurokraken tasks don't have to involve/require a display or UI (like this minimal example).
+- You can still observe task start, progression and print statements in the console.
+- A running Neurokraken task can be ended with the key combination `CTRL + ALT + Q` after which a session log folder will be finalized in the set `log_dir`.
+```
 
 ## General Neurokraken task layout
 
@@ -107,22 +154,16 @@ Settings --> neurokraken
 
 neurokraken --> load_task
 
-subgraph t["Your task's Code"]
-statea["State A"]
-stateb["State B"]
-statedotdotdot["State ..."]
-Task
+subgraph state_a ["a state"]
+    direction RL
+    on_start["def on_start()"]
+    loop_main["def loop_main()"]
+    on_end["def on_end()"]
+    loop_visual["def loop_visual()"]
+    pre_task["def pre_task()"]
 end
 
-statea <--> stateb
-stateb <--> statedotdotdot
-statedotdotdot <--> statea
-
-statea --> Task
-stateb --> Task
-statedotdotdot --> Task
-
-Task --> load_task
+state_a --> load_task
 
 load_task --> run
 ````
@@ -130,7 +171,7 @@ load_task --> run
 ## Extend your starting task
 
 - In this simple example we want to extend the minimal task to reward a subject for poking a sensor.
-  - After a reward there will be 10 seconds delay until the sensor will be responsive again
+  - After a reward there will be 8 seconds delay state until the sensor will be responsive again
   - The Responsive state is indicated by a LED light.
 
 ```python
@@ -140,7 +181,7 @@ from neurokraken.configurators import devices, Display, Camera, Microphone
 
 serial_in =  {'light_beam': devices.analog_read(pin=3, keys=['s', 'w'])}
 serial_out = {'reward_valve': devices.timed_on(pin=2),
-              'LED': devices.direct_on(pin=3)}
+              'LED': devices.direct_on(pin=4)}
 
 nk = Neurokraken(serial_in=serial_in, serial_out=serial_out, log_dir='./', mode='keyboard')
 
@@ -148,18 +189,21 @@ nk = Neurokraken(serial_in=serial_in, serial_out=serial_out, log_dir='./', mode=
 from neurokraken.controls import get
 
 class Poke_for_reward(State):
+    def on_start(self):
+        get.send_out('LED', True)
+
     def loop_main(self):
-        if get.read_in('light_beam') > 512:
-            get.send_out('LED', True)
-            return True, 0
-        else:
+        if get.read_in('light_beam') < 400:
             get.send_out('reward_valve', 100)
             get.send_out('LED', False)
-            return False, 0
+            get.progress_state('delay')
+
+class Delay(State):
+    pass
 
 task = {
-    'poke': Poke_for_reward(next_state='delay'),
-    'delay': State(next_state='poke', max_time_s=10)
+    'poke': Poke_for_reward(),
+    'delay': Delay(next_state='poke', max_time_s=8)
 }
 
 nk.load_task(task)
@@ -175,26 +219,34 @@ nk.run()
     - In simulated keyboard-mode, the light sensor input is controlled with LOW/HIGH values from keyboard keys *S / W*
 ---
 2. loop_main() got extended to read the light sensor
-    - if the light sensor is reading **>512** => not touched:
-        - return that the state is not finished to enter the next loop iteration `return False, 0`
-        - keep the LED on
-    - else if the light sensor is reading **<=512**:
-        - open the reward valve for 100 milliseconds.
-        - turn the LED off until this state is reentered.
-        - return that the state is finished and should move on to the 0th (or here single) possible next_state: `return True, 0`
+    - if the light sensor is reading **<400** we consider the sensor to be touched:
+        - open the reward_valve for 100ms
+        - turn the LED off and progress to the delay state
+    - adding a function to run on_start() let's us turn the LED back on when we re-enter the state.
 ---
-3. Extend the task with a delay state
-    - *poke* will lead to *delay* on touch, otherwise run forever.
-    - *delay* is the un-extended default State, where nothing will change until it will timeout after 10 seconds and transition back to *poke*
+3. We extend the task with a new Delay state and named out states
+    - Our task is now a dictionary of 2 named states, 'poke' and 'delay'
+    - *poke* will progress to *delay* on touch, otherwise run forever.
+    - *delay* is an un-extended empty State, where nothing will happen. We provided two arguments for it to timeout after 8 seconds and transition back to *poke*
 
 ---
+
 ```{note}
-Combine `configurators`, `cameras`, `displays`, `devices`, `.get` access to `devices`, the `log` and camera frames together with `States` and their `loop_main()`, `on_start()`, `on_end()`, `loop_visual()` to create your experiment condition of interest.
+Combine 
+- `configurators`, `cameras`, `displays`, `devices`,
+- `.get` access to `devices`, the `log` and camera frames
+-  `States` and their `loop_main()`, `on_start()`, `on_end()`, `loop_visual(), `pre_task().`` 
+
+to create your experiment condition of interest.
 ```
 
 ## Run with real devices
 
-You should have a cloned or downloaded copy of the neurokraken codebase from https://github.com/PasseckerLab/Neurokraken on your computer. Two components of this folder are relevant to autocreate and upload your task's microcontroller side code, `config2teensy.py` to create the code, and the `teensy` folder containing the resulting code ready to upload with the arduino IDE.
+<u>A key feature of neurokraken is that the functional arduino-side code for your task is auto-created from your task code.</u>
+
+I.e. our example above has all information required for its arduino side code - 3 devices, a valve on pin 2, an LED on pin 4 and a light sensor on pin 3.
+
+To auto-create and upload a task's arduino side code you should have a cloned or downloaded copy of the neurokraken codebase from https://github.com/Neurokraken/Neurokraken on your computer. Two components of this folder are relevant to autocreate and upload your task's microcontroller side code, `config2teensy.py` to create the code, and the `teensy` folder containing the resulting code ready to upload with the arduino IDE.
 
 1. Connect your electronics to the teensy according to the [device library wiring guide](device_library)
     - i.e. for the task above 1 light sensor, 1 LED, and 1 reward valve.
@@ -207,7 +259,7 @@ You should have a cloned or downloaded copy of the neurokraken codebase from htt
 
 ## Where to next
 
-[Examples](examples) covers more examples across the range of neurokraken applications.
+[Task Examples](examples.md) covers more examples across the range of neurokraken applications. Neighboring navbar entries cover UI examples, keyboard/agent mode, AI/ML/Computer vision examples,...
 
 [Controls](controls) provides a good introduction to task development and the reference to `get` the central interface element to neurokraken's managed elements.
 

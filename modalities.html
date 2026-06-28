@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Building Your Setup &#8212; Book Of The Neurokraken</title>
+    <title>Sensors and Stimuli &#8212; Book Of The Neurokraken</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'building_your_setup';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modalities';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Neurokraken Tools" href="tools.html" />
-    <link rel="prev" title="Integrating Outside Devices" href="outside_devices.html" />
+    <link rel="next" title="Configurators.devices Reference" href="device_library.html" />
+    <link rel="prev" title="Microphones" href="microphones.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -198,18 +198,18 @@
 <li class="toctree-l1"><a class="reference internal" href="states.html">States - Structuring task steps</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino, ...</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cameras.html">Cameras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="microphones.html">Microphones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modalities.html">Sensors and Stimuli</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sensors and Stimuli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="device_library.html">Configurators.devices Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wiring_guides.html">Wiring guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arduino_custom.html">Add your own device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outside_devices.html">Integrating Outside Devices</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Building Your Setup</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="building_your_setup.html">Building Your Setup</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul class="nav bd-sidenav">
@@ -284,7 +284,7 @@
       
       
       
-      <li><a href="_sources/building_your_setup.md" target="_blank"
+      <li><a href="_sources/modalities.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +368,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Building Your Setup</h1>
+    <h1>Sensors and Stimuli</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -378,11 +378,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-standard-steering-behavior-setup">Building a standard steering behavior setup</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-plate">Base Plate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reward-tubing">Reward tubing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display">Display</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaffold-and-hull">Scaffold and hull</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-modalities">Reading modalities</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-position">Linear position</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brightness-beam-breaking">Brightness/Beam breaking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#touch">Touch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons">Buttons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vibration">Vibration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading-sensors">Additional reading sensors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-modalities">Controlling modalities</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motoric-movement">Motoric movement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-odor-delivery-valves">Liquid/Odor delivery (Valves)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leds">LEDs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tone">Tone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-pulse-signals">Synchronization pulse signals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displays-and-audio-speakers">Displays and Audio speakers</a></li>
 </ul>
 </li>
 </ul>
@@ -396,47 +408,66 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="building-your-setup">
-<h1>Building Your Setup<a class="headerlink" href="#building-your-setup" title="Link to this heading">#</a></h1>
-<section id="building-a-standard-steering-behavior-setup">
-<h2>Building a standard steering behavior setup<a class="headerlink" href="#building-a-standard-steering-behavior-setup" title="Link to this heading">#</a></h2>
-<p>This chapter will guide you through assembling an enclosed setup for steering wheel tasks. It contains a display for visual stimuli, a valve-controllable reward spout, and a 120fps camera and light source in an A3 form factor. This setup can function as a basis or example from which to develop setups with alternative stimuli and interaction sensors.</p>
-<p><img alt="" src="_images/box.png" /></p>
-<section id="base-plate">
-<h3>Base Plate<a class="headerlink" href="#base-plate" title="Link to this heading">#</a></h3>
-<p>The base plate can be 3D-printed and fit with threaded inserts to allow for mounting components. Later the baseplate with its mounted components can be screwed onto setup’s boxes scaffolding. Additional inserts can be added wherever additional mounting points are required.</p>
-<p><img alt="" src="_images/base_plate.png" /></p>
-<p><img alt="" src="_images/base_plate_connected.png" /></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="sensors-and-stimuli">
+<span id="modalities"></span><h1>Sensors and Stimuli<a class="headerlink" href="#sensors-and-stimuli" title="Link to this heading">#</a></h1>
+<section id="reading-modalities">
+<h2>Reading modalities<a class="headerlink" href="#reading-modalities" title="Link to this heading">#</a></h2>
+<section id="rotation">
+<h3>Rotation<a class="headerlink" href="#rotation" title="Link to this heading">#</a></h3>
+<p>Rotation can be read with a rotary encoder (<a class="reference internal" href="device_library.html#devices-rotary-encoder"><span class="std std-ref">devices.rotary_encoder</span></a>) or a potentiometer (<a class="reference internal" href="device_library.html#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>). Rotary encoders are useful for high precision low friction rotation readings like on a steering wheel or treading wheel/disc, while potentiometers are small and cheap.</p>
+<p>Rotation can be useful for measuring a steering wheel, or progress on a walking disc.</p>
 </section>
-<section id="reward-tubing">
-<h3>Reward tubing<a class="headerlink" href="#reward-tubing" title="Link to this heading">#</a></h3>
-<p>Reward droplets are going to be delivered through gravity and a silicon tube clamped shut by a valve outside of moments of reward.</p>
-<p><img alt="" src="_images/tubing.png" /></p>
-<p>The top part can be attached to the top of the setup to hold the reward reservoir. The reservoir is a 10ml syringe tube connected to silicon tubing. A valve or 3D-printed clamping element can be used to clamp the tubing shut. The end can be positioned with a flexible arm to be in reach of your subject. A large blunt syringe tip can be used to provide additional stability to the spout. When using a cut-off blunt needle tip like this make sure to sand and wash the cut edge to prevent metalic splinters.</p>
-<p><img alt="" src="_images/spout.png" /></p>
+<section id="linear-position">
+<h3>Linear position<a class="headerlink" href="#linear-position" title="Link to this heading">#</a></h3>
+<p>Slider-shaped potentiometers can be read as a potentiometer (<a class="reference internal" href="device_library.html#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>), as can joysticks like the arduino psp2 module.</p>
 </section>
-<section id="display">
-<h3>Display<a class="headerlink" href="#display" title="Link to this heading">#</a></h3>
-<p>You can use insulation tape to cover the backside of the display and attach its driver board. The driver boards/boards may look different depending on your bought version. This should not affect the displays’ capability however.</p>
-<p><img alt="" src="_images/display_tape.png" /></p>
+<section id="brightness-beam-breaking">
+<h3>Brightness/Beam breaking<a class="headerlink" href="#brightness-beam-breaking" title="Link to this heading">#</a></h3>
+<p>Light and its blockage can be read with a photoresistor or a beam breaking sensor as a (<a class="reference internal" href="device_library.html#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>) or (<a class="reference internal" href="device_library.html#devices-binary-read"><span class="std std-ref">devices.binary_read</span></a>)</p>
 </section>
-<section id="scaffold-and-hull">
-<h3>Scaffold and hull<a class="headerlink" href="#scaffold-and-hull" title="Link to this heading">#</a></h3>
-<p>First assemble the ground plane. The 3 inner floor extrusions and their spring-loaded t-nuts are positioned according to the corresponding screw-hole locations of the floor plates assembled above. Confirm the fit to the floor plates before continuing.</p>
-<p><img alt="" src="_images/scaffold_floor.png" /></p>
-<p>Notably the scaffold contains contains two offset extrusions on the front-facing side. These extrusions will enable sliding in the front panel between them as a simple access door.</p>
-<p><img alt="" src="_images/scaffold.png" /></p>
-<p>With the scaffold assembled you can drop in and secure the experiment setup.</p>
-<p><img alt="" src="_images/scaffold_setup.png" /></p>
-<p>Next you can cover the scaffold with acrylic panels. To cut acrylic sheets into size you can use a precision knife to carve a deep line and then snap the sheet along it.</p>
-<p><img alt="" src="_images/cuttingAcrylic.png" /></p>
-<p>The panels can be attached to the scaffold with magnetic tape along the aluminium extrusions. This also allows the panels to snap into place at the complementary magnetic tape while also making panels easy to remove when you need easy access to components.</p>
-<p>For guiding power and data cables inside, you can cut a small rectangular hole in the backside wall with an oscillation tool saw. 45mm heigh, 25mm wide, 55mm from the wall end should be sufficient.</p>
-<p><img alt="" src="_images/cable_access.png" /></p>
-<p>Notably this setup is not sound-proof. If sound proofing is important for your experiment, insulating foam can be added to the walls. When using an insulated setup make sure that the temperature inside is not rising beyond the comfort of your subject and add ventilation as needed.</p>
-<p>With the panels added we have arrived at our ready experiment setup.</p>
-<p><img alt="" src="_images/box.png" /></p>
-<p>The reward reservoir was added to the top. The size an individual reward can be controlled with the height of the reservoir, or the duration of the valve opening.</p>
+<section id="touch">
+<h3>Touch<a class="headerlink" href="#touch" title="Link to this heading">#</a></h3>
+<p>Touch can be read through a capacitive touch breakout board as a (<a class="reference internal" href="device_library.html#devices-binary-read"><span class="std std-ref">devices.binary_read</span></a>) or in the shape of a beam break as a (<a class="reference internal" href="device_library.html#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>). As capacitive touch is based on rapidly charging and discharging the touchable element a beam break can be preferable for electrophysiology experiment.</p>
+</section>
+<section id="buttons">
+<h3>Buttons<a class="headerlink" href="#buttons" title="Link to this heading">#</a></h3>
+<p>Buttons and switches can be read as a (<a class="reference internal" href="device_library.html#devices-binary-read"><span class="std std-ref">devices.binary_read</span></a>)</p>
+</section>
+<section id="vibration">
+<h3>Vibration<a class="headerlink" href="#vibration" title="Link to this heading">#</a></h3>
+<p>Vibration can be sensed through a shake switch as a (<a class="reference internal" href="device_library.html#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>).</p>
+</section>
+<section id="additional-reading-sensors">
+<h3>Additional reading sensors<a class="headerlink" href="#additional-reading-sensors" title="Link to this heading">#</a></h3>
+<p>While the readings above cover most use cases, the range of readings gatherable from neurokraken tasks is only limited by arduino-compatible sensors allowing for many new experiment designs. The most difficult cases can even be integrated through an <a class="reference internal" href="arduino_custom.html#extra-arduino"><span class="std std-ref">extra-arduino</span></a> if required.</p>
+<p>Examples of arduino sensors that could be added include <code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">(time</span> <span class="pre">of</span> <span class="pre">flight)</span> <span class="pre">sensors</span></code>, <code class="docutils literal notranslate"><span class="pre">flex</span> <span class="pre">sensors</span></code>, <code class="docutils literal notranslate"><span class="pre">accelerometers</span></code>, <code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">sensors</span></code>, …</p>
+</section>
+</section>
+<section id="controlling-modalities">
+<h2>Controlling modalities<a class="headerlink" href="#controlling-modalities" title="Link to this heading">#</a></h2>
+<section id="motoric-movement">
+<h3>Motoric movement<a class="headerlink" href="#motoric-movement" title="Link to this heading">#</a></h3>
+<p>A servo motor <a class="reference internal" href="device_library.html#devices-servo"><span class="std std-ref">devices.servo</span></a> can move things through a rotating arm. A 3D printabel “rack and pinion” mechanism can turn this rotation into linear movement. Please note that for a servo to work one of the following pins has to be used: 0-15, 18-19, 22-25, 28-29, 33, 36-37 (<a class="reference external" href="https://www.pjrc.com/teensy/td_libs_Servo.html">https://www.pjrc.com/teensy/td_libs_Servo.html</a>). Rapid linear movement can also be achieved through a solenoid piston which can be either a <a class="reference internal" href="device_library.html#devices-direct-on"><span class="std std-ref">devices.direct_on</span></a> or a <a class="reference internal" href="device_library.html#devices-timed-on"><span class="std std-ref">devices.timed_on</span></a>.</p>
+</section>
+<section id="liquid-odor-delivery-valves">
+<h3>Liquid/Odor delivery (Valves)<a class="headerlink" href="#liquid-odor-delivery-valves" title="Link to this heading">#</a></h3>
+<p>A solenoid-operated pinch valve is an easy way to open or close rubber tubing providing liquid or air to a subject. Depending on the use case they can exist in Normally-Closed or Normally-Open and will change to the alternative when powered. This can be done through signal from either a a <a class="reference internal" href="device_library.html#devices-direct-on"><span class="std std-ref">devices.direct_on</span></a> or a <a class="reference internal" href="device_library.html#devices-timed-on"><span class="std std-ref">devices.timed_on</span></a>. A common use case is to provide precisely sized task-reward droplets of sugar water as a reward through a short valve opening.</p>
+</section>
+<section id="leds">
+<h3>LEDs<a class="headerlink" href="#leds" title="Link to this heading">#</a></h3>
+<p>LEDs can be controlled through a <a class="reference internal" href="device_library.html#devices-direct-on"><span class="std std-ref">devices.direct_on</span></a> or a <a class="reference internal" href="device_library.html#devices-timed-on"><span class="std std-ref">devices.timed_on</span></a>, or as adjustable brightness is controlled through the same signal as a servo’s position, a <a class="reference internal" href="device_library.html#devices-servo"><span class="std std-ref">devices.servo</span></a>.</p>
+</section>
+<section id="tone">
+<h3>Tone<a class="headerlink" href="#tone" title="Link to this heading">#</a></h3>
+<p>Auditory frequencies from a connected passive buzzer or piezo can be generated through a <a class="reference internal" href="device_library.html#devices-tone"><span class="std std-ref">devices.tone</span></a>.</p>
+</section>
+<section id="synchronization-pulse-signals">
+<h3>Synchronization pulse signals<a class="headerlink" href="#synchronization-pulse-signals" title="Link to this heading">#</a></h3>
+<p>Regular synchronization signals with a chosen frequency can be created as a (devices.pulse_clock)[devices.pulse_clock]. These signals are useful to create a common time signal across separate pieces of experiment equipment, like the neurokraken behavior setup and an external electrophysiology recording board. Some external cameras also utilize this type of signal to time their frame captures.</p>
+</section>
+<section id="displays-and-audio-speakers">
+<h3>Displays and Audio speakers<a class="headerlink" href="#displays-and-audio-speakers" title="Link to this heading">#</a></h3>
+<p>More advanced stimuli like computer display graphics, or audio playback can best be run from the computer/python side as described in <a class="reference internal" href="configuration.html"><span class="std std-doc">Configurators</span></a>.</p>
 </section>
 </section>
 </section>
@@ -472,20 +503,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="outside_devices.html"
+       href="microphones.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Integrating Outside Devices</p>
+        <p class="prev-next-title">Microphones</p>
       </div>
     </a>
     <a class="right-next"
-       href="tools.html"
+       href="device_library.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Neurokraken Tools</p>
+        <p class="prev-next-title">Configurators.devices Reference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -505,11 +536,23 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-standard-steering-behavior-setup">Building a standard steering behavior setup</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-plate">Base Plate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reward-tubing">Reward tubing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display">Display</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaffold-and-hull">Scaffold and hull</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-modalities">Reading modalities</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-position">Linear position</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brightness-beam-breaking">Brightness/Beam breaking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#touch">Touch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons">Buttons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vibration">Vibration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading-sensors">Additional reading sensors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-modalities">Controlling modalities</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motoric-movement">Motoric movement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-odor-delivery-valves">Liquid/Odor delivery (Valves)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leds">LEDs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tone">Tone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-pulse-signals">Synchronization pulse signals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displays-and-audio-speakers">Displays and Audio speakers</a></li>
 </ul>
 </li>
 </ul>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Device Library - Sensors, Stimuli, Peripheral Devices, Arduino &#8212; Book Of The Neurokraken</title>
+    <title>Configurators.devices Reference &#8212; Book Of The Neurokraken</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,19 +57,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
-    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    <script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
-window.addEventListener("load", () => mermaid.run());
-</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'device_library';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Add your own device" href="arduino_custom.html" />
-    <link rel="prev" title="Microphones" href="microphones.html" />
+    <link rel="next" title="Wiring guides" href="wiring_guides.html" />
+    <link rel="prev" title="Sensors and Stimuli" href="modalities.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,11 +183,13 @@ window.addEventListener("load", () => mermaid.run());
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples / Guides</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Task Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples_ui.html">UI Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runner_mode.html">Runner Mode Examples</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Function Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -203,23 +197,15 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration - The Neurokraken Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states.html">States - Structuring task steps</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Devices Reference</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino, ...</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cameras.html">Cameras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="microphones.html">Microphones</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modalities.html">Sensors and Stimuli</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Configurators.devices Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wiring_guides.html">Wiring guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arduino_custom.html">Add your own device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outside_devices.html">Integrating Outside Devices</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="runner_mode.html">Runner Mode</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware</span></p>
 <ul class="nav bd-sidenav">
@@ -227,6 +213,7 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 
@@ -271,7 +258,7 @@ window.addEventListener("load", () => mermaid.run());
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/PasseckerLab/Neurokraken" target="_blank"
+<a href="https://github.com/Neurokraken/Neurokraken" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -381,82 +368,38 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Device Library - Sensors, Stimuli, Peripheral Devices, Arduino</h1>
+    <h1>Configurators.devices Reference</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contents </h2>
+                <h2> On this page </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-using-arduino-side-devices">Adding and using arduino-side devices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-arduino-side-devices">Non-arduino-side devices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-device-library">The device library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-using-arduino-side-devices">Adding and using arduino-side devices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurators-devices">Configurators.devices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensors">Sensors</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-read-pin-int">binary_read(pin:int)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-read-pin-int">analog_read(pin:int)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotary-encoder-pins-list">rotary encoder(pins:list)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-clock-pin-int-change-period-int">pulse_clock(pin:int, change_period:int)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controls">Controls</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-on-pin-int-start-value-bool-false">direct_on(pin:int, start_value:bool=False)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timed-on-pin-int">timed_on(pin:int)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#servo-pin-int">servo(pin:int)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-pin-int">tone(pin:int)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuators-devices-are-multi-functional">Configuators.devices are multi-functional</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-your-own-device">Adding your own device</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-arduino-as-a-device">Adding an arduino as a device</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modalities">Modalities</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-modalities">Reading modalities</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-position">Linear position</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#brightness-beam-breaking">Brightness/Beam breaking</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#touch">Touch</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons">Buttons</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vibration">Vibration</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading-sensors">Additional reading sensors</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-modalities">Controlling modalities</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#motoric-movement">Motoric movement</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-odor-delivery-valves">Liquid/Odor delivery (Valves)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#leds">LEDs</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tone">Tone</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-pulse-signals">Synchronization pulse signals</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#displays-and-audio-speakers">Displays and Audio speakers</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurators-devices">Configurators.devices</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-arduino-as-a-device">Adding an arduino as a device</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-extending-beyond-configurators-devices">Adding and extending beyond configurators.devices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-device-as-both-sensor-and-control">A device as both sensor and control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensors">Sensors</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-read-pin-int">binary_read(pin:int)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-read-pin-int">analog_read(pin:int)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotary-encoder-pins-list">rotary encoder(pins:list)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-clock-pin-int-change-period-int">pulse_clock(pin:int, change_period:int)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controls">Controls</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-on-pin-int-start-value-bool-false">direct_on(pin:int, start_value:bool=False)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#timed-on-pin-int">timed_on(pin:int)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#servo-pin-int">servo(pin:int)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-pin-int">tone(pin:int)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring-guides">Wiring guides</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v-power">12V Power</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#led">LED</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#photoresistor">Photoresistor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beam-break-photo-interrupter">Beam break/photo interrupter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potentiometer">Potentiometer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valve">Valve</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-valve-driver-board">4 Channel Valve Driver Board</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-valve-circuit">Manual Valve Circuit</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotary-encoder">Rotary Encoder</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-up-rotary-encoder">Pull-up Rotary Encoder</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-rotary-encoder">Direct Rotary Encoder</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#servo">Servo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-passive-buzzer">Tone Passive Buzzer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitive-touch-sensor">Capacitive Touch Sensor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-clock">Pulse clock</a></li>
 </ul>
 </li>
 </ul>
@@ -470,8 +413,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="device-library-sensors-stimuli-peripheral-devices-arduino">
-<h1>Device Library - Sensors, Stimuli, Peripheral Devices, Arduino<a class="headerlink" href="#device-library-sensors-stimuli-peripheral-devices-arduino" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="configurators-devices-reference">
+<h1>Configurators.devices Reference<a class="headerlink" href="#configurators-devices-reference" title="Link to this heading">#</a></h1>
+<section id="non-arduino-side-devices">
+<h2>Non-arduino-side devices<a class="headerlink" href="#non-arduino-side-devices" title="Link to this heading">#</a></h2>
+<p>The <a class="reference internal" href="configuration.html"><span class="doc std std-doc">configuration documentation</span></a> can guide you towards integrating computer-side devices like displays, cameras, microphones and speakers.</p>
+</section>
 <section id="adding-and-using-arduino-side-devices">
 <h2>Adding and using arduino-side devices<a class="headerlink" href="#adding-and-using-arduino-side-devices" title="Link to this heading">#</a></h2>
 <p>As the ecosystem of arduino compatible components and libraries is steadily growing, so is the number of components that can be incorporated into neuroscience experiments through neurokraken.</p>
@@ -495,101 +442,8 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="non-arduino-side-devices">
-<h2>Non-arduino-side devices<a class="headerlink" href="#non-arduino-side-devices" title="Link to this heading">#</a></h2>
-<p>The <a class="reference internal" href="configuration.html"><span class="doc std std-doc">configuration documentation</span></a> can guide you towards integrating computer-side devices like displays, cameras, microphones and speakers.</p>
-</section>
-<section id="the-device-library">
-<h2>The device library<a class="headerlink" href="#the-device-library" title="Link to this heading">#</a></h2>
-<p>Many <code class="docutils literal notranslate"><span class="pre">configurators.devices</span></code> can be used multi-functionally. For example <code class="docutils literal notranslate"><span class="pre">devices.direct_on(pin:int)</span></code> allows you to set a HIGH or LOW voltage on the provided pin from your task code irrespective of the component receiving this HIGH/LOW signal. Thus a direct_on can be used to control an LED as well as a valve, an audible buzzer, a solenoid piston, a lamp, a heater,…</p>
-<p>Conversely some components can be used with different neurokraken.devices. For example our LED can be a <code class="docutils literal notranslate"><span class="pre">devices.direct_on(pin:int)</span></code> or a <code class="docutils literal notranslate"><span class="pre">devices.timed_on(pin:int)</span></code> that would default stay LOW but allow us to <code class="docutils literal notranslate"><span class="pre">get.send_out('led',</span> <span class="pre">100)</span></code> to turn HIGH for a duration of exactly 100 milliseconds before turning LOW again, or it could even be run through a <code class="docutils literal notranslate"><span class="pre">devices.servo(pin:int)</span></code>.</p>
-<p>Lastly, some modalities can be implemented with alternative components. For example a rotation angle can be sensed by a rotary encoder (<code class="docutils literal notranslate"><span class="pre">devices.rorary_encoder</span></code>) or a potentiometer (<code class="docutils literal notranslate"><span class="pre">devices.anaolg_read</span></code>) that trades resolution, continuous multi-rotation angles, and a ready to use low-friction axle for smaller size and cost.</p>
-<p>Thus the device library is organized as follows:</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="#modalities"><span class="std std-ref">Modalities</span></a></p></li>
-<li><p><a class="reference internal" href="#configurators-devices"><span class="std std-ref">Configurators.devices</span></a></p></li>
-<li><p><a class="reference internal" href="#wiring-guides"><span class="std std-ref">Wiring guides</span></a></p></li>
-</ol>
-<p><a class="reference internal" href="#modalities"><span class="std std-ref">Modalities</span></a> covers options for the different modalities one may want to implement and links to the corresponding <a class="reference internal" href="#configurators-devices"><span class="std std-ref">Configurators.devices</span></a>.</p>
-<p>Further <a class="reference internal" href="#wiring-guides"><span class="std std-ref">Wiring guides</span></a> contains corresponding wiring diagrams for each device.</p>
-<p>Lastly Ordering Options in the hardware chapter contains a table of affordable and useful components for different neuroscience setups with links and prices for the respective items.</p>
-</section>
-<section id="adding-your-own-device">
-<h2>Adding your own device<a class="headerlink" href="#adding-your-own-device" title="Link to this heading">#</a></h2>
-<p>While the existing neurokraken configurators.devices cover the dominant rabge of electronics that we can think of being useful in behavior setup, there will always be unanticipated ideas and needs.</p>
-<p>Research progresses through the adoption of new ideas, so neurokraken makes it easy to add a new device we haven’t considered yet.</p>
-<p>If you have standalone arduino code for your device, this code can be wrapped within a Sensor, Control, or Process context (or a combination of these) for neurokraken to understand how to interact with it. <a class="reference internal" href="arduino_custom.html"><span class="doc std std-doc">Our page on adding your own devices</span></a> guides you through how to do this.</p>
-<p>Outside of neurokraken’s ability to add your own device we strive to continously extend the pre-existing configurators.devices according to popular needs of the research community.</p>
-</section>
-<section id="adding-an-arduino-as-a-device">
-<h2>Adding an arduino as a device<a class="headerlink" href="#adding-an-arduino-as-a-device" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="arduino_custom.html#extra-arduino"><span class="std std-ref">The add your own device page</span></a> has an example of adding an arduino as a teensy connected device</p>
-</section>
-<section id="modalities">
-<span id="id1"></span><h2>Modalities<a class="headerlink" href="#modalities" title="Link to this heading">#</a></h2>
-<section id="reading-modalities">
-<h3>Reading modalities<a class="headerlink" href="#reading-modalities" title="Link to this heading">#</a></h3>
-<section id="rotation">
-<h4>Rotation<a class="headerlink" href="#rotation" title="Link to this heading">#</a></h4>
-<p>Rotation can be read with a rotary encoder (<a class="reference internal" href="#devices-rotary-encoder"><span class="std std-ref">devices.rotary_encoder</span></a>) or a potentiometer (<a class="reference internal" href="#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>). Rotary encoders are useful for high precision low friction rotation readings like on a steering wheel or treading wheel/disc, while potentiometers are small and cheap.</p>
-<p>Rotation can be useful for measuring a steering wheel, or progress on a walking disc.</p>
-</section>
-<section id="linear-position">
-<h4>Linear position<a class="headerlink" href="#linear-position" title="Link to this heading">#</a></h4>
-<p>Slider-shaped potentiometers can be read as a potentiometer (<a class="reference internal" href="#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>), as can joysticks like the arduino psp2 module.</p>
-</section>
-<section id="brightness-beam-breaking">
-<h4>Brightness/Beam breaking<a class="headerlink" href="#brightness-beam-breaking" title="Link to this heading">#</a></h4>
-<p>Light and its blockage can be read with a photoresistor or a beam breaking sensor as a (<a class="reference internal" href="#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>) or (<a class="reference internal" href="#devices-binary-read"><span class="std std-ref">devices.binary_read</span></a>)</p>
-</section>
-<section id="touch">
-<h4>Touch<a class="headerlink" href="#touch" title="Link to this heading">#</a></h4>
-<p>Touch can be read through a capacitive touch breakout board as a (<a class="reference internal" href="#devices-binary-read"><span class="std std-ref">devices.binary_read</span></a>) or in the shape of a beam break as a (<a class="reference internal" href="#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>). As capacitive touch is based on rapidly charging and discharging the touchable element a beam break can be preferable for electrophysiology experiment.</p>
-</section>
-<section id="buttons">
-<h4>Buttons<a class="headerlink" href="#buttons" title="Link to this heading">#</a></h4>
-<p>Buttons and switches can be read as a (<a class="reference internal" href="#devices-binary-read"><span class="std std-ref">devices.binary_read</span></a>)</p>
-</section>
-<section id="vibration">
-<h4>Vibration<a class="headerlink" href="#vibration" title="Link to this heading">#</a></h4>
-<p>Vibration can be sensed through a shake switch as a (<a class="reference internal" href="#devices-analog-read"><span class="std std-ref">devices.analog_read</span></a>).</p>
-</section>
-<section id="additional-reading-sensors">
-<h4>Additional reading sensors<a class="headerlink" href="#additional-reading-sensors" title="Link to this heading">#</a></h4>
-<p>While the readings above cover most use cases, the range of readings gatherable from neurokraken tasks is only limited by arduino-compatible sensors allowing for many new experiment designs. The most difficult cases can even be integrated through an <a class="reference internal" href="arduino_custom.html#extra-arduino"><span class="std std-ref">extra-arduino</span></a> if required.</p>
-<p>Examples of arduino sensors that could be added include <code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">(time</span> <span class="pre">of</span> <span class="pre">flight)</span> <span class="pre">sensors</span></code>, <code class="docutils literal notranslate"><span class="pre">flex</span> <span class="pre">sensors</span></code>, <code class="docutils literal notranslate"><span class="pre">accelerometers</span></code>, <code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">sensors</span></code>, …</p>
-</section>
-</section>
-<section id="controlling-modalities">
-<h3>Controlling modalities<a class="headerlink" href="#controlling-modalities" title="Link to this heading">#</a></h3>
-<section id="motoric-movement">
-<h4>Motoric movement<a class="headerlink" href="#motoric-movement" title="Link to this heading">#</a></h4>
-<p>A servo motor <a class="reference internal" href="#devices-servo"><span class="std std-ref">devices.servo</span></a> can move things through a rotating arm. A 3D printabel “rack and pinion” mechanism can turn this rotation into linear movement. Please note that for a servo to work one of the following pins has to be used: 0-15, 18-19, 22-25, 28-29, 33, 36-37 (<a class="reference external" href="https://www.pjrc.com/teensy/td_libs_Servo.html">https://www.pjrc.com/teensy/td_libs_Servo.html</a>). Rapid linear movement can also be achieved through a solenoid piston which can be either a <a class="reference internal" href="#devices-direct-on"><span class="std std-ref">devices.direct_on</span></a> or a <a class="reference internal" href="#devices-timed-on"><span class="std std-ref">devices.timed_on</span></a>.</p>
-</section>
-<section id="liquid-odor-delivery-valves">
-<h4>Liquid/Odor delivery (Valves)<a class="headerlink" href="#liquid-odor-delivery-valves" title="Link to this heading">#</a></h4>
-<p>A solenoid-operated pinch valve is an easy way to open or close rubber tubing providing liquid or air to a subject. Depending on the use case they can exist in Normally-Closed or Normally-Open and will change to the alternative when powered. This can be done through signal from either a a <a class="reference internal" href="#devices-direct-on"><span class="std std-ref">devices.direct_on</span></a> or a <a class="reference internal" href="#devices-timed-on"><span class="std std-ref">devices.timed_on</span></a>. A common use case is to provide precisely sized task-reward droplets of sugar water as a reward through a short valve opening.</p>
-</section>
-<section id="leds">
-<h4>LEDs<a class="headerlink" href="#leds" title="Link to this heading">#</a></h4>
-<p>LEDs can be controlled through a <a class="reference internal" href="#devices-direct-on"><span class="std std-ref">devices.direct_on</span></a> or a <a class="reference internal" href="#devices-timed-on"><span class="std std-ref">devices.timed_on</span></a>, or as adjustable brightness is controlled through the same signal as a servo’s position, a <a class="reference internal" href="#devices-servo"><span class="std std-ref">devices.servo</span></a>.</p>
-</section>
-<section id="tone">
-<h4>Tone<a class="headerlink" href="#tone" title="Link to this heading">#</a></h4>
-<p>Auditory frequencies from a connected passive buzzer or piezo can be generated through a <a class="reference internal" href="#devices-tone"><span class="std std-ref">devices.tone</span></a>.</p>
-</section>
-<section id="synchronization-pulse-signals">
-<h4>Synchronization pulse signals<a class="headerlink" href="#synchronization-pulse-signals" title="Link to this heading">#</a></h4>
-<p>Regular synchronization signals with a chosen frequency can be created as a (devices.pulse_clock)[devices.pulse_clock]. These signals are useful to create a common time signal across separate pieces of experiment equipment, like the neurokraken behavior setup and an external electrophysiology recording board. Some external cameras also utilize this type of signal to time their frame captures.</p>
-</section>
-<section id="displays-and-audio-speakers">
-<h4>Displays and Audio speakers<a class="headerlink" href="#displays-and-audio-speakers" title="Link to this heading">#</a></h4>
-<p>More advanced stimuli like computer display graphics, or audio playback can best be run from the computer/python side as described in <a class="reference internal" href="configuration.html"><span class="std std-doc">Configurators</span></a>.</p>
-</section>
-</section>
-</section>
 <section id="configurators-devices">
-<span id="id2"></span><h2>Configurators.devices<a class="headerlink" href="#configurators-devices" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>Configurators.devices<a class="headerlink" href="#configurators-devices" title="Link to this heading">#</a></h2>
 <p>Configurators.devices provides functions to create, mix and match devices for a given task. A task may utilize 1 devices.direct_on() and 1 devices.servo(), or it may utilize 5 devices.servo() all on different pins.</p>
 <p>The devices can be added to the <code class="docutils literal notranslate"><span class="pre">serial_in</span></code> dictionary for sensors, and the <code class="docutils literal notranslate"><span class="pre">serial_out</span></code> dictionary for controlled devices, each entry with a chosen key string identifier that can later in your task be used to address sensors to read from and controls to update.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken</span><span class="w"> </span><span class="kn">import</span> <span class="n">Neurokraken</span><span class="p">,</span> <span class="n">State</span>
@@ -607,27 +461,19 @@ document.write(`
         <span class="k">if</span> <span class="n">light_strenght</span> <span class="o">&lt;</span> <span class="mi">400</span><span class="p">:</span>
             <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;reward_valve&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># open for 100ms</span>
 
-<span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="n">My_state</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)})</span>
+<span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">My_state</span><span class="p">())</span>
 <span class="n">nk</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Commonly a device will require one or two pins as argument. Sometimes a specific optional argument can be provided, like the <code class="docutils literal notranslate"><span class="pre">start_value=True/False</span></code> for a <code class="docutils literal notranslate"><span class="pre">devices.direct_on</span></code>.</p>
-<section id="adding-and-extending-beyond-configurators-devices">
-<h3>Adding and extending beyond configurators.devices<a class="headerlink" href="#adding-and-extending-beyond-configurators-devices" title="Link to this heading">#</a></h3>
-<p>configurators.devices functions return standardized dictionaries, which can exchangeably be used directly in as entries in serial_in and serial_out. This way a new custom experiment device can directly be added as a dictionary matching the device’s communicated data. configurators.devices are convenient for rapid development with established devices, but are not a limitation if more flexibility for new devices is required.</p>
-</section>
-<section id="a-device-as-both-sensor-and-control">
-<h3>A device as both sensor and control<a class="headerlink" href="#a-device-as-both-sensor-and-control" title="Link to this heading">#</a></h3>
-<p>Neurokraken can support a device being a sensor as well as a control. This is currently exemplified in configurators.devices.rotary_encoder which is a sensor but depending on the optional argument <code class="docutils literal notranslate"><span class="pre">control=</span></code> (defaults to False) can return the optional control entry for serial_out instead. Notably the key name provided in serial_in and serial_out has to match so that this device is recognized as the same.</p>
 </section>
 <section id="sensors">
-<h3>Sensors<a class="headerlink" href="#sensors" title="Link to this heading">#</a></h3>
+<h2>Sensors<a class="headerlink" href="#sensors" title="Link to this heading">#</a></h2>
 <p>Sensors have optional arguments for keyboard mode to assign keys and their effect on the sensor value (<code class="docutils literal notranslate"><span class="pre">keys=</span></code> and <code class="docutils literal notranslate"><span class="pre">keys_control=</span></code>) as detailed in the <a class="reference internal" href="modes.html"><span class="std std-doc">modes chapter</span></a>. A second optional sensor argument is <code class="docutils literal notranslate"><span class="pre">logging=True/False</span></code> (defaults to True) which allows you to disable logging for a specific sensor.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">serial_in</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;light_beam&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">analog_read</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">],</span> <span class="n">logging</span><span class="o">=</span><span class="kc">False</span><span class="p">)}</span>
 </pre></div>
 </div>
 <section id="binary-read-pin-int">
-<span id="devices-binary-read"></span><h4>binary_read(pin:int)<a class="headerlink" href="#binary-read-pin-int" title="Link to this heading">#</a></h4>
+<span id="devices-binary-read"></span><h3>binary_read(pin:int)<a class="headerlink" href="#binary-read-pin-int" title="Link to this heading">#</a></h3>
 <p>A digital read of a pin (HIGH or Low), (True or False). Many devices can provide a suitable input to an arduino pin from simple buttons to touch sensor modules. Provides 0 or 1 upon get.read_in(<device name>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">serial_in</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;licking_sensor&#39;</span><span class="p">:</span> <span class="n">true_false_sensor</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">)}</span>
 <span class="o">...</span>
@@ -636,7 +482,7 @@ document.write(`
 </div>
 </section>
 <section id="analog-read-pin-int">
-<span id="devices-analog-read"></span><h4>analog_read(pin:int)<a class="headerlink" href="#analog-read-pin-int" title="Link to this heading">#</a></h4>
+<span id="devices-analog-read"></span><h3>analog_read(pin:int)<a class="headerlink" href="#analog-read-pin-int" title="Link to this heading">#</a></h3>
 <p>Analog read of a pin. Provides a continuous value 0 to 1023 upon get.read_in(<device name>).</p>
 <p>Analog reads can be used with devices like an angle measuring potentiometer or light sensitive photoresistor.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">serial_in</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rotation_potentiometer&#39;</span><span class="p">:</span> <span class="n">continuous_sensor</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">)}</span>
@@ -646,7 +492,7 @@ document.write(`
 </div>
 </section>
 <section id="rotary-encoder-pins-list">
-<span id="devices-rotary-encoder"></span><h4>rotary encoder(pins:list)<a class="headerlink" href="#rotary-encoder-pins-list" title="Link to this heading">#</a></h4>
+<span id="devices-rotary-encoder"></span><h3>rotary encoder(pins:list)<a class="headerlink" href="#rotary-encoder-pins-list" title="Link to this heading">#</a></h3>
 <p>Rotation position of rotary encoder. Returns -2,147,483,648 to +2,147,483,647 upon get.read_in(<device name>).</p>
 <p>Rotary encoders are useful for high precision low friction rotation readings like on a steering wheel or treading wheel/disc.</p>
 <p>The optional argument <code class="docutils literal notranslate"><span class="pre">controls=True/False</span></code> (defaults to False) can be used to return the optional control entry for serial_out instead of the sensor_value for serial_in. When adding the control running get.send_out(&lt;device_name&gt;) allows resetting the wheel position to 0.</p>
@@ -665,7 +511,7 @@ document.write(`
 </div>
 </section>
 <section id="pulse-clock-pin-int-change-period-int">
-<span id="devices-pulse-clock"></span><h4>pulse_clock(pin:int, change_period:int)<a class="headerlink" href="#pulse-clock-pin-int-change-period-int" title="Link to this heading">#</a></h4>
+<span id="devices-pulse-clock"></span><h3>pulse_clock(pin:int, change_period:int)<a class="headerlink" href="#pulse-clock-pin-int-change-period-int" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">change_period:int</span></code> - period in milliseconds for the pulse clock to switch HIGH/LOW</p>
 <p>A periodically changing HIGH/LOW clock signal will be provided at the selected pin.
 This is useful to align events with external devices like neural recording hardware that may not have access to the context of the task executing python but can log changes in connected digital signals.
@@ -684,9 +530,9 @@ At inactive state all pins will be HIGH. Upon get.start() pulse clock pins start
 </section>
 </section>
 <section id="controls">
-<h3>Controls<a class="headerlink" href="#controls" title="Link to this heading">#</a></h3>
+<h2>Controls<a class="headerlink" href="#controls" title="Link to this heading">#</a></h2>
 <section id="direct-on-pin-int-start-value-bool-false">
-<span id="devices-direct-on"></span><h4>direct_on(pin:int, start_value:bool=False)<a class="headerlink" href="#direct-on-pin-int-start-value-bool-false" title="Link to this heading">#</a></h4>
+<span id="devices-direct-on"></span><h3>direct_on(pin:int, start_value:bool=False)<a class="headerlink" href="#direct-on-pin-int-start-value-bool-false" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">start_value:bool</span></code> : The initial value of the pin. Defaults to False (LOW).</p>
 <p>Directly turn a pin HIGH (i=1) or LOW (i=0) upon get.send_out(&lt;device_name&gt;, i)</p>
 <p>This can be used to control valves, buzzers, LEDs, … anything you can control with a electric logic signal. These devices can also be time-limited activated with the timed_on device as an alternative.</p>
@@ -697,7 +543,7 @@ At inactive state all pins will be HIGH. Upon get.start() pulse clock pins start
 </div>
 </section>
 <section id="timed-on-pin-int">
-<span id="devices-timed-on"></span><h4>timed_on(pin:int)<a class="headerlink" href="#timed-on-pin-int" title="Link to this heading">#</a></h4>
+<span id="devices-timed-on"></span><h3>timed_on(pin:int)<a class="headerlink" href="#timed-on-pin-int" title="Link to this heading">#</a></h3>
 <p>Similar to direct_on_off for the same devices, but only turns the digital signal HIGH for the provided milliseconds upon get.send_out(&lt;device_name&gt;, <milliseconds>) before turning the signal LOW again. This can be used to easily provide well timed stimulus lengths and reward sizes. The providable millisecond range is 0 to 65536.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">serial_out</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;reward_valve&#39;</span><span class="p">:</span> <span class="n">timed_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">)}</span>
 <span class="o">...</span>
@@ -706,7 +552,7 @@ At inactive state all pins will be HIGH. Upon get.start() pulse clock pins start
 </div>
 </section>
 <section id="servo-pin-int">
-<span id="devices-servo"></span><h4>servo(pin:int)<a class="headerlink" href="#servo-pin-int" title="Link to this heading">#</a></h4>
+<span id="devices-servo"></span><h3>servo(pin:int)<a class="headerlink" href="#servo-pin-int" title="Link to this heading">#</a></h3>
 <p>A servo motor to dynamically move experiment elements upon get.send_out(&lt;device_name&gt;, angle)
 The angle value can range from 0 to 255.
 This device can also be used to control the strength of an LED.
@@ -718,7 +564,7 @@ The pin has to among 0-15, 18-19, 22-25, 28-29, 33, 36-37</p>
 </div>
 </section>
 <section id="tone-pin-int">
-<span id="devices-tone"></span><h4>tone(pin:int)<a class="headerlink" href="#tone-pin-int" title="Link to this heading">#</a></h4>
+<span id="devices-tone"></span><h3>tone(pin:int)<a class="headerlink" href="#tone-pin-int" title="Link to this heading">#</a></h3>
 <p>Set the tone frequency to be output by a passive buzzer or piezo device.
 This device uses the arduino tone function. Send 0 to not provide a tone.
 The maximum providable frequency is 65_535.</p>
@@ -728,340 +574,40 @@ The maximum providable frequency is 65_535.</p>
 </div>
 </section>
 </section>
+<section id="configuators-devices-are-multi-functional">
+<h2>Configuators.devices are multi-functional<a class="headerlink" href="#configuators-devices-are-multi-functional" title="Link to this heading">#</a></h2>
+<p>Many <code class="docutils literal notranslate"><span class="pre">configurators.devices</span></code> can be used multi-functionally. For example <code class="docutils literal notranslate"><span class="pre">devices.direct_on(pin:int)</span></code> allows you to set a HIGH or LOW voltage on the provided pin from your task code irrespective of the component receiving this HIGH/LOW signal. Thus a direct_on can be used to control an LED as well as a valve, an audible buzzer, a solenoid piston, a lamp, a heater,…</p>
+<p>Conversely some components can be used with different neurokraken.devices. For example our LED can be a <code class="docutils literal notranslate"><span class="pre">devices.direct_on(pin:int)</span></code> or a <code class="docutils literal notranslate"><span class="pre">devices.timed_on(pin:int)</span></code> that would default stay LOW but allow us to <code class="docutils literal notranslate"><span class="pre">get.send_out('led',</span> <span class="pre">100)</span></code> to turn HIGH for a duration of exactly 100 milliseconds before turning LOW again, or it could even be run through a <code class="docutils literal notranslate"><span class="pre">devices.servo(pin:int)</span></code>.</p>
+<p>Lastly, some modalities can be implemented with alternative components. For example a rotation angle can be sensed by a rotary encoder (<code class="docutils literal notranslate"><span class="pre">devices.rorary_encoder</span></code>) or a potentiometer (<code class="docutils literal notranslate"><span class="pre">devices.anaolg_read</span></code>) that trades resolution, continuous multi-rotation angles, and a ready to use low-friction axle for smaller size and cost.</p>
+<p>Thus the device library is organized as follows:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="modalities.html"><span class="std std-doc">Modalities</span></a></p></li>
+<li><p><a class="reference internal" href="#configurators-devices"><span class="std std-ref">Configurators.devices</span></a> (this chapter)</p></li>
+<li><p><a class="reference internal" href="wiring_guides.html#wiring-guides"><span class="std std-ref">Wiring guides</span></a></p></li>
+</ol>
+<p><a class="reference internal" href="modalities.html"><span class="std std-doc">Modalities</span></a> covers options for the different modalities one may want to implement and links to the corresponding <a class="reference internal" href="#configurators-devices"><span class="std std-ref">Configurators.devices</span></a>.</p>
+<p>Further <a class="reference internal" href="wiring_guides.html#wiring-guides"><span class="std std-ref">Wiring guides</span></a> contains corresponding wiring diagrams for each device.</p>
+<p>Lastly Ordering Options in the hardware chapter contains a table of affordable and useful components for different neuroscience setups with links and prices for the respective items.</p>
 </section>
-<section id="wiring-guides">
-<span id="id3"></span><h2>Wiring guides<a class="headerlink" href="#wiring-guides" title="Link to this heading">#</a></h2>
-<p>The following diagrams show the wiring for common components in neuroscience experiment setups. As we are using common arduino parts and circuits, you can generally find the wiring for new components beyond what we have listed by web image searching for <code class="docutils literal notranslate"><span class="pre">arduino</span> <span class="pre">circuit</span> <span class="pre">&lt;device_name&gt;</span></code>.</p>
-<section id="v-power">
-<h3>12V Power<a class="headerlink" href="#v-power" title="Link to this heading">#</a></h3>
-<p>Many devices (valves, servos) will require more Volts and/or Amps than the teensy’s 3.3V logic provides to operate. For this you can simply buy a “12V power supply” from common stores like amazon and cut through its cable. Inside the cable you will find 2 wires, red (12V+) and black (GND) that you can directly use in your circuit as the required power source and its respective ground.</p>
+<section id="adding-your-own-device">
+<h2>Adding your own device<a class="headerlink" href="#adding-your-own-device" title="Link to this heading">#</a></h2>
+<p>While the existing neurokraken configurators.devices cover the dominant rabge of electronics that we can think of being useful in behavior setup, there will always be unanticipated ideas and needs.</p>
+<p>Research progresses through the adoption of new ideas, so neurokraken makes it easy to add a new device we haven’t considered yet.</p>
+<p>If you have standalone arduino code for your device, this code can be wrapped within a Sensor, Control, or Process context (or a combination of these) for neurokraken to understand how to interact with it. <a class="reference internal" href="arduino_custom.html"><span class="doc std std-doc">Our page on adding your own devices</span></a> guides you through how to do this.</p>
+<p>Outside of neurokraken’s ability to add your own device we strive to continously extend the pre-existing configurators.devices according to popular needs of the research community.</p>
 </section>
-<section id="led">
-<h3>LED<a class="headerlink" href="#led" title="Link to this heading">#</a></h3>
-<pre  class="mermaid">
-        flowchart LR;
-subgraph teensy4.1
-outputPin[&quot;output pin&quot;]
-GND
-end
-
-subgraph LED
-LED+
-LED-
-end
-
-outputPin --220Ohm--&gt; LED+
-LED- --&gt; GND
-    </pre></section>
-<section id="photoresistor">
-<h3>Photoresistor<a class="headerlink" href="#photoresistor" title="Link to this heading">#</a></h3>
-<p>For the analog pin use one of the beige Axx pins shown in the teensy 4.1 pinout at <a class="reference external" href="https://www.pjrc.com/store/teensy41.html">https://www.pjrc.com/store/teensy41.html</a></p>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph teensy4.1
-analogPin[&quot;analog pin&quot;]
-v3_3[&quot;3.3V&quot;]
-GND
-end
-
-subgraph Photoresistor
-photoresistor+
-photoresistor-
-end
-
-v3_3 --&gt; photoresistor+
-photoresistor- --10kOhm--&gt; GND
-photoresistor- --&gt; analogPin
-    </pre></section>
-<section id="beam-break-photo-interrupter">
-<h3>Beam break/photo interrupter<a class="headerlink" href="#beam-break-photo-interrupter" title="Link to this heading">#</a></h3>
-<p>You can find beam breaks or photo interrupter components that combine an LED and a photoresistor in one device</p>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph teensy4.1
-analogPin[&quot;analog pin&quot;]
-v3_3[&quot;3.3V&quot;]
-GND
-end
-
-subgraph LED
-LED+
-LED-
-end
-
-v3_3 --220Ohm--&gt; LED+
-LED- --&gt; GND
-
-subgraph Photoresistor
-photoresistor+
-photoresistor-
-end
-
-v3_3 --&gt; photoresistor+
-photoresistor- --10kOhm--&gt; GND
-photoresistor- --&gt; analogPin
-    </pre></section>
-<section id="potentiometer">
-<h3>Potentiometer<a class="headerlink" href="#potentiometer" title="Link to this heading">#</a></h3>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph teensy4.1
-analogPin[&quot;analog pin&quot;]
-v3_3[&quot;3.3V&quot;]
-GND
-end
-
-subgraph Potentiometer
-signal[&quot;signal (center)&quot;]
-end1[&quot;end 1&quot;]
-end2[&quot;end 2&quot;]
-end
-
-v3_3 --&gt; end1
-end2 --&gt; GND
-signal --&gt; analogPin
-    </pre></section>
-<section id="valve">
-<h3>Valve<a class="headerlink" href="#valve" title="Link to this heading">#</a></h3>
-<p>A Valve will require a control pin and an additional power supply, i.e. 12V. The easiest approach is to buy a 4 channel valve driver board that can directly be connected to your output pin, the power V+ and GND, and the valve+/- itself. The shown board can be found on sites like amazon. Notably, to ensure proper operation with a 3.3V device like the Teensy, you have to desolder/solder over the small LED as shown in the image.</p>
-<section id="channel-valve-driver-board">
-<h4>4 Channel Valve Driver Board<a class="headerlink" href="#channel-valve-driver-board" title="Link to this heading">#</a></h4>
-<p>This board has 4 lanes A, B, C, D where the signal at A drives the opposite valve A. You can go beyond this circuit to connect 4 output pins with 4 lanes to 4 valves.</p>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph teensy4.1
-output[&quot;output pin&quot;]
-v3_3[&quot;3.3V&quot;]
-GND
-end
-
-subgraph power supply 12V
-power_12V+
-power_Gnd[&quot;GND&quot;]
-end
-
-subgraph Valve
-valve+[&quot;Valve +&quot;]
-valve-[&quot;Valve -&quot;]
-end
-
-subgraph valve driver board
-
-subgraph power
-board_12v[&quot;12V+&quot;]
-boardpow_GND[&quot;GND&quot;]
-end
-
-subgraph lane A
-subgraph Signal[&quot;Signal Side&quot;]
-board_a_signal[&quot;Signal +&quot;]
-board_a_gnd[&quot;Signal GND&quot;]
-end
-subgraph Valve_side[&quot;Valve Side&quot;]
-board_a_valve+[&quot;Valve +&quot;]
-board_a_valve-[&quot;Valve -&quot;]
-end
-end
-
-end
-
-power_12V+ --&gt; board_12v
-boardpow_GND --&gt; power_Gnd
-
-output --&gt; board_a_signal
-board_a_gnd --&gt; GND
-board_a_valve+ --&gt; valve+
-valve- --&gt; board_a_valve-
-    </pre></section>
-<section id="manual-valve-circuit">
-<h4>Manual Valve Circuit<a class="headerlink" href="#manual-valve-circuit" title="Link to this heading">#</a></h4>
-<p>The following circuit manually builds a lane of the valve driver board above allowing you to drive a single valve with common electronics parts.</p>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph teensy4.1
-outputPin[&quot;output pin&quot;]
-GND
-end
-
-subgraph IRLZ44
-IRLZ44Left
-IRLZ44Center
-IRLZ44Right 
-end
-outputPin --1kOhm--&gt; IRLZ44Left
-Valve- --&gt; IRLZ44Center
-IRLZ44Right --&gt; 12VGND 
-IRLZ44Center -.- IRLZ44Right
-
-subgraph Valve
-12V+ --- Capacitor
-Capacitor --- 12VGND[&quot;12V GND&quot;]
-12V+ --&gt; Valve+
-Valve+ --&gt; Valve-
-Valve- --&gt; Diode[&quot;Diode\n(1n4007)&quot;]
-Diode --&gt; Valve+
-end
-12VGND --- GND
-    </pre><p>The capacitor stores charge to support the high current draw required when the valve is activated.</p>
-<p>When the valve solenoid gets powered this will induce movement of its piston. Conversely, when the piston springs back upon loss of power this induces a voltage. The diode will feed back this voltage to prevent it from ending up in the microcontroller.</p>
+<section id="adding-an-arduino-as-a-device">
+<h2>Adding an arduino as a device<a class="headerlink" href="#adding-an-arduino-as-a-device" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="arduino_custom.html#extra-arduino"><span class="std std-ref">The add your own device page</span></a> has an example of adding an arduino as a teensy connected device</p>
+<p>Commonly a device will require one or two pins as argument. Sometimes a specific optional argument can be provided, like the <code class="docutils literal notranslate"><span class="pre">start_value=True/False</span></code> for a <code class="docutils literal notranslate"><span class="pre">devices.direct_on</span></code>.</p>
+<section id="adding-and-extending-beyond-configurators-devices">
+<h3>Adding and extending beyond configurators.devices<a class="headerlink" href="#adding-and-extending-beyond-configurators-devices" title="Link to this heading">#</a></h3>
+<p>configurators.devices functions return standardized dictionaries, which can exchangeably be used directly in as entries in serial_in and serial_out. This way a new custom experiment device can directly be added as a dictionary matching the device’s communicated data. configurators.devices are convenient for rapid development with established devices, but are not a limitation if more flexibility for new devices is required.</p>
 </section>
+<section id="a-device-as-both-sensor-and-control">
+<h3>A device as both sensor and control<a class="headerlink" href="#a-device-as-both-sensor-and-control" title="Link to this heading">#</a></h3>
+<p>Neurokraken can support a device being a sensor as well as a control. This is currently exemplified in configurators.devices.rotary_encoder which is a sensor but depending on the optional argument <code class="docutils literal notranslate"><span class="pre">control=</span></code> (defaults to False) can return the optional control entry for serial_out instead. Notably the key name provided in serial_in and serial_out has to match so that this device is recognized as the same.</p>
 </section>
-<section id="rotary-encoder">
-<h3>Rotary Encoder<a class="headerlink" href="#rotary-encoder" title="Link to this heading">#</a></h3>
-<p>There are 2 common types of rotary encoder - both will have 4 wires for black GND, red 3.3V, and 2 signals A and B (i.e. in green and white): The more common pull-up Rotary encoder, and a more uncommon typically expensive direct rotary encoder.</p>
-<section id="pull-up-rotary-encoder">
-<h4>Pull-up Rotary Encoder<a class="headerlink" href="#pull-up-rotary-encoder" title="Link to this heading">#</a></h4>
-<p>The most common rotary encoders often don’t provide voltage on their signal pins, but depending on their state short the respective signal pins to GND or not and can wired like this.</p>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph teensy4.1
-GND
-3.3V
-inputPinA[&quot;pin A&quot;]
-inputPinB[&quot;pin B&quot;]
-end
-
-subgraph Rotary Encoder
-encV[&quot;V+&quot;]
-encGND[&quot;GND&quot;]
-encA[&quot;A&quot;]
-encB[&quot;B&quot;]
-end
-
-3.3V --&gt; encV
-encGND --&gt; GND
-3.3V --4.7kOhm--&gt; inputPinA
-inputPinA --&gt; encA
-3.3V --4.7kOhm--&gt; inputPinB
-inputPinB --&gt; encB
-    </pre><p>These signals can be read by connecting them to Teensy input pins with pull-up resistors to 3.3V. If the encoder shorts the signal to GND, the pin reads LOW; otherwise, the 3.3V will make its way to the teensy pin, which will be pulled-up to HIGH (3.3V).</p>
-</section>
-<section id="direct-rotary-encoder">
-<h4>Direct Rotary Encoder<a class="headerlink" href="#direct-rotary-encoder" title="Link to this heading">#</a></h4>
-<p>This type of encoder is generally more expensive, sold by specialized electronics stores, maybe more compact and can have additional optional wires.</p>
-<p>This is the circuit for a 5V rotary encoder whose signal pins switch between 5V and 0V during rotation. If your rotary encoder functions at 3.3V you can use 3.3V and leave out the voltage divider resistors.</p>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph teensy4.1
-5V
-GND
-3.3V
-inputPinA[&quot;pin A&quot;]
-inputPinB[&quot;pin B&quot;]
-end
-
-subgraph Rotary Encoder
-enc5V[&quot;5V&quot;]
-encGND[&quot;GND&quot;]
-encA[&quot;A&quot;]
-encB[&quot;B&quot;]
-end
-
-A(( ))
-B(( ))
-5V --&gt; enc5V
-encGND --&gt; GND
-encA -- 10kOhm --&gt; A
-encB -- 10kOhm --&gt; B
-A -- 20kOhm --&gt; GND
-B -- 20kOhm --&gt; GND
-A --&gt; inputPinA
-B --&gt; inputPinB
-    </pre><p>The manual should indicate which wires correspond to V+, GND, A, and B. As the teensy should only receive 3.3V not the 5V the rotary encoder delivers, we use 2 stages of resistors to lower the A and B voltage from 5V to 3.3V and then 0V/GND. We can then connect the 3.3V stages to our reading pins. (Voltage Dividier)</p>
-</section>
-</section>
-<section id="servo">
-<h3>Servo<a class="headerlink" href="#servo" title="Link to this heading">#</a></h3>
-<p>For the servo signal wire, use a pin designated for PWM on the Teensy pinout in <a class="reference external" href="https://www.pjrc.com/store/teensy41.html">https://www.pjrc.com/store/teensy41.html</a></p>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph teensy4.1
-outputPin[&quot;PWM output pin&quot;]
-GND
-end
-
-subgraph power supply 12V
-power_12V+
-power_Gnd[&quot;GND&quot;]
-end
-
-Capacitor
-Diode[&quot;1N4007 diode&quot;]
-
-subgraph Servo_Motor
-servo_power[&quot;Power +&quot;]
-servo_signal[&quot;Signal&quot;]
-servo_gnd[&quot;Ground&quot;]
-end
-
-power_12V+ --- Capacitor
-Capacitor --- power_Gnd
-
-power_12V+ --&gt; servo_power
-servo_power --&gt; Diode
-Diode --- power_Gnd
-
-outputPin --&gt; servo_signal
-servo_gnd --&gt; power_Gnd
-servo_gnd --&gt; GND
-    </pre></section>
-<section id="tone-passive-buzzer">
-<h3>Tone Passive Buzzer<a class="headerlink" href="#tone-passive-buzzer" title="Link to this heading">#</a></h3>
-<pre  class="mermaid">
-        flowchart LR;
-subgraph teensy4.1
-outputPin[&quot;output pin&quot;]
-GND
-end
-
-subgraph Buzzer
-Buzzer+
-Buzzer-
-end
-
-outputPin --&gt; Buzzer+
-Buzzer- --&gt; GND
-    </pre></section>
-<section id="capacitive-touch-sensor">
-<h3>Capacitive Touch Sensor<a class="headerlink" href="#capacitive-touch-sensor" title="Link to this heading">#</a></h3>
-<p>This circuit uses a capacitive touch sensor module available on common stores like amazon.</p>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph teensy4.1
-sensorPin[&quot;sensor pin&quot;]
-v3_3[&quot;3.3V&quot;]
-GND
-end
-
-subgraph Capacitive Touch sensor
-module_VCC[&quot;VCC&quot;]
-module_GND[&quot;GND&quot;]
-module_SIG[&quot;SIG&quot;]
-end
-
-v3_3 --&gt; module_VCC
-module_GND --&gt; GND
-module_SIG --&gt; sensorPin
-    </pre></section>
-<section id="pulse-clock">
-<h3>Pulse clock<a class="headerlink" href="#pulse-clock" title="Link to this heading">#</a></h3>
-<pre  class="mermaid">
-        flowchart TB;
-subgraph experiment_teensy[&quot;Experiment Teensy&quot;]
-clock_pin[&quot;clock pin&quot;]
-GND
-USB
-end
-
-subgraph external_device[&quot;External Device&quot;]
-external_input[&quot;input pin&quot;]
-external_GND[&quot;GND&quot;]
-end
-
-clock_pin -- 10kOhm --&gt; external_input
-GND --- external_GND
-PC --- USB
-    </pre></section>
 </section>
 </section>
 
@@ -1096,20 +642,20 @@ PC --- USB
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="microphones.html"
+       href="modalities.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Microphones</p>
+        <p class="prev-next-title">Sensors and Stimuli</p>
       </div>
     </a>
     <a class="right-next"
-       href="arduino_custom.html"
+       href="wiring_guides.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Add your own device</p>
+        <p class="prev-next-title">Wiring guides</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1125,76 +671,32 @@ PC --- USB
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-using-arduino-side-devices">Adding and using arduino-side devices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-arduino-side-devices">Non-arduino-side devices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-device-library">The device library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-using-arduino-side-devices">Adding and using arduino-side devices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurators-devices">Configurators.devices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensors">Sensors</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-read-pin-int">binary_read(pin:int)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-read-pin-int">analog_read(pin:int)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotary-encoder-pins-list">rotary encoder(pins:list)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-clock-pin-int-change-period-int">pulse_clock(pin:int, change_period:int)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controls">Controls</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-on-pin-int-start-value-bool-false">direct_on(pin:int, start_value:bool=False)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timed-on-pin-int">timed_on(pin:int)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#servo-pin-int">servo(pin:int)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-pin-int">tone(pin:int)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuators-devices-are-multi-functional">Configuators.devices are multi-functional</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-your-own-device">Adding your own device</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-arduino-as-a-device">Adding an arduino as a device</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modalities">Modalities</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-modalities">Reading modalities</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-position">Linear position</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#brightness-beam-breaking">Brightness/Beam breaking</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#touch">Touch</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons">Buttons</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vibration">Vibration</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading-sensors">Additional reading sensors</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-modalities">Controlling modalities</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#motoric-movement">Motoric movement</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-odor-delivery-valves">Liquid/Odor delivery (Valves)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#leds">LEDs</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tone">Tone</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-pulse-signals">Synchronization pulse signals</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#displays-and-audio-speakers">Displays and Audio speakers</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurators-devices">Configurators.devices</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-an-arduino-as-a-device">Adding an arduino as a device</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-extending-beyond-configurators-devices">Adding and extending beyond configurators.devices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-device-as-both-sensor-and-control">A device as both sensor and control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensors">Sensors</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-read-pin-int">binary_read(pin:int)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-read-pin-int">analog_read(pin:int)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotary-encoder-pins-list">rotary encoder(pins:list)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-clock-pin-int-change-period-int">pulse_clock(pin:int, change_period:int)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controls">Controls</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-on-pin-int-start-value-bool-false">direct_on(pin:int, start_value:bool=False)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#timed-on-pin-int">timed_on(pin:int)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#servo-pin-int">servo(pin:int)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-pin-int">tone(pin:int)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring-guides">Wiring guides</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v-power">12V Power</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#led">LED</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#photoresistor">Photoresistor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beam-break-photo-interrupter">Beam break/photo interrupter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potentiometer">Potentiometer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valve">Valve</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-valve-driver-board">4 Channel Valve Driver Board</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-valve-circuit">Manual Valve Circuit</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotary-encoder">Rotary Encoder</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-up-rotary-encoder">Pull-up Rotary Encoder</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-rotary-encoder">Direct Rotary Encoder</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#servo">Servo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-passive-buzzer">Tone Passive Buzzer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitive-touch-sensor">Capacitive Touch Sensor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-clock">Pulse clock</a></li>
 </ul>
 </li>
 </ul>
@@ -1210,10 +712,6 @@ PC --- USB
   
   <div class="footer-item">
     
-<p class="component-author">
-By The Neuroraken developers
-</p>
-
   </div>
   
   <div class="footer-item">
@@ -1221,7 +719,7 @@ By The Neuroraken developers
 
   <p class="copyright">
     
-      © Copyright CC0 (2025).
+      © Copyright All CC0 (2025)  *except for figure example-range.png in Introduction.
       <br/>
     
   </p>

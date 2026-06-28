@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Runner Mode &#8212; Book Of The Neurokraken</title>
+    <title>Runner Mode Examples &#8212; Book Of The Neurokraken</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'runner_mode';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Building Your Setup" href="building_your_setup.html" />
-    <link rel="prev" title="Neurokraken Tools" href="tools.html" />
+    <link rel="next" title="Controls, Task development and the .get-Interface" href="controls.html" />
+    <link rel="prev" title="Keyboard and Agent Mode Examples" href="modes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,11 +183,13 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul class="nav bd-sidenav">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples / Guides</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Task Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples_ui.html">UI Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode Examples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Runner Mode Examples</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Function Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -195,23 +197,15 @@
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration - The Neurokraken Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states.html">States - Structuring task steps</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Devices Reference</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino, ...</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cameras.html">Cameras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="microphones.html">Microphones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device_library.html">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modalities.html">Sensors and Stimuli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device_library.html">Configurators.devices Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wiring_guides.html">Wiring guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arduino_custom.html">Add your own device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outside_devices.html">Integrating Outside Devices</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Runner Mode</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware</span></p>
 <ul class="nav bd-sidenav">
@@ -219,6 +213,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 
@@ -263,7 +258,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/PasseckerLab/Neurokraken" target="_blank"
+<a href="https://github.com/Neurokraken/Neurokraken" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -371,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Runner Mode</h1>
+    <h1>Runner Mode Examples</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,10 +380,105 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="runner-mode">
-<h1>Runner Mode<a class="headerlink" href="#runner-mode" title="Link to this heading">#</a></h1>
-<p>This chapter is currently in development and will be available soon.
-Our <a class="reference internal" href="examples.html"><span class="doc std std-doc">examples</span></a> contain a working example of using runner mode to get you started.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="runner-mode-examples">
+<h1>Runner Mode Examples<a class="headerlink" href="#runner-mode-examples" title="Link to this heading">#</a></h1>
+<p>In Runner mode tasks are organized in a folder containing separate files for the device configuration <code class="docutils literal notranslate"><span class="pre">config.py</span></code>, task <code class="docutils literal notranslate"><span class="pre">task.py</span></code>, and parallel code (like an UI) <code class="docutils literal notranslate"><span class="pre">launch.py</span></code>.</p>
+<p>Runner mode can be run with <code class="docutils literal notranslate"><span class="pre">kraken.bat</span></code> (if you have an activateable conda environment named neurokraken) or <code class="docutils literal notranslate"><span class="pre">kraken.py</span></code>, which will provide you with a list of all tasks found within the <code class="docutils literal notranslate"><span class="pre">tasks</span></code> folder to choose from.
+To run this example add a new folder with a name of your choice like <code class="docutils literal notranslate"><span class="pre">runner_mode_example</span></code> containing the respective files to <code class="docutils literal notranslate"><span class="pre">tasks</span></code>.
+Runner mode can be provided with arguments for dynamic execution, like <code class="docutils literal notranslate"><span class="pre">kraken.bat</span> <span class="pre">--task</span> <span class="pre">runner_mode_example</span> <span class="pre">--keyboard</span></code> to directly execute the runner_mode_example task in keyboard mode.</p>
+<p>The following example is the same as <a class="reference external" href="http://minimal.py">minimal.py</a> above, with the addition of</p>
+<ul class="simple">
+<li><p>a list of datapoints to be prompted upon execution, including subject options</p></li>
+<li><p>a UI (<code class="docutils literal notranslate"><span class="pre">launch.py</span></code>) with a control for the task’s shown color</p></li>
+</ul>
+<blockquote>
+<div><p><span>config.py</span> <!-- span to avoid auto-formatting into a hyperlink --></p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instead of being bundled with the config.py a subjects dictionary could be loaded from a .json file or remote source</span>
+<span class="n">subjects</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpha&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;female&#39;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Beta&#39;</span><span class="p">,</span>  <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;female&#39;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Gamma&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;male&#39;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Delta&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;male&#39;</span><span class="p">}]</span>
+
+<span class="c1"># runner mode can prompt for named datapoints upon execution</span>
+<span class="n">ask_for</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">]</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.configurators</span><span class="w"> </span><span class="kn">import</span> <span class="n">Display</span><span class="p">,</span> <span class="n">devices</span>
+<span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+
+<span class="n">cameras</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+<span class="n">serial_in</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
+<span class="n">serial_out</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;led&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">direct_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">start_value</span><span class="o">=</span><span class="kc">False</span><span class="p">)}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><span>task.py</span></p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken</span><span class="w"> </span><span class="kn">import</span> <span class="n">State</span>
+
+<span class="n">get</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;We will just show the color on a display in this state and blink an LED every 5 seconds&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># store relevant variables within the state self</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_last_switch</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">time_ms</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_last_switch</span> <span class="o">+</span> <span class="mi">5_000</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span>
+            <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;led&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">led_status</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t_last_switch</span> <span class="o">=</span> <span class="n">get</span><span class="o">.</span><span class="n">time_ms</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">loop_visual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sketch</span><span class="p">):</span>
+        <span class="n">sketch</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="o">*</span><span class="n">get</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+
+<span class="n">task</span> <span class="o">=</span> <span class="n">Color</span><span class="p">()</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><span>launch.py</span></p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># code that would be executed just before neurokraken.run() can be included in an optional launch.py</span>
+<span class="c1"># This typically covers UIs and parallel analysis/processing loops like cutie</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">py5</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sketch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">krakengui</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gui</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">recolor_background</span><span class="p">():</span>
+    <span class="n">get</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">UI</span><span class="p">(</span><span class="n">Sketch</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">settings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">gui</span><span class="o">.</span><span class="n">use_sketch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;randomize background&#39;</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">on_click</span><span class="o">=</span><span class="n">recolor_background</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stroke</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>     <span class="bp">self</span><span class="o">.</span><span class="n">text_size</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;t_ms: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">get</span><span class="o">.</span><span class="n">time_ms</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">quitting</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exit_sketch</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">exiting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># close end the experiment when the UI window is closed</span>
+        <span class="n">get</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+
+<span class="c1"># run the UI</span>
+
+<span class="n">ui</span> <span class="o">=</span> <span class="n">UI</span><span class="p">()</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">run_sketch</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -422,20 +512,20 @@ Our <a class="reference internal" href="examples.html"><span class="doc std std-
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="tools.html"
+       href="modes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Neurokraken Tools</p>
+        <p class="prev-next-title">Keyboard and Agent Mode Examples</p>
       </div>
     </a>
     <a class="right-next"
-       href="building_your_setup.html"
+       href="controls.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Building Your Setup</p>
+        <p class="prev-next-title">Controls, Task development and the .get-Interface</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -454,10 +544,6 @@ Our <a class="reference internal" href="examples.html"><span class="doc std std-
   
   <div class="footer-item">
     
-<p class="component-author">
-By The Neuroraken developers
-</p>
-
   </div>
   
   <div class="footer-item">
@@ -465,7 +551,7 @@ By The Neuroraken developers
 
   <p class="copyright">
     
-      © Copyright CC0 (2025).
+      © Copyright All CC0 (2025)  *except for figure example-range.png in Introduction.
       <br/>
     
   </p>

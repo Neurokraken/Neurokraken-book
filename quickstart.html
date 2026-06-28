@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,13 +57,370 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
-    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
     <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    <script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
-window.addEventListener("load", () => mermaid.run());
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+const defaultStyle = document.createElement('style');
+defaultStyle.textContent = `pre.mermaid {
+    /* Same as .mermaid-container > pre */
+    display: block;
+    width: 100%;
+}
+
+pre.mermaid > svg {
+    /* Same as .mermaid-container > pre > svg */
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+`;
+document.head.appendChild(defaultStyle);
+
+const fullscreenStyle = document.createElement('style');
+fullscreenStyle.textContent = `.mermaid-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.mermaid-container > pre {
+    display: block;
+    width: 100%;
+}
+
+.mermaid-container > pre > svg {
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+
+.mermaid-fullscreen-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    color: #333;
+}
+
+.mermaid-fullscreen-btn:hover {
+    opacity: 100% !important;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-btn.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-btn.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 95vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9999;
+    padding: 20px;
+    overflow: auto;
+}
+
+.mermaid-fullscreen-modal.dark-theme {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.mermaid-fullscreen-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen {
+    position: relative;
+    width: 95vw;
+    height: 90vh;
+    max-width: 95vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen.dark-theme {
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.mermaid-container-fullscreen pre.mermaid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen .mermaid svg {
+    height: 100% !important;
+    width: 100% !important;
+    cursor: grab;
+}
+
+.mermaid-fullscreen-close {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+}
+
+.mermaid-fullscreen-close:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-close.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-close.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal .mermaid-fullscreen-btn {
+    display: none !important;
+}`;
+document.head.appendChild(fullscreenStyle);
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        return brightness < 128;
+    }
+    return false;
+};
+
+const load = async () => {
+    await mermaid.run();
+
+    const all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+
+    if ("False" === "True") {
+        const mermaids_to_add_zoom = -1 === -1 ? all_mermaids.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("");
+            if(all_mermaids.length !== mermaids_processed.length) {
+                setTimeout(load, 200);
+                return;
+            } else if(svgs.size() !== mermaids_to_add_zoom) {
+                setTimeout(load, 200);
+                return;
+            } else {
+                svgs.each(function() {
+                    var svg = d3.select(this);
+                    svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                    var inner = svg.select("g");
+                    var zoom = d3.zoom().on("zoom", function(event) {
+                        inner.attr("transform", event.transform);
+                    });
+                    svg.call(zoom);
+                });
+            }
+        }
+    } else if(all_mermaids.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(load, 200);
+        return;
+    }
+
+    const darkTheme = isDarkTheme();
+
+    // Stop here if not adding fullscreen capability
+    if ("True" !== "True") return;
+
+    const modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    const modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    let previousScrollOffset = [window.scrollX, window.scrollY];
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    const allButtons = [];
+
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.style.opacity = '50%';
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scroll, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.sdisplay = 'block';
+
+                if ("False" === "True") {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        container.appendChild(fullscreenBtn);
+        allButtons.push(fullscreenBtn);
+    });
+
+    // Update theme classes when theme changes
+    const updateTheme = () => {
+        const dark = isDarkTheme();
+        allButtons.forEach(btn => {
+            if (dark) {
+                btn.classList.add('dark-theme');
+            } else {
+                btn.classList.remove('dark-theme');
+            }
+        });
+        if (dark) {
+            modal.classList.add('dark-theme');
+            modalContent.classList.add('dark-theme');
+            closeBtn.classList.add('dark-theme');
+        } else {
+            modal.classList.remove('dark-theme');
+            modalContent.classList.remove('dark-theme');
+            closeBtn.classList.remove('dark-theme');
+        }
+    };
+
+    // Watch for theme changes
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style']
+    });
+};
+
+window.addEventListener("load", load);
 </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'quickstart';</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -191,11 +548,13 @@ window.addEventListener("load", () => mermaid.run());
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Quickstart</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples / Guides</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Task Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples_ui.html">UI Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modes.html">Keyboard and Agent Mode Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runner_mode.html">Runner Mode Examples</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Function Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -203,23 +562,15 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration - The Neurokraken Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states.html">States - Structuring task steps</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Devices Reference</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino, ...</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cameras.html">Cameras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="microphones.html">Microphones</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device_library.html">Device Library - Sensors, Stimuli, Peripheral Devices, Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modalities.html">Sensors and Stimuli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device_library.html">Configurators.devices Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wiring_guides.html">Wiring guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arduino_custom.html">Add your own device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="outside_devices.html">Integrating Outside Devices</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Features</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ai_ml_cv.html">AI/ML/Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="runner_mode.html">Runner Mode</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware</span></p>
 <ul class="nav bd-sidenav">
@@ -227,6 +578,7 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Neurokraken Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 
@@ -271,7 +623,7 @@ window.addEventListener("load", () => mermaid.run());
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/PasseckerLab/Neurokraken" target="_blank"
+<a href="https://github.com/Neurokraken/Neurokraken" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -387,11 +739,11 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contents </h2>
+                <h2> On this page </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python-and-neurokraken">Installing Python and Neurokraken</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-examples">Run examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-minimal-starting-task">Create a minimal starting task</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-neurokraken-task-layout">General Neurokraken task layout</a></li>
@@ -411,44 +763,86 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">#</a></h1>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">installation instructions using python conda</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<!-- :open:  -->
-<p class="sd-card-text">install the JDK from <a class="reference external" href="https://adoptium.net/">Adoptium JDK download</a> as a requirement for the python py5 package.</p>
-<ul class="simple">
-<li><p class="sd-card-text">Ensure “Add to PATH” and “Set JAVA_HOME variable” options are checkmarked during install.</p></li>
-<li><p class="sd-card-text">If successful, running <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">--version</span></code> in a new console will confirm the Java installation</p></li>
-</ul>
-<p class="sd-card-text">Move a command line into a folder where you want to set up the Neurokraken codebase. Then run the following commands to create a conda environment and install required packages into it.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/PasseckerLab/neurokraken
-<span class="nb">cd</span><span class="w"> </span>neurokraken
-conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>neurokraken<span class="w"> </span><span class="nv">python</span><span class="o">==</span><span class="m">3</span>.13
-conda<span class="w"> </span>activate<span class="w"> </span>neurokraken
-pip<span class="w"> </span>install<span class="w"> </span>.
+<section id="installing-python-and-neurokraken">
+<h2>Installing Python and Neurokraken<a class="headerlink" href="#installing-python-and-neurokraken" title="Link to this heading">#</a></h2>
+<p>If you are new to python we reccommend <code class="docutils literal notranslate"><span class="pre">uv</span></code> as the easiest way to install python for your system.
+<code class="docutils literal notranslate"><span class="pre">uv</span></code> is a python package and project manager that can be installed in a single windows powershell command. (<a class="reference external" href="https://docs.astral.sh/uv/getting-started/installation/">https://docs.astral.sh/uv/getting-started/installation/</a>)</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">ByPass</span> <span class="n">-c</span> <span class="s2">&quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span>
 </pre></div>
 </div>
-<p class="sd-card-text">You are now generally ready to run and develop Neurokraken tasks using your new neurokraken environment.</p>
+<p>You can now run python projects and scripts.</p>
 <hr class="docutils" />
-<p class="sd-card-text">To run tasks with connected actual electronics rather than just in keyboard/agent mode you further need to install the arduino IDE with the teensyduino add-on. This allows you to upload neurokraken’s auto-generated arduino code to your teensy microcontroller.</p>
-<ul class="simple">
-<li><p class="sd-card-text"><a class="reference external" href="https://www.arduino.cc/en/software/">The arduino IDE</a></p></li>
-<li><p class="sd-card-text"><a class="reference external" href="https://www.pjrc.com/teensy/teensyduino.html">teensyduino</a></p></li>
-</ul>
-<hr class="docutils" />
-<p class="sd-card-text">More detailed information and alternatives (how to install python, using venv or uv instead of conda, how to install git or download the codebase without git, …) can be found in the <a class="reference internal" href="installation.html"><span class="doc std std-doc">Installation instructions chapter</span></a></p>
+<p>To install the neurokraken python package for your scripts or projects, open a command prompt in your script or project folder and run the following commands.</p>
+<p>If you are familiar with and prefer to use conda for python environment management follow the 2nd tab. If you prefer a local venv environment to be used without maintaining a standard pyproject.toml follow the 3rd.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="uv" for="sd-tab-item-0">
+uv</label><div class="sd-tab-content docutils">
+<p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">init</span> <span class="pre">--bare</span></code> creates an empty pyproject.toml file (if one doesn’t exist yet) and the <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span></code> adds neurokraken to the pyproject.toml.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>init<span class="w"> </span>--bare
+uv<span class="w"> </span>add<span class="w"> </span>git+https://github.com/Neurokraken/Neurokraken.git
+</pre></div>
 </div>
-</details><p>To progress you should have a cloned or downloaded copy of the Neurokraken codebase from <a class="reference external" href="http://github.com/PasseckerLab/Neurokraken">github.com/PasseckerLab/Neurokraken</a> and set up a python environment with the package dependencies installed.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="conda" for="sd-tab-item-1">
+conda</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>neurokraken-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.13
+conda<span class="w"> </span>activate<span class="w"> </span>neurokraken-env
+pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/Neurokraken/Neurokraken.git
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="uv_venv" for="sd-tab-item-2">
+uv (venv)</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/Neurokraken/Neurokraken.git
+</pre></div>
+</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">If your system doesn’t have git installed</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<!-- :open:  -->
+<ul class="simple">
+<li><p class="sd-card-text">Git typically comes pre-installed with windows, but if it is missing you can download git from <a class="reference external" href="https://git-scm.com/">git-scm.com</a>. The installer will ask about many settings, but the default options should be perfectly fine.</p></li>
+<li><p class="sd-card-text">Once you have git installed (you can confirm this by typing <code class="docutils literal notranslate"><span class="pre">git</span></code> in the command line)</p></li>
+</ul>
+</div>
+</details><hr class="docutils" />
+<div class="tip dropdown admonition">
+<p class="admonition-title">Arduino setup (optional)</p>
+<p>To run tasks with connected actual electronics rather than just in keyboard/agent mode you need to install the arduino IDE with the teensyduino add-on. This allows you to upload neurokraken’s auto-generated arduino code to your teensy microcontroller, but is not required to test-run and develop tasks in keyboard mode.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.arduino.cc/en/software/">The arduino IDE</a></p></li>
+<li><p><a class="reference external" href="https://www.pjrc.com/teensy/teensyduino.html">teensyduino</a></p></li>
+</ul>
+</div>
 </section>
 <section id="run-examples">
 <h2>Run examples<a class="headerlink" href="#run-examples" title="Link to this heading">#</a></h2>
-<p>Within the codebase you will find a folder <code class="docutils literal notranslate"><span class="pre">examples</span></code> which contains example tasks that can help you get started with different neurokraken use cases. Examples are documented in <a class="reference internal" href="examples.html"><span class="doc std std-doc">the examples chapter</span></a> and within their code use <code class="docutils literal notranslate"><span class="pre">mode='keyboard'</span></code> allowing them to directly run without connected electronics.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>examples
-conda<span class="w"> </span>activate<span class="w"> </span>neurokraken<span class="w"> </span><span class="c1"># if using conda activate the environment</span>
+<p>Within <a class="reference external" href="https://github.com/Neurokraken/Neurokraken">the codebase</a> examples folder you will find a range of example tasks to started with different neurokraken use cases. Examples are documented in <a class="reference internal" href="examples.html"><span class="doc std std-doc">the examples chapter</span></a> and within their code use <code class="docutils literal notranslate"><span class="pre">mode='keyboard'</span></code> allowing them to directly run without connected electronics.</p>
+<p>You can download the entire codebase (including the examples folder) with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/Neurokraken/Neurokraken.git</span></code>.
+To run an example like corridor_3d.py we open a command prompt in the downloaded examples folder and run the following command.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="uv" for="sd-tab-item-3">
+uv</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>corridor_3d.py
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="tab" data-sync-id="conda" for="sd-tab-item-4">
+conda</label><div class="sd-tab-content docutils">
+<p>test</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>neurokraken-env
 python<span class="w"> </span>corridor_3d.py
 </pre></div>
+</div>
+</div>
 </div>
 <p>In the following sections we will walk through how to develop a simple task from the beginning. In the end we cover how to leave keyboard mode and run the task with actual connected electronics and where to go next to explore neurokraken’s capabilities.</p>
 </section>
@@ -469,11 +863,9 @@ python<span class="w"> </span>corridor_3d.py
 
 <span class="k">class</span><span class="w"> </span><span class="nc">My_State</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">pass</span>
     
-<span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;state_name&#39;</span><span class="p">:</span> <span class="n">My_State</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;state_name&#39;</span><span class="p">),</span>
-<span class="p">}</span>
+<span class="n">task</span> <span class="o">=</span> <span class="n">My_State</span><span class="p">()</span>
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 
@@ -481,10 +873,25 @@ python<span class="w"> </span>corridor_3d.py
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>You can directly run this python script - Since we are using keyboard mode we don’t need to connect a teensy.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> <span class="pre">python</span> <span class="pre">my_task.py</span></code></p></li>
-<li><p>As its loop_main is empty of code (outside of the return) this task will continue doing nothing until manually closed.</p></li>
+<li><p>Since we are using keyboard mode we don’t need to connect a teensy.</p></li>
+<li><p>We can set up a python environment and run the task:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> <span class="pre">uv</span> <span class="pre">init</span> <span class="pre">--bare</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> <span class="pre">uv</span> <span class="pre">add</span> <span class="pre">git+https://github.com/Neurokraken/Neurokraken.git</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> <span class="pre">uv</span> <span class="pre">run</span> <span class="pre">my_task.py</span></code></p></li>
 </ul>
+</li>
+<li><p>with conda instad of uv we would run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">neurokraken-env</span></code> and <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_task.py</span></code></p></li>
+<li><p>As loop_main is empty of code this task will continue doing nothing until manually ended.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Neurokraken tasks don’t have to involve/require a display or UI (like this minimal example).</p></li>
+<li><p>You can still observe task start, progression and print statements in the console.</p></li>
+<li><p>A running Neurokraken task can be ended with the key combination <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">ALT</span> <span class="pre">+</span> <span class="pre">Q</span></code> after which a session log folder will be finalized in the set <code class="docutils literal notranslate"><span class="pre">log_dir</span></code>.</p></li>
+</ul>
+</div>
 </section>
 <section id="general-neurokraken-task-layout">
 <h2>General Neurokraken task layout<a class="headerlink" href="#general-neurokraken-task-layout" title="Link to this heading">#</a></h2>
@@ -512,22 +919,16 @@ Settings --&gt; neurokraken
 
 neurokraken --&gt; load_task
 
-subgraph t[&quot;Your task's Code&quot;]
-statea[&quot;State A&quot;]
-stateb[&quot;State B&quot;]
-statedotdotdot[&quot;State ...&quot;]
-Task
+subgraph state_a [&quot;a state&quot;]
+    direction RL
+    on_start[&quot;def on_start()&quot;]
+    loop_main[&quot;def loop_main()&quot;]
+    on_end[&quot;def on_end()&quot;]
+    loop_visual[&quot;def loop_visual()&quot;]
+    pre_task[&quot;def pre_task()&quot;]
 end
 
-statea &lt;--&gt; stateb
-stateb &lt;--&gt; statedotdotdot
-statedotdotdot &lt;--&gt; statea
-
-statea --&gt; Task
-stateb --&gt; Task
-statedotdotdot --&gt; Task
-
-Task --&gt; load_task
+state_a --&gt; load_task
 
 load_task --&gt; run
     </pre></section>
@@ -536,7 +937,7 @@ load_task --&gt; run
 <ul class="simple">
 <li><p>In this simple example we want to extend the minimal task to reward a subject for poking a sensor.</p>
 <ul>
-<li><p>After a reward there will be 10 seconds delay until the sensor will be responsive again</p></li>
+<li><p>After a reward there will be 8 seconds delay state until the sensor will be responsive again</p></li>
 <li><p>The Responsive state is indicated by a LED light.</p></li>
 </ul>
 </li>
@@ -547,7 +948,7 @@ load_task --&gt; run
 
 <span class="n">serial_in</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;light_beam&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">analog_read</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">])}</span>
 <span class="n">serial_out</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;reward_valve&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">timed_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-              <span class="s1">&#39;LED&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">direct_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">3</span><span class="p">)}</span>
+              <span class="s1">&#39;LED&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="o">.</span><span class="n">direct_on</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="mi">4</span><span class="p">)}</span>
 
 <span class="n">nk</span> <span class="o">=</span> <span class="n">Neurokraken</span><span class="p">(</span><span class="n">serial_in</span><span class="o">=</span><span class="n">serial_in</span><span class="p">,</span> <span class="n">serial_out</span><span class="o">=</span><span class="n">serial_out</span><span class="p">,</span> <span class="n">log_dir</span><span class="o">=</span><span class="s1">&#39;./&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;keyboard&#39;</span><span class="p">)</span>
 
@@ -555,18 +956,21 @@ load_task --&gt; run
 <span class="kn">from</span><span class="w"> </span><span class="nn">neurokraken.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Poke_for_reward</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;LED&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
     <span class="k">def</span><span class="w"> </span><span class="nf">loop_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;light_beam&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">512</span><span class="p">:</span>
-            <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;LED&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">get</span><span class="o">.</span><span class="n">read_in</span><span class="p">(</span><span class="s1">&#39;light_beam&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">400</span><span class="p">:</span>
             <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;reward_valve&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
             <span class="n">get</span><span class="o">.</span><span class="n">send_out</span><span class="p">(</span><span class="s1">&#39;LED&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span>
+            <span class="n">get</span><span class="o">.</span><span class="n">progress_state</span><span class="p">(</span><span class="s1">&#39;delay&#39;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Delay</span><span class="p">(</span><span class="n">State</span><span class="p">):</span>
+    <span class="k">pass</span>
 
 <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;poke&#39;</span><span class="p">:</span> <span class="n">Poke_for_reward</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;delay&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;delay&#39;</span><span class="p">:</span> <span class="n">State</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;poke&#39;</span><span class="p">,</span> <span class="n">max_time_s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="s1">&#39;poke&#39;</span><span class="p">:</span> <span class="n">Poke_for_reward</span><span class="p">(),</span>
+    <span class="s1">&#39;delay&#39;</span><span class="p">:</span> <span class="n">Delay</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;poke&#39;</span><span class="p">,</span> <span class="n">max_time_s</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
@@ -587,40 +991,43 @@ load_task --&gt; run
 <ol class="arabic simple" start="2">
 <li><p>loop_main() got extended to read the light sensor</p>
 <ul class="simple">
-<li><p>if the light sensor is reading <strong>&gt;512</strong> =&gt; not touched:</p>
+<li><p>if the light sensor is reading <strong>&lt;400</strong> we consider the sensor to be touched:</p>
 <ul>
-<li><p>return that the state is not finished to enter the next loop iteration <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">False,</span> <span class="pre">0</span></code></p></li>
-<li><p>keep the LED on</p></li>
+<li><p>open the reward_valve for 100ms</p></li>
+<li><p>turn the LED off and progress to the delay state</p></li>
 </ul>
 </li>
-<li><p>else if the light sensor is reading <strong>&lt;=512</strong>:</p>
-<ul>
-<li><p>open the reward valve for 100 milliseconds.</p></li>
-<li><p>turn the LED off until this state is reentered.</p></li>
-<li><p>return that the state is finished and should move on to the 0th (or here single) possible next_state: <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">True,</span> <span class="pre">0</span></code></p></li>
-</ul>
-</li>
+<li><p>adding a function to run on_start() let’s us turn the LED back on when we re-enter the state.</p></li>
 </ul>
 </li>
 </ol>
 <hr class="docutils" />
 <ol class="arabic simple" start="3">
-<li><p>Extend the task with a delay state</p>
+<li><p>We extend the task with a new Delay state and named out states</p>
 <ul class="simple">
-<li><p><em>poke</em> will lead to <em>delay</em> on touch, otherwise run forever.</p></li>
-<li><p><em>delay</em> is the un-extended default State, where nothing will change until it will timeout after 10 seconds and transition back to <em>poke</em></p></li>
+<li><p>Our task is now a dictionary of 2 named states, ‘poke’ and ‘delay’</p></li>
+<li><p><em>poke</em> will progress to <em>delay</em> on touch, otherwise run forever.</p></li>
+<li><p><em>delay</em> is an un-extended empty State, where nothing will happen. We provided two arguments for it to timeout after 8 seconds and transition back to <em>poke</em></p></li>
 </ul>
 </li>
 </ol>
 <hr class="docutils" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Combine <code class="docutils literal notranslate"><span class="pre">configurators</span></code>, <code class="docutils literal notranslate"><span class="pre">cameras</span></code>, <code class="docutils literal notranslate"><span class="pre">displays</span></code>, <code class="docutils literal notranslate"><span class="pre">devices</span></code>, <code class="docutils literal notranslate"><span class="pre">.get</span></code> access to <code class="docutils literal notranslate"><span class="pre">devices</span></code>, the <code class="docutils literal notranslate"><span class="pre">log</span></code> and camera frames together with <code class="docutils literal notranslate"><span class="pre">States</span></code> and their <code class="docutils literal notranslate"><span class="pre">loop_main()</span></code>, <code class="docutils literal notranslate"><span class="pre">on_start()</span></code>, <code class="docutils literal notranslate"><span class="pre">on_end()</span></code>, <code class="docutils literal notranslate"><span class="pre">loop_visual()</span></code> to create your experiment condition of interest.</p>
+<p>Combine</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">configurators</span></code>, <code class="docutils literal notranslate"><span class="pre">cameras</span></code>, <code class="docutils literal notranslate"><span class="pre">displays</span></code>, <code class="docutils literal notranslate"><span class="pre">devices</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.get</span></code> access to <code class="docutils literal notranslate"><span class="pre">devices</span></code>, the <code class="docutils literal notranslate"><span class="pre">log</span></code> and camera frames</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">States</span></code> and their <code class="docutils literal notranslate"><span class="pre">loop_main()</span></code>, <code class="docutils literal notranslate"><span class="pre">on_start()</span></code>, <code class="docutils literal notranslate"><span class="pre">on_end()</span></code>, <code class="docutils literal notranslate"><span class="pre">loop_visual(),</span> </code>pre_task().``</p></li>
+</ul>
+<p>to create your experiment condition of interest.</p>
 </div>
 </section>
 <section id="run-with-real-devices">
 <h2>Run with real devices<a class="headerlink" href="#run-with-real-devices" title="Link to this heading">#</a></h2>
-<p>You should have a cloned or downloaded copy of the neurokraken codebase from <a class="github reference external" href="https://github.com/PasseckerLab/Neurokraken">PasseckerLab/Neurokraken</a> on your computer. Two components of this folder are relevant to autocreate and upload your task’s microcontroller side code, <code class="docutils literal notranslate"><span class="pre">config2teensy.py</span></code> to create the code, and the <code class="docutils literal notranslate"><span class="pre">teensy</span></code> folder containing the resulting code ready to upload with the arduino IDE.</p>
+<p><u>A key feature of neurokraken is that the functional arduino-side code for your task is auto-created from your task code.</u></p>
+<p>I.e. our example above has all information required for its arduino side code - 3 devices, a valve on pin 2, an LED on pin 4 and a light sensor on pin 3.</p>
+<p>To auto-create and upload a task’s arduino side code you should have a cloned or downloaded copy of the neurokraken codebase from <a class="github reference external" href="https://github.com/Neurokraken/Neurokraken">Neurokraken/Neurokraken</a> on your computer. Two components of this folder are relevant to autocreate and upload your task’s microcontroller side code, <code class="docutils literal notranslate"><span class="pre">config2teensy.py</span></code> to create the code, and the <code class="docutils literal notranslate"><span class="pre">teensy</span></code> folder containing the resulting code ready to upload with the arduino IDE.</p>
 <ol class="arabic simple">
 <li><p>Connect your electronics to the teensy according to the <a class="reference internal" href="device_library.html"><span class="doc std std-doc">device library wiring guide</span></a></p>
 <ul class="simple">
@@ -643,7 +1050,7 @@ load_task --&gt; run
 </section>
 <section id="where-to-next">
 <h2>Where to next<a class="headerlink" href="#where-to-next" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="examples.html"><span class="doc std std-doc">Examples</span></a> covers more examples across the range of neurokraken applications.</p>
+<p><a class="reference internal" href="examples.html"><span class="std std-doc">Task Examples</span></a> covers more examples across the range of neurokraken applications. Neighboring navbar entries cover UI examples, keyboard/agent mode, AI/ML/Computer vision examples,…</p>
 <p><a class="reference internal" href="controls.html"><span class="doc std std-doc">Controls</span></a> provides a good introduction to task development and the reference to <code class="docutils literal notranslate"><span class="pre">get</span></code> the central interface element to neurokraken’s managed elements.</p>
 <p>Depending on your specific use case you can also dive deeper into the reference documentation for <a class="reference internal" href="states.html"><span class="doc std std-doc">States</span></a>, the <a class="reference internal" href="configuration.html"><span class="doc std std-doc">Configuration</span></a>, or the <a class="reference internal" href="device_library.html"><span class="doc std std-doc">Device Library</span></a></p>
 </section>
@@ -709,11 +1116,11 @@ load_task --&gt; run
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python-and-neurokraken">Installing Python and Neurokraken</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-examples">Run examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-minimal-starting-task">Create a minimal starting task</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-neurokraken-task-layout">General Neurokraken task layout</a></li>
@@ -733,10 +1140,6 @@ load_task --&gt; run
   
   <div class="footer-item">
     
-<p class="component-author">
-By The Neuroraken developers
-</p>
-
   </div>
   
   <div class="footer-item">
@@ -744,7 +1147,7 @@ By The Neuroraken developers
 
   <p class="copyright">
     
-      © Copyright CC0 (2025).
+      © Copyright All CC0 (2025)  *except for figure example-range.png in Introduction.
       <br/>
     
   </p>
