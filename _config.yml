@@ -1,7 +1,7 @@
 title: Book Of The Neurokraken
-author: The Neuroraken developers
+author: ""
 logo: images/book.png
-copyright: "CC0 (2025)" # "" to just remove that line
+copyright: "All CC0 (2025)  *except for figure example-range.png in Introduction" # "" to just remove that line
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -13,7 +13,7 @@ exclude_patterns:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/PasseckerLab/Neurokraken  # Online location of the book
+  url: https://github.com/Neurokraken/Neurokraken  # Online location of the codebase
   path_to_book: ./  # Optional path to your book, relative to the repository root
   branch: main      # Which branch of the repository should be used when creating links (optional)
 
@@ -28,3 +28,9 @@ html:
 sphinx:
   extra_extensions:
   - sphinxcontrib.mermaid
+  # always show up to depth ### for all ## points in the right-side contents navbar
+  recursive_update: true # keep jupyter book's default theme - only overwrite the noted html theme key
+  config:
+    html_theme_options:
+      show_toc_level: 2
+      toc_title: "On this page"

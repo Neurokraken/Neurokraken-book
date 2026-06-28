@@ -4,38 +4,35 @@ parts:
   - caption: Quickstart
     chapters:
     - file: quickstart
-  - caption: Examples
+  - caption: Examples / Guides
     chapters:
     - file: examples
     - file: examples_ui
+    - file: ai_ml_cv
     - file: modes # keyboard and agent
+    - file: runner_mode
   - caption: Function Reference
     chapters:
     - file: controls
     - file: configuration
     - file: states
-  - caption: Devices Reference
+  - caption: Device Library - Sensors, Stimuli, Peripheral Devices, Arduino, ...
     chapters:
     - file: cameras
     - file: microphones
-    - file: device_library
+    - file: modalities
+    - file: device_library # configurators.devices reference 
+    - file: wiring_guides
     - file: arduino_custom
     - file: outside_devices
-  - caption: Installation
-    chapters:
-    - file: installation
   # - caption : Common task patterns
   #   chapters:
   #   - file: patterns
-  - caption: Features
-    chapters:
-    - file: ai_ml_cv
-    - file: tools
-    - file: runner_mode
   - caption: Hardware
     chapters:
     - file: building_your_setup
   - caption: Advanced
     chapters:
     # - file: for_developers
+    - file: tools
     - file: faq.md

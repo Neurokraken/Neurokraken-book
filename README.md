@@ -2,7 +2,7 @@
 
 This is the source for building the Documentation for Neurokraken, a flexible, open-source, python-based behavior platform for Neuroscience 
 
-You can find the actual documentation at https://passeckerlab.github.io/Neurokraken-book
+You can find the actual documentation at https://Neurokraken.github.io/Neurokraken-book
 
 ## running a jupter book
 
