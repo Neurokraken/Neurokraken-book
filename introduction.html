@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Neurokraken Introduction and Overview &#8212; Book Of The Neurokraken</title>
+    <title>Neurokraken Introduction &#8212; Book Of The Neurokraken</title>
   
   
   
@@ -176,7 +176,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Neurokraken Introduction and Overview
+                    Neurokraken Introduction
                 </a>
             </li>
         </ul>
@@ -369,7 +369,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Neurokraken Introduction and Overview</h1>
+    <h1>Neurokraken Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,7 +380,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-fully-flexible-open-source-python-based-behavior-platform-for-the-extended-neurosciences">A fully flexible, open-source, python-based behavior platform for the extended neurosciences</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-choose-neurokraken-for-your-research">Why choose Neurokraken for your research?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-choose-neurokraken-for-your-research">Why choose Neurokraken for your research?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-advantage">Core advantage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-before-you-commit">Test before you commit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flexibility-in-experiment-devices">Flexibility in experiment devices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-to-use-and-expand">Easy to use and expand</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-start">Where to start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-kraken">About the Kraken</a></li>
@@ -395,8 +401,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="neurokraken-introduction-and-overview">
-<h1>Neurokraken Introduction and Overview<a class="headerlink" href="#neurokraken-introduction-and-overview" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="neurokraken-introduction">
+<h1>Neurokraken Introduction<a class="headerlink" href="#neurokraken-introduction" title="Link to this heading">#</a></h1>
 <!-- ```{image} ./images/neurokraken.png
 :alt: The neurokraken
 :width: 400px
@@ -415,18 +421,40 @@ document.write(`
 </section>
 <section id="why-choose-neurokraken-for-your-research">
 <h2>Why choose Neurokraken for your research?<a class="headerlink" href="#why-choose-neurokraken-for-your-research" title="Link to this heading">#</a></h2>
+<section id="core-advantage">
+<h3>Core advantage<a class="headerlink" href="#core-advantage" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>🦑 Graphical node-based tools may seem simple, but their fixed node libraries quickly limit experiment-designs. Python is just as approachable and far more flexible.</p></li>
 <li><p>🦑 The python ecosystem makes Neurokraken tasks easy to expand for new applications, i.e. with niche hardware or live in-task Machine Learning/Computer Vision/AI.</p></li>
 <li><p>🦑 Free python - no limiting configuration scheme. The task loops are yours, allowing for any python (get sensor values, if x, access log, calculate performance, …) to be run when you want.</p></li>
-<li><p>🦑 The Neurokraken Networker automatically ensures high-precision logging of task events and sensors.</p></li>
-<li><p>🦑 Test before you commit - You can run Neurokraken tasks in simulation with keyboard-mode (or agent mode) on your office pc/laptop before looking for any experiment hardware.</p></li>
-<li><p>🦑 Use arduino-compatible sensors/actuators from stores like amazon or aliexpress - no device lock-in. Vendor sold device modules quickly become experiment-limiting and costly when scaling to many setups.</p></li>
+<li><p>🦑 The Neurokraken Networker automatically ensures high-precision synchronization with and logging of sensors and stimuli.</p></li>
+</ul>
+</section>
+<section id="test-before-you-commit">
+<h3>Test before you commit<a class="headerlink" href="#test-before-you-commit" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>🦑 You can run Neurokraken tasks in simulation with keyboard-mode (or agent-mode) on your office pc/laptop before looking for any experiment hardware.</p></li>
+</ul>
+</section>
+<section id="flexibility-in-experiment-devices">
+<h3>Flexibility in experiment devices<a class="headerlink" href="#flexibility-in-experiment-devices" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>🦑 The continuously expanding range of arduino-compatible sensors/actuators can directly be connected for experiment usage and sourced exchangeably from amazon, aliexpress or local stores.</p>
+<ul>
+<li><p>Vendor sold device modules of other setups quickly become experiment-limiting and costly when scaling to many setups.</p></li>
+</ul>
+</li>
 <li><p>🦑 Neurokraken automatically creates ready-to-upload arduino code from your python task.</p></li>
 <li><p>🦑 Use cameras, microphones, displays, electronic components, …</p></li>
-<li><p>🦑 Live data and interactions - You can add a UI with full access to your task with a python toolkit, like tkinter, pyside6, imgui, or krakengui.</p></li>
-<li><p>🦑 Rich and continuously growing set of examples and documentation to get started.</p></li>
 </ul>
+</section>
+<section id="easy-to-use-and-expand">
+<h3>Easy to use and expand<a class="headerlink" href="#easy-to-use-and-expand" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>🦑 Rich and continuously growing set of examples and documentation to get started.</p></li>
+<li><p>🦑 Live data and interactions - You can add a UI with full access to your task.</p></li>
+</ul>
+</section>
 </section>
 <section id="where-to-start">
 <h2>Where to start<a class="headerlink" href="#where-to-start" title="Link to this heading">#</a></h2>
@@ -517,7 +545,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-fully-flexible-open-source-python-based-behavior-platform-for-the-extended-neurosciences">A fully flexible, open-source, python-based behavior platform for the extended neurosciences</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-choose-neurokraken-for-your-research">Why choose Neurokraken for your research?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-choose-neurokraken-for-your-research">Why choose Neurokraken for your research?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-advantage">Core advantage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-before-you-commit">Test before you commit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flexibility-in-experiment-devices">Flexibility in experiment devices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#easy-to-use-and-expand">Easy to use and expand</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-start">Where to start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-kraken">About the Kraken</a></li>

@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="introduction.html">
-                    Neurokraken Introduction and Overview
+                    Neurokraken Introduction
                 </a>
             </li>
         </ul>
@@ -469,9 +469,7 @@ For keyboard mode inputs contain an additional keys=[] list allowing you to map 
         <span class="c1"># add your experiment code here where it will run in a loop</span>
         <span class="k">pass</span>
     
-<span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;state_name&#39;</span><span class="p">:</span> <span class="n">My_State</span><span class="p">(</span><span class="n">next_state</span><span class="o">=</span><span class="s1">&#39;state_name&#39;</span><span class="p">),</span>
-<span class="p">}</span>
+<span class="n">task</span> <span class="o">=</span> <span class="n">My_State</span><span class="p">()</span>
 
 <span class="n">nk</span><span class="o">.</span><span class="n">load_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 
