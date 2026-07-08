@@ -43,9 +43,7 @@ class My_State(State):
         # add your experiment code here where it will run in a loop
         pass
     
-task = {
-    'state_name': My_State(next_state='state_name'),
-}
+task = My_State()
 
 nk.load_task(task)
 
